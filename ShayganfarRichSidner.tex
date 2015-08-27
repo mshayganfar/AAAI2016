@@ -82,9 +82,9 @@ Our description and the definition of attributes.
 
 Our description and one or two examples.
 
-\subsection{Appraisal Process}
+\subsection{Appraisal Mechanism}
 
-Short paragraph to describe appraisal process.
+Short paragraph to describe appraisal mechanism and its role in overall system.
 
 \section{Mental Graph}
 
@@ -98,17 +98,16 @@ grid,initial/.style    ={}]
   \node[state]          (I1) [above right =of G]    {$I^1_t$};
   \node[state]          (E1) [below right =of G]    {$E^1_t$};
   \node[state]          (M1) [above right =of I1]   {$M^1_t$};
-  \node[state]          (B1) [below right =of I1]   {$B^1_t$};
+  \node[state]          (B1) [below right =of I1]   {$B^3_{t-1}$};
   \node[state]          (B2) [below right =of B1]   {$B^2_t$};
 \tikzset{mystyle/.style={->,double=black}} 
 \tikzset{every node/.style={fill=black}} 
-\path (M1)    edge [mystyle]  (I1) 
-      (B2)    edge [mystyle]  (E1)
-      (I1)    edge [mystyle]  (G);
-      (P)     edge [mystyle]  (M);
-\tikzset{mystyle/.style={->,double=black}}   
-\path (E1)    edge [mystyle]   (G)
-      (B1)    edge [mystyle]   (E1) 
+\path (M1)    edge [mystyle]   (I1) 
+      (B2)    edge [mystyle]   (E1)
+      (I1)    edge [mystyle]   (G)
+      (E1)    edge [mystyle]   (G);
+\tikzset{mystyle/.style={->,dashed=black}}
+\path (B1)    edge [mystyle]   (E1) 
       (B1)    edge [mystyle]   (M1);
 \tikzset{mystyle/.style={->,relative=false,in=0,out=60,double=black}}
 \path (B2)    edge [mystyle]   (M1); 
@@ -121,19 +120,19 @@ A short paragraph to describe what variable we have chosen and why.
 
 \subsection{Relevance}
 
-Algorithm + Description + Example
+Description + Algorithm + Example
 
 \subsection{Desirability}
 
-Algorithm + Description + Example
+Description + Algorithm + Example
 
 \subsection{Expectedness}
 
-Algorithm + Description + Example
+Description + Algorithm + Example
 
 \subsection{Controllability}
 
-Algorithm + Description + Example
+Description + Algorithm + Example
 
 \section{Conclusion}
 
