@@ -493,6 +493,103 @@ Then, describe the collaboration model and its components.
 
 Short paragraph to describe appraisal mechanism and its role in overall system.
 
+\subsection{Appraisal of External Events}
+
+The other's \textit{utterances}, the effect(s) of the collaborators'
+\textit{primitive actions}, and the other's \textit{emotion instances}
+(expressed nonverbally) are the three types of external events perceived by the
+self during collaboration. The Appraisal mechanism receives the output of the
+Perception and Collaboration mechanisms as well as the requisite Mental States
+related to current event. It appraises the external event, in terms of appraisal
+variables using, a) the collaboration structure, b) the social characteristics
+of collaboration, and c) the history of the self's related Mental States. The
+collaboration structure contains information about the collaboration's shared
+plan and the collaborators' shared goal, the temporal and the hierarchical
+constraints of the tasks, and the current focus of attention. 
+
+The social characteristics of collaboration (see Section
+\ref{conceptual-constructs}) are conceptual properties associated with
+collaboration. These concepts provide deeper understanding of the collaborative
+interactions in terms of the underlying processes from both the personal and the
+social perspectives. Furthermore, these concepts determine when each process
+is used during a collaboration and why. Lastly, the self will progressively
+generate and update various types of Mental States (discussed in Section
+\ref{mental-states-properties} and also Chapter \ref{computational-framework})
+during collaboration. The occurrence of a new external event causes a change in
+the self's Mental States. The construct of the new mental state, e.g., beliefs,
+are semantically connected to the older ones. The Appraisal mechanism uses the
+history of the Mental States to consistently evaluate a new external event.
+
+\subsection{Appraisal of Internal Events}
+
+The formation of a \textit{new belief} (one that has not already been evaluated
+by the Appraisal mechanism, such as a belief about a new motive), and the
+formation of a \textit{new motive}, are the two types of internal events that
+will be evaluated by the Appraisal mechanism. Thus, the Appraisal mechanism is
+involved in the formation of a new belief to ultimately create balanced
+behaviors during the course of a collaboration. The Appraisal mechanism receives
+the output of the Theory of Mind and Motivation mechanisms as well as the
+available Mental States (e.g., beliefs about the current emotion instances of
+the self and the other) and evaluates the environment in terms of the appraisal
+variables whenever a new belief is generated. As mentioned in Section
+\ref{section-appraisal-external-event}, a) the collaboration structure, b) the
+social characteristic of the collaboration, and c) the history of the self's
+Mental States, are also crucial in the evaluation of internal events. The
+outcome of this appraisal process can result in a new belief about emotion
+instances, e.g. believing to have hope, or it can generate beliefs about
+different attributes of the Mental States of the self or the other.
+
+\subsection{Appraisal}
+
+\begin{itemize}
+  \item \textbf{Input:} The most significant part of \textit{Appraisal's} input
+  data is based on the activity of the Collaboration mechanism. This data
+  includes all the required Mental States associated with the Collaboration
+  mechanism. For instance, the beliefs and their Strengths will be used by
+  algorithms inside of \textit{Appraisal} to compute the value of the appraisal
+  variables. \textit{Appraisal} also receives data from the Theory of Mind
+  mechanism. This data helps the agent use \textit{Appraisal} for inferring
+  the human's intentions and motives based on a reverse appraisal procedure.
+  
+  The input data from the Perception is generally needed to support the
+  evaluation of the events. The Motivation mechanism sends data to
+  \textit{Appraisal} whenever, for example, a new set of motives is being
+  generated or the motive comparator wants to evaluate different motives for an
+  arbitration procedure.
+   
+  \item \textbf{Output:} The output of \textit{Appraisal} can directly and
+  indirectly impact other mechanisms. The Motivation mechanism uses this data to
+  generate, compare and monitor motives based on the current internal appraisal
+  of the agent as well as the appraisal of the environment. This output data
+  also assists the Belief Formation mechanism to create new beliefs about the
+  current emotional state of the agent or the human as well as the corresponding
+  appraisal of individual motives.
+  
+  \item \textbf{Function:} \textit{Appraisal} is a subjective evaluation
+  mechanism based on individual processes each of which computes the value of
+  the appraisal variables used in my computational model. The Collaboration
+  mechanism needs the evaluative assistance of the \textit{Appraisal} mechanism
+  for various reasons. The course of a collaboration is based on a full or a
+  partial plan which needs to be updated as time passes and collaborators
+  achieve, fail at or abandon a task assigned to them. The failure of a task
+  should not destroy the entire collaboration. Appraising the environment and
+  the current events helps the agent to update the collaboration plan and avoid
+  further critical failures during collaboration. \textit{Appraisal} also helps
+  the agent to have a better understanding of the human's behavior by making
+  inferences based on appraisal variables. Furthermore, in order to collaborate
+  successfully, a collaborator cannot simply use the plan and reach to the
+  shared goal; there should be an adaptation mechanism not only for updating the
+  plan but also the underlying Mental States. For instance, there are beliefs
+  about the appraisal of the self and the other that augment the model of what
+  collaborators have done, and what and how they are planning to achieve the
+  current shared goal based on their emotional states. This process will be
+  discussed in more detail under the Motivation mechanism (see Section
+  \ref{section-motivation-mechanism}). Additionally, the beliefs formed based on
+  the appraisals can impact other mechanisms such as the Theory of Mind,
+  Motivation and Coping, essentially including the whole computational model.
+  
+\end{itemize}
+
 \section{Mental Graph}
 
 A graph illustration of mental state and a clear short and desciptive
