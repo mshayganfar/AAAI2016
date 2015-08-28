@@ -489,9 +489,53 @@ system (mention that we are not talking about the algorithms in this mechanism).
 
 Then, describe the collaboration model and its components.
 
-\subsection{Appraisal Mechanism}
+The Collaboration mechanism is responsible for maintaining the internal
+structure of a collaboration, including the focus of attention, constraints on
+actions, updating the shared plan and, in general, monitoring of the
+collaboration. All of these structures require updating each time the self
+receives an external event. For instance, an utterance by the other can impact
+the self's focus of attention during the collaboration, or the effect of a
+primitive action can influence the self's view of an impasse on a task. As
+another example, the perception of the other's emotion instance can cause
+significant changes in the self's collaboration monitoring. The Collaboration
+mechanism also responds to internal events. These changes can occur under the
+influence of several other processes which are able to alter the self's mental
+states. For instance, the Motivation mechanism can generate a new motive which
+causes the self to add a new intention to its own Mental States.
 
-Short paragraph to describe appraisal mechanism and its role in overall system.
+\begin{itemize}
+  \item \textbf{Input:} The input to the \textit{Collaboration} mechanism
+  includes all the data that affects the execution of individual tasks in the
+  collaboration plan. This data will be provided via the different elements of
+  Mental States including beliefs, intentions and goals. These Mental States
+  will establish agent's initial plan and will be updated throughout the
+  collaboration process by the Perception and Inference mechanisms.
+  
+  \item \textbf{Output:} The output of \textit{Collaboration} includes all the
+  data that is modified or created during execution of a plan in the form of
+  Mental States. These Mental States will be used by the internal processes in
+  the Theory of Mind mechanism. Additionally, the Appraisal mechanism will use
+  these Mental States to evaluate the events during collaboration. These Mental
+  States also will be used by the Inference mechanism for the purpose of
+  maintaining the collaboration.
+  
+  \item \textbf{Function:} The \textit{Collaboration} mechanism will construct a
+  hierarchy of tasks and also manage and maintain the constraints and other
+  required details of the collaboration specified by the plan. These details
+  include the inputs and outputs of individual tasks, the \textit{preconditions}
+  specifying whether it is appropriate to perform a task, and the
+  \textit{postconditions} specifying whether a just-completed task was
+  successful (which can be used as an indication of an impasse or failure).
+  \textit{Collaboration} also keeps track of the focus of attention, which
+  determines the salient objects, properties and relations at each point of the
+  collaboration. Moreover, \textit{Collaboration} has the ability to shift the
+  focus of attention during the collaboration. All the other mechanisms in the
+  overall \textit{Affective Motivational Collaboration Model} are influenced by
+  changes in the collaboration plan.
+  
+\end{itemize}
+
+\subsection{Appraisal Mechanism}
 
 \subsection{Appraisal of External Events}
 

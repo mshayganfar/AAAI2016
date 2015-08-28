@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.8.21)  28 AUG 2015 10:27
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.8.21)  28 AUG 2015 10:53
 entering extended mode
  restricted \write18 enabled.
  Source specials enabled.
@@ -450,13 +450,13 @@ LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <9> not available
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 31.
 
-<figure/theory-general-croped.pdf, id=4, 430.60875pt x 294.09875pt>
+<figure/theory-general-croped.pdf, id=4, 417.56pt x 287.0725pt>
 File: figure/theory-general-croped.pdf Graphic file (type pdf)
 
 <use figure/theory-general-croped.pdf>
 Package pdftex.def Info: figure/theory-general-croped.pdf used on input line 94
 .
-(pdftex.def)             Requested size: 239.79135pt x 163.7787pt.
+(pdftex.def)             Requested size: 239.79135pt x 164.85951pt.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10.95> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 100.
  [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
@@ -506,32 +506,39 @@ LaTeX Warning: Reference `section-motivation-theory' on page 5 undefined on inp
 ut line 470.
 
 
-LaTeX Warning: Reference `conceptual-constructs' on page 5 undefined on input l
-ine 511.
+Underfull \vbox (badness 1478) has occurred while \output is active []
+
+ [5]
+
+LaTeX Warning: Reference `conceptual-constructs' on page 6 undefined on input l
+ine 555.
 
 
-LaTeX Warning: Reference `mental-states-properties' on page 5 undefined on inpu
-t line 517.
+LaTeX Warning: Reference `mental-states-properties' on page 6 undefined on inpu
+t line 561.
 
 
-LaTeX Warning: Reference `computational-framework' on page 5 undefined on input
- line 517.
+LaTeX Warning: Reference `computational-framework' on page 6 undefined on input
+ line 561.
 
 
-LaTeX Warning: Reference `section-appraisal-external-event' on page 5 undefined
- on input line 535.
+LaTeX Warning: Reference `section-appraisal-external-event' on page 6 undefined
+ on input line 579.
 
-[5]
 
 LaTeX Warning: Reference `section-motivation-mechanism' on page 6 undefined on 
-input line 587.
+input line 631.
 
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [6]
 (./ShayganfarRichSidner.bbl
 Underfull \hbox (badness 1931) in paragraph at lines 12--18
 [][]\OT1/ptm/m/n/10 Cooke, R., and Sheeran, P.  2004.  Mod-er-a-tion of
  []
 
-) [6] [7
+) [7
 
 ] (./ShayganfarRichSidner.aux)
 
@@ -541,7 +548,7 @@ LaTeX Warning: There were undefined references.
 Here is how much of TeX's memory you used:
  10760 strings out of 493304
  215970 string characters out of 6139871
- 277054 words of memory out of 5000000
+ 278577 words of memory out of 5000000
  13992 multiletter control sequences out of 15000+600000
  18403 words of font info for 34 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
@@ -556,10 +563,10 @@ sfonts/cm/cmsy9.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a
 .pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/sha
 re/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on ShayganfarRichSidner.pdf (7 pages, 149849 bytes).
+Output written on ShayganfarRichSidner.pdf (7 pages, 152291 bytes).
 PDF statistics:
- 81 PDF objects out of 1000 (max. 8388607)
- 57 compressed objects within 1 object stream
+ 85 PDF objects out of 1000 (max. 8388607)
+ 60 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  18 words of extra memory for PDF output out of 10000 (max. 10000000)
 
