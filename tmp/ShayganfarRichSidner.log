@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.8.21)  28 AUG 2015 10:53
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.8.21)  28 AUG 2015 13:51
 entering extended mode
  restricted \write18 enabled.
  Source specials enabled.
@@ -307,6 +307,43 @@ File: pgfmodulematrix.code.tex 2010/08/24  (rcs-revision 1.4)
 hs.code.tex
 File: tikzlibrarytopaths.code.tex 2008/06/17 v2.10 (rcs-revision 1.2)
 )))
+(/usr/share/texlive/texmf-dist/tex/latex/algorithmicx/algpseudocode.sty
+Package: algpseudocode 
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/algorithmicx/algorithmicx.sty
+Package: algorithmicx 2005/04/27 v1.2 Algorithmicx
+
+Document Style algorithmicx 1.2 - a greatly improved `algorithmic' style
+\c@ALG@line=\count107
+\c@ALG@rem=\count108
+\c@ALG@nested=\count109
+\ALG@tlm=\skip44
+\ALG@thistlm=\skip45
+\c@ALG@Lnr=\count110
+\c@ALG@blocknr=\count111
+\c@ALG@storecount=\count112
+\c@ALG@tmpcounter=\count113
+\ALG@tmplength=\skip46
+)
+Document Style - pseudocode environments for use with the `algorithmicx' style
+) (/usr/share/texlive/texmf-dist/tex/latex/algorithms/algorithm.sty
+Package: algorithm 2009/08/24 v0.1 Document Style `algorithm' - floating enviro
+nment
+
+(/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count114
+\float@exts=\toks24
+\float@box=\box35
+\@float@everytoks=\toks25
+\@floatcapt=\box36
+)
+\@float@every@algorithm=\toks26
+\c@algorithm=\count115
+)
 (/usr/share/texmf/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryarrow
 s.code.tex
 File: tikzlibraryarrows.code.tex 2008/01/09 v2.10 (rcs-revision 1.1)
@@ -330,59 +367,80 @@ File: tikzlibraryshapes.multipart.code.tex 2008/01/09 v2.10 (rcs-revision 1.1)
 (/usr/share/texmf/tex/generic/pgf/libraries/shapes/pgflibraryshapes.multipart.c
 ode.tex
 File: pgflibraryshapes.multipart.code.tex 2010/01/07 v2.10 (rcs-revision 1.2)
-\pgfnodepartlowerbox=\box35
-\pgfnodeparttwobox=\box36
-\pgfnodepartthreebox=\box37
-\pgfnodepartfourbox=\box38
-\pgfnodeparttwentybox=\box39
-\pgfnodepartnineteenbox=\box40
-\pgfnodeparteighteenbox=\box41
-\pgfnodepartseventeenbox=\box42
-\pgfnodepartsixteenbox=\box43
-\pgfnodepartfifteenbox=\box44
-\pgfnodepartfourteenbox=\box45
-\pgfnodepartthirteenbox=\box46
-\pgfnodeparttwelvebox=\box47
-\pgfnodepartelevenbox=\box48
-\pgfnodeparttenbox=\box49
-\pgfnodepartninebox=\box50
-\pgfnodeparteightbox=\box51
-\pgfnodepartsevenbox=\box52
-\pgfnodepartsixbox=\box53
-\pgfnodepartfivebox=\box54
-))) (./ShayganfarRichSidner.aux)
+\pgfnodepartlowerbox=\box37
+\pgfnodeparttwobox=\box38
+\pgfnodepartthreebox=\box39
+\pgfnodepartfourbox=\box40
+\pgfnodeparttwentybox=\box41
+\pgfnodepartnineteenbox=\box42
+\pgfnodeparteighteenbox=\box43
+\pgfnodepartseventeenbox=\box44
+\pgfnodepartsixteenbox=\box45
+\pgfnodepartfifteenbox=\box46
+\pgfnodepartfourteenbox=\box47
+\pgfnodepartthirteenbox=\box48
+\pgfnodeparttwelvebox=\box49
+\pgfnodepartelevenbox=\box50
+\pgfnodeparttenbox=\box51
+\pgfnodepartninebox=\box52
+\pgfnodeparteightbox=\box53
+\pgfnodepartsevenbox=\box54
+\pgfnodepartsixbox=\box55
+\pgfnodepartfivebox=\box56
+))) (./ShayganfarRichSidner.aux
+
+LaTeX Warning: Label `array-sum' multiply defined.
+
+
+LaTeX Warning: Label `array-sum' multiply defined.
+
+
+LaTeX Warning: Label `array-sum' multiply defined.
+
+
+LaTeX Warning: Label `array-sum' multiply defined.
+
+
+LaTeX Warning: Label `array-sum' multiply defined.
+
+
+LaTeX Warning: Label `array-sum' multiply defined.
+
+
+LaTeX Warning: Label `array-sum' multiply defined.
+
+)
 \openout1 = `ShayganfarRichSidner.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Try loading font information for OT1+ptm on input line 18.
-
-(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ptm.fd
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Try loading font information for OT1+ptm on input line 20.
+ (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count107
+\scratchcounter=\count116
 \scratchdimen=\dimen149
-\scratchbox=\box55
-\nofMPsegments=\count108
-\nofMParguments=\count109
-\everyMPshowfont=\toks24
-\MPscratchCnt=\count110
+\scratchbox=\box57
+\nofMPsegments=\count117
+\nofMParguments=\count118
+\everyMPshowfont=\toks27
+\MPscratchCnt=\count119
 \MPscratchDim=\dimen150
-\MPnumerator=\count111
-\makeMPintoPDFobject=\count112
-\everyMPtoPDFconversion=\toks25
+\MPnumerator=\count120
+\makeMPintoPDFobject=\count121
+\everyMPtoPDFconversion=\toks28
 ) (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
 Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
 )
@@ -433,77 +491,77 @@ e
 ))
 ABD: EveryShipout initializing macros
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 30.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 32.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 30.
+(Font)              <7> on input line 32.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 30.
+(Font)              <5> on input line 32.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 30.
-LaTeX Font Info:    Try loading font information for OMS+ptm on input line 30.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 32.
+LaTeX Font Info:    Try loading font information for OMS+ptm on input line 32.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omsptm.fd
 File: omsptm.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <9> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 30.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 32.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 31.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 33.
 
 <figure/theory-general-croped.pdf, id=4, 417.56pt x 287.0725pt>
 File: figure/theory-general-croped.pdf Graphic file (type pdf)
 
 <use figure/theory-general-croped.pdf>
-Package pdftex.def Info: figure/theory-general-croped.pdf used on input line 94
+Package pdftex.def Info: figure/theory-general-croped.pdf used on input line 96
 .
 (pdftex.def)             Requested size: 239.79135pt x 164.85951pt.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10.95> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 100.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 102.
  [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
 
 
  <./figure/theory-general-croped.pdf>]
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 144.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 146.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <10> not available
-(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 144.
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 146.
 
 
 LaTeX Warning: Reference `section-intention-attributes' on page 2 undefined on 
-input line 163.
+input line 165.
 
 
 LaTeX Warning: Reference `section-motive-attributes' on page 2 undefined on inp
-ut line 199.
+ut line 201.
 
 [2]
 
 LaTeX Warning: Reference `section-intention-attributes' on page 3 undefined on 
-input line 279.
+input line 281.
 
 
 LaTeX Warning: Reference `section-goal-attributes' on page 3 undefined on input
- line 324.
+ line 326.
 
 [3]
-Underfull \hbox (badness 1742) in paragraph at lines 395--405
+Underfull \hbox (badness 1742) in paragraph at lines 397--407
 [][]\OT1/ptm/b/it/10 Specificity: \OT1/ptm/m/n/10 Goals in-cor-po-rat-ing spe-c
 ific per-for-mance
  []
 
 
 LaTeX Warning: Reference `section-emotion-instances' on page 4 undefined on inp
-ut line 425.
+ut line 427.
 
 [4]
 
 LaTeX Warning: Reference `example-scenario' on page 5 undefined on input line 4
-37.
+39.
 
 
 LaTeX Warning: Reference `section-motivation-theory' on page 5 undefined on inp
-ut line 470.
+ut line 472.
 
 
 Underfull \vbox (badness 1478) has occurred while \output is active []
@@ -511,62 +569,91 @@ Underfull \vbox (badness 1478) has occurred while \output is active []
  [5]
 
 LaTeX Warning: Reference `conceptual-constructs' on page 6 undefined on input l
-ine 555.
+ine 557.
 
 
 LaTeX Warning: Reference `mental-states-properties' on page 6 undefined on inpu
-t line 561.
+t line 563.
 
 
 LaTeX Warning: Reference `computational-framework' on page 6 undefined on input
- line 561.
+ line 563.
 
 
 LaTeX Warning: Reference `section-appraisal-external-event' on page 6 undefined
- on input line 579.
+ on input line 581.
 
 
 LaTeX Warning: Reference `section-motivation-mechanism' on page 6 undefined on 
-input line 631.
+input line 633.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [6]
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 718.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <9> on input line 720.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 720.
+
+Underfull \hbox (badness 2245) in paragraph at lines 736--737
+[] \OT1/ptm/b/n/9 else if \OT1/ptm/m/n/9 ($\OML/cmm/m/it/9 taskPreconditionStat
+us\OT1/cmr/m/n/9 () =$ \OT1/ptm/m/n/9 UN-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 861--862
+[]\OT1/ptm/b/n/10 func-tion \OT1/ptm/m/sc/10 Get-Suc-ceed-ed-Pre-de-ces-sorsRa-
+
+ []
+
 (./ShayganfarRichSidner.bbl
 Underfull \hbox (badness 1931) in paragraph at lines 12--18
 [][]\OT1/ptm/m/n/10 Cooke, R., and Sheeran, P.  2004.  Mod-er-a-tion of
  []
 
-) [7
+[7] [8]) [9
 
 ] (./ShayganfarRichSidner.aux)
 
 LaTeX Warning: There were undefined references.
 
+
+LaTeX Warning: There were multiply-defined labels.
+
  ) 
 Here is how much of TeX's memory you used:
- 10760 strings out of 493304
- 215970 string characters out of 6139871
- 278577 words of memory out of 5000000
- 13992 multiletter control sequences out of 15000+600000
- 18403 words of font info for 34 fonts, out of 8000000 for 9000
+ 11431 strings out of 493304
+ 225493 string characters out of 6139871
+ 314289 words of memory out of 5000000
+ 14633 multiletter control sequences out of 15000+600000
+ 26783 words of font info for 50 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 56i,11n,68p,454b,727s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 56i,11n,68p,443b,727s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
-blic/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
-sfonts/cm/cmsy9.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a
-.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/sha
-re/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on ShayganfarRichSidner.pdf (7 pages, 152291 bytes).
+f-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.
+pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmti7.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmti9.pfb></usr/share/texlive/texmf-dist/fonts/type1/u
+rw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8
+a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on ShayganfarRichSidner.pdf (9 pages, 255269 bytes).
 PDF statistics:
- 85 PDF objects out of 1000 (max. 8388607)
- 60 compressed objects within 1 object stream
+ 127 PDF objects out of 1000 (max. 8388607)
+ 91 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  18 words of extra memory for PDF output out of 10000 (max. 10000000)
 
