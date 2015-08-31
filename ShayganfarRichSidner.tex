@@ -676,25 +676,25 @@ Description + Algorithm + Example
 	\caption{(Relevance)}
 	\label{array-sum}
 	\begin{algorithmic}[1]
-		\Function{IsEventRelevant}{\textit{Event} $\varepsilon_t$} 
-			\Statex
-			\State Initialize graph $\mathcal{G}_{t}$ with current mental state
-			$\mathcal{S}_{t}$.
+		\Function{IsEventRelevant}{Graph $\mathcal{G}_{t}$, \textit{Event}
+		$\varepsilon_t$}
 			\Statex
 			\State $\mathit{g}_{t} \gets \Call{extractGoal}{\mathcal{G}_{t}}$
 			\Statex
-			\State $\mathcal{P}_{t} \gets \Call{extractPath}{\varepsilon_t,
+			\State $\mathit{b}_{\varepsilon_t} \gets \Call{getBelief}{\varepsilon_t}$
+			\Statex
+			\State $\mathcal{P}_{t} \gets \Call{findPath}{\mathit{b}_{\varepsilon_t},
 			\mathit{g}_{t}}$
 			\Statex
 			\If {($\mathcal{P}_{t} = \emptyset$)}
-				\State \Return {FALSE}
+				\State \Return {IRRELEVANT}
 			\Else
-				\State $\mathcal{U}_{t} \gets \Call{getEventUtility}{\varepsilon_t,
-				\mathit{g}_{t}}$ 
+				\State $\mathcal{U}_{t} \gets
+				\Call{getEventUtility}{\mathit{b}_{\varepsilon_t}, \mathit{g}_{t}}$
 				\If {($ \mathcal{U}_{t} \geq \tau_{e} $)}
-				\State \Return {TRUE}
+				\State \Return {RELEVANT}
 				\Else
-					\State \Return {FALSE}
+					\State \Return {NEUTRAL}
 				\EndIf
 			\EndIf
 		\EndFunction
@@ -710,34 +710,35 @@ Description + Algorithm + Example
 	\caption{(Desirability)}
 	\label{array-sum}
 	\begin{algorithmic}[1]
-		\Function{IsEventDesirable}{\textit{Event} $\varepsilon_t$} 
+		\Function{IsEventDesirable}{Graph $\mathcal{G}_{t}$, \textit{Event}
+		$\varepsilon_t$}
 			\Statex
-			\State Initialize graph $\mathcal{G}_{t}$ with current mental state
-			$\mathcal{S}_{t}$.
-			\Statex
-			\If {($topLevelTaskStatus() =$ \small{ACHIEVED})}
+			\If {(\textit{topLevelGoalStatus()} = {\fontsize{8}{8}\selectfont ACHIEVED})}
 				\State \Return {TRUE}
-			\ElsIf {($topLevelTaskStatus() =$ \small{BLOCKED})}
-				\State \Return {FALSE}
-			\ElsIf {($topLevelTaskStatus() =$ \small{INPROGRESS})}
+			\ElsIf {(\textit{topLevelGoalStatus()} = {\fontsize{8}{8}\selectfont
+			BLOCKED})} \State \Return {FALSE}
+			\ElsIf {(\textit{topLevelGoalStatus()} = {\fontsize{7.4}{8}\selectfont
+			INPROGRESS})}
 				\Statex
-				\If {($currentTaskStatus() =$ ACHIEVED)}
+				\If {(\textit{curGoalStatus()} = {\fontsize{8}{8}\selectfont ACHIEVED})}
 					\State \Return {TRUE}
-				\ElsIf {($currentTaskStatus() =$ BLOCKED)}
+				\ElsIf {(\textit{curGoalStatus()} = {\fontsize{8}{8}\selectfont BLOCKED})}
 					\State \Return {FALSE}
-				\ElsIf {($currentTaskStatus() =$ INPROGRESS)}
+				\ElsIf {(\textit{curGoalStatus()} = {\fontsize{8}{8}\selectfont
+				INPROGRESS})}
 					\State \Return {TRUE}
-				\ElsIf {($currentTaskStatus() =$ UNKNOWN)}
+				\ElsIf {(\textit{curGoalStatus()} = {\fontsize{8}{8}\selectfont UNKNOWN})}
 					\Statex
-					\If {($taskPreconditionStatus() =$ SATISFIED)}
+					\If {(\textit{taskPreStatus()} = {\fontsize{8}{8}\selectfont SATISFIED})}
 						\State \Return {TRUE}
-					\ElsIf {($taskPreconditionStatus() =$ UNSATISFIED)}
+					\ElsIf {(\textit{taskPreStatus()} =	{\fontsize{8}{8}\selectfont UNSATISFIED})} 
 						\State \Return {FALSE}
-					\ElsIf {($taskPreconditionStatus() =$ UNKNOWN)}
+					\ElsIf {(\textit{taskPreStatus()} = {\fontsize{8}{8}\selectfont UNKNOWN})}
 						\Statex
-						\If {($doesContribute(\varepsilon_t, \vec{\mathit{g}}_{t}) =$ TRUE)}
-							\State \Return {TRUE}
-						\ElsIf {($doesContribute(\varepsilon_t, \vec{\mathit{g}}_{t}) =$ FALSE)}
+						\If {(\textit{doesContribute}$(\varepsilon_t, \mathit{g}_{t})$)}
+							\State \Return {TRUE} 
+						\ElsIf {($\neg
+						\textit{doesContribute}(\varepsilon_t,\mathit{g}_{t}$)}
 							\Statex
 							\State $\mathit{g}_{t} \gets \Call{extractGoal}{\mathcal{G}_{t}}$ 
 							\State $\mathcal{U}_{t} \gets \Call{getEventUtility}{\varepsilon_t,
