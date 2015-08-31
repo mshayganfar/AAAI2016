@@ -679,16 +679,14 @@ Description + Algorithm + Example
 		\Function{IsEventRelevant}{Graph $\mathcal{G}_{t}$, \textit{Event}
 		$\varepsilon_t$}
 			\Statex
-			\State $\mathit{g}_{t} \gets \Call{extractGoal}{\mathcal{G}_{t}}$
-			\Statex
-			\State $\mathit{b}_{\varepsilon_t} \gets \Call{getBelief}{\varepsilon_t}$
-			\Statex
 			\State $\mathcal{P}_{t} \gets \Call{findPath}{\mathit{b}_{\varepsilon_t},
 			\mathit{g}_{t}}$
 			\Statex
 			\If {($\mathcal{P}_{t} = \emptyset$)}
 				\State \Return {IRRELEVANT}
 			\Else
+				\State $\mathit{g}_{t} \gets \Call{extractGoal}{\mathcal{G}_{t}}$
+				\State $\mathit{b}_{\varepsilon_t} \gets \Call{getBelief}{\varepsilon_t}$
 				\State $\mathcal{U}_{t} \gets
 				\Call{getEventUtility}{\mathit{b}_{\varepsilon_t}, \mathit{g}_{t}}$
 				\If {($ \mathcal{U}_{t} \geq \tau_{e} $)}
@@ -714,45 +712,37 @@ Description + Algorithm + Example
 		$\varepsilon_t$}
 			\Statex
 			\If {(\textit{topLevelGoalStatus()} = {\fontsize{8}{8}\selectfont ACHIEVED})}
-				\State \Return {TRUE}
+				\State \Return {{\fontsize{8}{8}\selectfont HIGHEST-DESIRABLE}}
 			\ElsIf {(\textit{topLevelGoalStatus()} = {\fontsize{8}{8}\selectfont
-			BLOCKED})} \State \Return {FALSE}
+			BLOCKED})} \State \Return {{\fontsize{8}{8}\selectfont HIGHEST-UNDESIRABLE}}
 			\ElsIf {(\textit{topLevelGoalStatus()} = {\fontsize{7.4}{8}\selectfont
 			INPROGRESS})}
 				\Statex
 				\If {(\textit{curGoalStatus()} = {\fontsize{8}{8}\selectfont ACHIEVED})}
-					\State \Return {TRUE}
+					\State \Return {{\fontsize{8}{8}\selectfont HIGH-DESIRABLE}}
 				\ElsIf {(\textit{curGoalStatus()} = {\fontsize{8}{8}\selectfont BLOCKED})}
-					\State \Return {FALSE}
+					\State \Return {{\fontsize{8}{8}\selectfont HIGH-UNDESIRABLE}}
 				\ElsIf {(\textit{curGoalStatus()} = {\fontsize{8}{8}\selectfont
 				INPROGRESS})}
-					\State \Return {TRUE}
+					\State \Return {{\fontsize{8}{8}\selectfont MEDIUM-DESIRABLE}}
 				\ElsIf {(\textit{curGoalStatus()} = {\fontsize{8}{8}\selectfont UNKNOWN})}
 					\Statex
 					\If {(\textit{taskPreStatus()} = {\fontsize{8}{8}\selectfont SATISFIED})}
-						\State \Return {TRUE}
+						\State \Return {{\fontsize{8}{8}\selectfont LOW-DESIRABLE}}
 					\ElsIf {(\textit{taskPreStatus()} =	{\fontsize{8}{8}\selectfont UNSATISFIED})} 
-						\State \Return {FALSE}
+						\State \Return {{\fontsize{8}{8}\selectfont LOW-UNDESIRABLE}}
 					\ElsIf {(\textit{taskPreStatus()} = {\fontsize{8}{8}\selectfont UNKNOWN})}
 						\Statex
-						\If {(\textit{doesContribute}$(\varepsilon_t, \mathit{g}_{t})$)}
-							\State \Return {TRUE} 
+						\State $\mathit{g}_{\varepsilon_t} \gets \Call{getGoal}{\varepsilon_t}$
+						\If {(\textit{doesContribute}$(\mathit{g}_{\varepsilon_t}, \mathit{g}_{t})$)}
+							\State \Return {{\fontsize{8}{8}\selectfont NEUTRAL}}
 						\ElsIf {($\neg
-						\textit{doesContribute}(\varepsilon_t,\mathit{g}_{t}$)}
-							\Statex
-							\State $\mathit{g}_{t} \gets \Call{extractGoal}{\mathcal{G}_{t}}$ 
-							\State $\mathcal{U}_{t} \gets \Call{getEventUtility}{\varepsilon_t,
-							\mathit{g}_{t}}$ 
-							\If {($ \mathcal{U}_{t} \geq \tau_{e} $)}
-							\State \Return {TRUE}
-							\Else
-								\State \Return {FALSE}
-							\EndIf \State \textbf{end if}
-							\Statex
-						\EndIf \State \textbf{end if}
-					\EndIf \State \textbf{end if}
-				\EndIf \State \textbf{end if}
-			\EndIf \State \textbf{end if}
+						\textit{doesContribute}(\mathit{g}_{\varepsilon_t},\mathit{g}_{t}$)}
+							\State \Return {{\fontsize{8}{8}\selectfont MEDIUM-UNDESIRABLE}}
+						\EndIf
+					\EndIf
+				\EndIf
+			\EndIf
 		\EndFunction
 		\State \textbf{end function}
 	\end{algorithmic}
