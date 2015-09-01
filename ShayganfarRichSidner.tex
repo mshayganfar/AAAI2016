@@ -683,14 +683,14 @@ Description + Algorithm + Example
 			\State $\mathcal{P}_{t} \gets \Call{findPath}{\mathit{b}_{\varepsilon_t},
 			\mathit{g}_{t}}$
 			\Statex
-			\If {($\mathcal{P}_{t} = \emptyset$)}
+			\If {$(\mathcal{P}_{t} = \emptyset)$}
 				\State \Return {{\fontsize{8}{8}\selectfont IRRELEVANT}}
 			\Else
 				\State $\mathit{g}_{t} \gets \Call{extractGoal}{\mathcal{G}_{t}}$
 				\State $\mathcal{U}_{t} \gets
 				\Call{getEventUtility}{\mathit{b}_{\varepsilon_t}, \mathit{g}_{t}}$
 				\State $\tau_{e} \gets \Call{getEmotionalThreshold}{ }$
-				\If {($ \mathcal{U}_{t} \geq \tau_{e} $)}
+				\If {$( \mathcal{U}_{t} \geq \tau_{e} )$}
 				\State \Return {{\fontsize{8}{8}\selectfont RELEVANT}}
 				\Else
 					\State \Return {{\fontsize{8}{8}\selectfont IRRELEVANT}}
@@ -735,10 +735,15 @@ Description + Algorithm + Example
 					\ElsIf {(\textit{taskPreStatus()} = {\fontsize{8}{8}\selectfont UNKNOWN})}
 						\Statex
 						\State $\mathit{g}_{\varepsilon_t} \gets \Call{getGoal}{\varepsilon_t}$
-						\If {(\textit{doesContribute}$(\mathit{g}_{\varepsilon_t}, \mathit{g}_{t})$)}
+						\If {$(\mathit{g}_{\varepsilon_t} =$ {\fontsize{8}{8}\selectfont
+						AMBIGUOUS}$)$}
+							\State \Return {\fontsize{8}{8}\selectfont HIGH-UNDESIRABLE}
+						\EndIf
+						\Statex
+						\If {(\textit{doesContribute}$(\mathit{g}_{\varepsilon_t}, \mathit{g}_{t}))$}
 							\State \Return {{\fontsize{8}{8}\selectfont NEUTRAL}}
-						\ElsIf {($\neg
-						\textit{doesContribute}(\mathit{g}_{\varepsilon_t},\mathit{g}_{t}$)}
+						\ElsIf {$(\neg
+						\textit{doesContribute}(\mathit{g}_{\varepsilon_t},\mathit{g}_{t})$}
 							\State \Return {{\fontsize{8}{8}\selectfont MEDIUM-UNDESIRABLE}}
 						\EndIf
 					\EndIf
@@ -763,6 +768,11 @@ Description + Algorithm + Example
 			\State $\mathit{g}_{t} \gets \Call{extractGoal}{\mathcal{G}_{t}}$
 			\State $\mathit{g}_{\varepsilon_t} \gets \Call{getGoal}{\varepsilon_t}$
 			\Statex
+			\If {$(\mathit{g}_{\varepsilon_t} =$ {\fontsize{8}{8}\selectfont
+			AMBIGUOUS}$)$}
+				\State \Return {\fontsize{8}{8}\selectfont UNEXPECTED}
+			\EndIf
+			\Statex
 			\If {$(\mathit{g}_{t} = \mathit{g}_{\varepsilon_t})$}
 				\State \Return {\fontsize{8}{8}\selectfont EXPECTED}
 			\Else
@@ -771,7 +781,7 @@ Description + Algorithm + Example
 				\Else
 					\State $\mathcal{P}_{t} \gets \Call{findPath}{\mathit{b}_{\varepsilon_t},
 					\mathit{g}_{t}}$
-					\If {($\mathcal{P}_{t} = \emptyset$)}
+					\If {$(\mathcal{P}_{t} = \emptyset)$}
 						\State \Return {\fontsize{8}{8}\selectfont UNEXPECTED}
 					\Else
 						\State $\mathcal{U}_{t} \gets
@@ -813,7 +823,9 @@ Description + Algorithm + Example
 			\lambda + \omega_{3}\cdot \mu}{\omega_{0} + \omega_{1} + \omega_{2} +
 			\omega_{3}}$
 			\Statex
-			\If {($\mathcal{U}_{t} \geq \tau_e$)}
+			\State $\tau_{e} \gets \Call{getEmotionalThreshold}{ }$
+			\Statex
+			\If {$(\mathcal{U}_{t} \geq \tau_e)$}
 				\State \Return {{\fontsize{8}{8}\selectfont CONTROLLABLE}}
 			\Else
 				\State \Return {{\fontsize{8}{8}\selectfont UNCONTROLLABLE}}
@@ -829,7 +841,13 @@ Description + Algorithm + Example
 	\begin{algorithmic}[1]
 		\Function{GetSucPredecessorsRatio}{\textit{Event} $\varepsilon_t$}
 			\Statex
-			\State $\mathit{g}_{\varepsilon_t} \gets \Call{getGoal}{\varepsilon_t}$ 
+			\State $\mathit{g}_{\varepsilon_t} \gets \Call{getGoal}{\varepsilon_t}$
+			\Statex
+			\If {$(\mathit{g}_{\varepsilon_t} =$ {\fontsize{8}{8}\selectfont
+			AMBIGUOUS}$)$} 
+				\State \Return {0.0}
+			\EndIf
+			\Statex
 			\State $\Theta{\mathit{g}} \gets
 			\Call{extractPredecessors}{\mathit{g}_{\varepsilon_t}}$
 			\Statex
@@ -853,12 +871,18 @@ Description + Algorithm + Example
 		\Function{GetAvailableInputRatio}{\textit{Event} $\varepsilon_t$}
 			\Statex
 			\State $\mathit{g}_{\varepsilon_t} \gets \Call{getGoal}{\varepsilon_t}$
+			\Statex
+			\If {$(\mathit{g}_{\varepsilon_t} =$ {\fontsize{8}{8}\selectfont
+			AMBIGUOUS}$)$} 
+				\State \Return {0.0}
+			\EndIf
+			\Statex
 			\State $\mathcal{X}_{\mathit{g}} \gets
 			\Call{extractInputs}{\mathit{g}_{\varepsilon_t}}$
 			\Statex
 			\ForAll {$\chi_{\mathit{g}}^i \in \mathcal{X}_{\mathit{g}}$}
 				\If {$(\Call{IsAvailable}{\chi_{\mathit{g}}^i})$}
-					\State $count_{input}^{^{available}} \gets count_{input}^{^{available}} + 1$
+					\State $count_{available} \gets count_{available} + 1$
 				\EndIf
 			\EndFor
 			\Statex
@@ -875,12 +899,18 @@ Description + Algorithm + Example
 	\begin{algorithmic}[1]
 		\Function{GetAgencyRatio}{\textit{Event} $\varepsilon_t$}
 			\Statex
-			\State $\mathit{g}_{\varepsilon_t} \gets \Call{getGoal}{\varepsilon_t}$ 
+			\State $\mathit{g}_{\varepsilon_t} \gets \Call{getGoal}{\varepsilon_t}$
+			\Statex
+			\If {$(\mathit{g}_{\varepsilon_t} =$ {\fontsize{8}{8}\selectfont
+			AMBIGUOUS}$)$} 
+				\State \Return {0.0}
+			\EndIf
+			\Statex
 			\State $\Phi_{\mathit{g}} \gets
 			\Call{ExtractContributingGoals}{\mathit{g}_{\varepsilon_t}}$
 			\Statex
 			\ForAll {$\phi_{\mathit{g}}^i \in \Phi_{\mathit{g}}$}
-				\If {($\Call{GetResponsible}{\phi_{\mathit{g}}^i} =$
+				\If {$(\Call{GetResponsible}{\phi_{\mathit{g}}^i} =$
 				{\fontsize{8}{8}\selectfont SELF})} \State $count_{self}
 				\gets count_{self} + 1$
 				\EndIf
@@ -905,12 +935,12 @@ Description + Algorithm + Example
 			\State $\mathcal{P}_{\mathit{g}_{t}} \gets \Call{findPath}{\mathit{b}_{\varepsilon_t},
 			\mathit{g}_{\varepsilon_t}}$
 			\Statex
-			\If {($\mathcal{P}_{\mathit{g}_{t}} \neq \emptyset$)}
+			\If {$(\mathcal{P}_{\mathit{g}_{t}} \neq \emptyset)$}
 				\State $\mathcal{M}_{\mathit{g}_{t}} \gets
 				\Call{extractMotive}{\mathcal{P}_{\mathit{g}_{t}}}$
-				\If {($\mathcal{M}_{\mathit{g}_{t}} \neq \emptyset$)}
-					\If {($\mathcal{M}_{\mathit{g}_{t}}\cdot type = $
-					{{\fontsize{8}{8}\selectfont INTERNAL}})} \State \Return {1.0}
+				\If {$(\mathcal{M}_{\mathit{g}_{t}} \neq \emptyset)$}
+					\If {$(\mathcal{M}_{\mathit{g}_{t}}\cdot type = $
+					{{\fontsize{8}{8}\selectfont INTERNAL}}$)$} \State \Return {1.0}
 					\Else
 						\State \Return {0.0}
 					\EndIf
