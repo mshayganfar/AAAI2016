@@ -800,15 +800,13 @@ Description + Algorithm + Example
 	\begin{algorithmic}[1]
 		\Function{IsEventControllable}{\textit{Event} $\varepsilon_t$}
 			\Statex
-			\State $\mathit{g}_{\varepsilon_t} \gets \Call{getGoal}{\varepsilon_t}$ 
-			\Statex
-			\State $\alpha \gets \Call{GetAgencyRatio}{\mathit{g}_{\varepsilon_t}}$ 
-			\State $\beta \gets \Call{GetAutonomyRatio}{\mathit{g}_{\varepsilon_t}}$
+			\State $\alpha \gets \Call{GetAgencyRatio}{\varepsilon_t}$ 
+			\State $\beta \gets \Call{GetAutonomyRatio}{\varepsilon_t}$
 			\Statex
 			\State $\lambda \gets
-			\Call{\small{GetSucceededPredecessors}}{\mathit{g}_{\varepsilon_t}}$
+			\Call{\small{GetSucceededPredecessors}}{\varepsilon_t}$
 			\State $\mu \gets
-			\Call{\small{GetAvailableInput}}{\mathit{g}_{\varepsilon_t}}$
+			\Call{\small{GetAvailableInput}}{\varepsilon_t}$
 			\Statex
 			\State $\mathcal{U}_{t} \gets
 			\frac{\omega_{0}\cdot \alpha + \omega_{1}\cdot \beta + \omega_{2}\cdot
@@ -829,22 +827,20 @@ Description + Algorithm + Example
 	\caption{(Get Succeeded Predecessors Ratio)}
 	\label{array-sum}
 	\begin{algorithmic}[1]
-		\Function{GetSucceededPredecessorsRatio}{\textit{Goal} $\mathit{g}_t$}
+		\Function{GetSucceededPredecessors}{\textit{Event} $\varepsilon_t$}
 			\Statex
-			\State $\Phi_{\mathit{g}} \gets
-			\Call{extractPredecessors}{\mathit{g}_t}$
+			\State $\mathit{g}_{\varepsilon_t} \gets \Call{getGoal}{\varepsilon_t}$ 
+			\State $\Theta{\mathit{g}} \gets
+			\Call{extractPredecessors}{\mathit{g}_{\varepsilon_t}}$
 			\Statex
-			\ForAll {$\phi_{\mathit{g}}^i \in \Phi_{\mathit{g}}$}
-				\If {($\Call{IsAchieved}{\phi_{\mathit{g}}^i}$)}
-					\State $count_{predecessor}^{^{achieved}} \gets
-					count_{predecessor}^{^{achieved}} + 1$
+			\ForAll {$\theta_{\mathit{g}}^i \in \Theta_{\mathit{g}}$}
+				\If {$(\Call{IsAchieved}{\theta_{\mathit{g}}^i})$}
+					\State $count_{achieved} \gets count_{achieved} + 1$
 				\EndIf
-				\Statex
-				\State $count_{predecessor}^{^{total}} \gets count_{predecessor}^{^{total}} + 1$
-			\EndFor \State \textbf{end for}
+			\EndFor
 			\Statex
 			\State \Return
-			$\frac{count_{predecessor}^{^{achieved}}}{count_{predecessor}^{^{total}}}$
+			$\frac{count_{achieved}}{\Theta{\mathit{g}}.size()}$
 		\EndFunction 
 	\State \textbf{end function}
 	\end{algorithmic}
@@ -878,8 +874,9 @@ Description + Algorithm + Example
 	\caption{(Get Agency Ratio)}
 	\label{array-sum}
 	\begin{algorithmic}[1]
-		\Function{GetAgencyRatio}{\textit{Goal} $\mathit{g}_{\varepsilon_t}$}
+		\Function{GetAgencyRatio}{\textit{Event} $\varepsilon_t$}
 			\Statex
+			\State $\mathit{g}_{\varepsilon_t} \gets \Call{getGoal}{\varepsilon_t}$ 
 			\State $\Phi_{\mathit{g}} \gets
 			\Call{ExtractContributingGoals}{\mathit{g}_{\varepsilon_t}}$
 			\Statex
@@ -887,10 +884,6 @@ Description + Algorithm + Example
 				\If {($\Call{GetResponsible}{\phi_{\mathit{g}}^i} =$
 				{\fontsize{8}{8}\selectfont SELF})} \State $count_{self}
 				\gets count_{self} + 1$
-				\Statex
-				\ElsIf {($\Call{GetResponsible}{\phi_{\mathit{g}}^i} =$
-				{\fontsize{8}{8}\selectfont BOTH})} \State $count_{self}
-				\gets count_{self} + 0.5$
 				\EndIf
 			\EndFor
 			\Statex
