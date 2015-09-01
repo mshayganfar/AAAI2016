@@ -679,6 +679,7 @@ Description + Algorithm + Example
 		\Function{IsEventRelevant}{Graph $\mathcal{G}_{t}$, \textit{Event}
 		$\varepsilon_t$}
 			\Statex
+			\State $\mathit{b}_{\varepsilon_t} \gets \Call{getBelief}{\varepsilon_t}$
 			\State $\mathcal{P}_{t} \gets \Call{findPath}{\mathit{b}_{\varepsilon_t},
 			\mathit{g}_{t}}$
 			\Statex
@@ -686,7 +687,6 @@ Description + Algorithm + Example
 				\State \Return {{\fontsize{8}{8}\selectfont IRRELEVANT}}
 			\Else
 				\State $\mathit{g}_{t} \gets \Call{extractGoal}{\mathcal{G}_{t}}$
-				\State $\mathit{b}_{\varepsilon_t} \gets \Call{getBelief}{\varepsilon_t}$
 				\State $\mathcal{U}_{t} \gets
 				\Call{getEventUtility}{\mathit{b}_{\varepsilon_t}, \mathit{g}_{t}}$
 				\State $\tau_{e} \gets \Call{getEmotionalThreshold}{ }$
@@ -757,38 +757,32 @@ Description + Algorithm + Example
 	\caption{(Expectedness)}
 	\label{array-sum}
 	\begin{algorithmic}[1]
-		\Function{IsEventExpected}{{\fontsize{7}{8}\selectfont Graph
-		$\mathcal{G}_{t}$, Graph $\mathcal{G}_{t-1}$, \textit{Event} $\varepsilon_t$}}
+		\Function{IsEventExpected}{Graph $\mathcal{G}_{t}$, \textit{Event}
+		$\varepsilon_t$}
 			\Statex
-			\State $\mathit{g}_{t-1} \gets \Call{extractGoal}{\mathcal{G}_{t-1}}$
 			\State $\mathit{g}_{t} \gets \Call{extractGoal}{\mathcal{G}_{t}}$
+			\State $\mathit{g}_{\varepsilon_t} \gets \Call{getGoal}{\varepsilon_t}$
 			\Statex
-			\If {$(\mathit{g}_{t} \neq \mathit{g}_{t-1})$}
-				\If {$(\Call{IsAchieved}{\mathit{g}_{t-1}}$ = FALSE)}
-					\State \Return FALSE
+			\If {$(\mathit{g}_{t} = \mathit{g}_{\varepsilon_t})$}
+				\State \Return {\fontsize{8}{8}\selectfont EXPECTED}
+			\Else
+				\If {$(\neg \Call{IsAchieved}{\mathit{g}_{t}})$}
+					\State \Return {\fontsize{8}{8}\selectfont UNEXPECTED}
 				\Else
-					\State $\mathcal{P}_{t} \gets \Call{extractPath}{\varepsilon_t,
+					\State $\mathcal{P}_{t} \gets \Call{findPath}{\mathit{b}_{\varepsilon_t},
 					\mathit{g}_{t}}$
 					\If {($\mathcal{P}_{t} = \emptyset$)}
-						\State \Return FALSE
+						\State \Return {\fontsize{8}{8}\selectfont UNEXPECTED}
 					\Else
 						\State $\mathcal{U}_{t} \gets
-						\Call{getPathUtility}{\mathcal{G}_{t}, \mathit{g}_{t}}$
+						\Call{getPathUtility}{\mathit{b}_{\varepsilon_t}, \mathit{g}_{t}}$
+						\State $\tau_{e} \gets \Call{getEmotionalThreshold}{ }$
 						\If {$(\mathcal{U}_{t} \geq \tau_{e})$}
-							\State \Return TRUE
+							\State \Return {\fontsize{8}{8}\selectfont EXPECTED}
 						\Else
-							\State \Return FALSE
+							\State \Return {\fontsize{8}{8}\selectfont UNEXPECTED}
 						\EndIf
 					\EndIf
-				\EndIf
-			\Else
-				\State $\mathcal{U}_{t} \gets
-						\Call{getEventUtility}{\mathit{b}_{\varepsilon_t}, \mathit{g}_{t}}$
-				\State $\tau_{e} \gets \Call{getEmotionalThreshold}{ }$
-				\If {$(\mathcal{U}_{t} \geq \tau_{e})$}
-					\State \Return TRUE
-				\Else
-					\State \Return FALSE
 				\EndIf
 			\EndIf
 		\EndFunction
