@@ -800,37 +800,25 @@ Description + Algorithm + Example
 	\begin{algorithmic}[1]
 		\Function{IsEventControllable}{\textit{Event} $\varepsilon_t$}
 			\Statex
-			\State Initialize graph $\mathcal{G}_{t}$ with current mental state
-			$\mathcal{S}_{t}$.
+			\State $\mathit{g}_{\varepsilon_t} \gets \Call{getGoal}{\varepsilon_t}$ 
 			\Statex
-			\State $\mathit{g}_{t} \gets \Call{extractGoal}{\mathcal{G}_{t}}$ 
-			\State $\mathcal{P}_{\mathit{g}_{t}} \gets \Call{extractPath}{\varepsilon_t,
-			\mathit{g}_{t}}$
+			\State $\alpha \gets \Call{GetAgencyRatio}{\mathit{g}_{\varepsilon_t}}$ 
+			\State $\beta \gets \Call{GetAutonomyRatio}{\mathit{g}_{\varepsilon_t}}$
 			\Statex
-			\State $\alpha_{self/other}^{^{agency}} \gets
-			\Call{GetAgencyRatio}{\mathit{g}_{t}}$ 
-			\Statex
-			\State $\beta_{self/other}^{^{autonomy}} \gets
-			\Call{GetAutonomyRatio}{\mathit{g}_{t}}$
-			\Statex
-			\State $\lambda_{succeeded/total}^{^{predecessors}} \gets
-			\Call{\small{SucceededPredecessors}}{\mathit{g}_{t}}$
-			\Statex
-			\State $\mu_{available/required}^{^{inputs}} \gets
-			\Call{\small{GetAvailableInput}}{\mathit{g}_{t}}$
+			\State $\lambda \gets
+			\Call{\small{GetSucceededPredecessors}}{\mathit{g}_{\varepsilon_t}}$
+			\State $\mu \gets
+			\Call{\small{GetAvailableInput}}{\mathit{g}_{\varepsilon_t}}$
 			\Statex
 			\State $\mathcal{U}_{t} \gets
-			\frac{\omega_{0}\cdot \alpha_{self/other}^{^{agency}} +
-			\omega_{1}\cdot \beta_{self/other}^{^{autonomy}}}{\omega_{0} + \omega_{1}}$
-			\Statex\\
-			\qquad \qquad $+ \frac{\omega_{2}\cdot
-			\lambda_{succeeded/total}^{^{predecessors}} + \omega_{3}\cdot
-			\mu_{available/required}^{^{inputs}}}{\omega_{2} + \omega_{3}}$
+			\frac{\omega_{0}\cdot \alpha + \omega_{1}\cdot \beta + \omega_{2}\cdot
+			\lambda + \omega_{3}\cdot \mu}{\omega_{0} + \omega_{1} + \omega_{2} +
+			\omega_{3}}$
 			\Statex
 			\If {($\mathcal{U}_{t} \geq \tau_e$)}
-				\State \Return {TRUE}
+				\State \Return {{\fontsize{8}{8}\selectfont CONTROLLABLE}}
 			\Else
-				\State \Return {FALSE}
+				\State \Return {{\fontsize{8}{8}\selectfont UNCONTROLLABLE}}
 			\EndIf
 		\EndFunction
 		\State \textbf{end function}
@@ -887,50 +875,56 @@ Description + Algorithm + Example
 \end{algorithm}
 
 \begin{algorithm}
-	\caption{(Get Agency Value)}
+	\caption{(Get Agency Ratio)}
 	\label{array-sum}
 	\begin{algorithmic}[1]
-		\Function{GetAgencyValue}{\textit{Goal} $\mathit{g}_t$}
+		\Function{GetAgencyRatio}{\textit{Goal} $\mathit{g}_{\varepsilon_t}$}
 			\Statex
-			\State $\Theta_{\mathit{g}} \gets
-			\Call{ExtractContributingTasks}{\mathit{g}_t}$
+			\State $\Phi_{\mathit{g}} \gets
+			\Call{ExtractContributingGoals}{\mathit{g}_{\varepsilon_t}}$
 			\Statex
-			\ForAll {$\theta_{\vec{\mathit{g}}}^i \in \Theta_{\vec{\mathit{g}}}$}
-				\If {($\Call{GetResponsible}{\theta_{\mathit{g}}^i} =$ SELF)}
-					\State $count_{responsibility}^{^{self}} \gets count_{responsibility}^{^{self}} + 1$
+			\ForAll {$\phi_{\mathit{g}}^i \in \Phi_{\mathit{g}}$}
+				\If {($\Call{GetResponsible}{\phi_{\mathit{g}}^i} =$
+				{\fontsize{8}{8}\selectfont SELF})} \State $count_{self}
+				\gets count_{self} + 1$
 				\Statex
-				\ElsIf {($\Call{GetResponsible}{\theta_{\mathit{g}}^i} =$ BOTH)}
-					\State $count_{responsibility}^{^{self}} \gets
-				count_{responsibility}^{^{self}} + 0.5$
+				\ElsIf {($\Call{GetResponsible}{\phi_{\mathit{g}}^i} =$
+				{\fontsize{8}{8}\selectfont BOTH})} \State $count_{self}
+				\gets count_{self} + 0.5$
 				\EndIf
-			\EndFor \State \textbf{end for}
+			\EndFor
 			\Statex
 			\State \Return 
-			$\frac{count_{responsibility}^{^{self}}}{{\Theta_{\mathit{g}}}.size()}$
+			$\frac{count_{self}}{{\Phi_{\mathit{g}}}.size()}$
 		\EndFunction 
 	\State \textbf{end function}
 	\end{algorithmic}
 \end{algorithm}
 
 \begin{algorithm}
-	\caption{(Get Autonomy Value)}
+	\caption{(Get Autonomy Ratio)}
 	\label{array-sum}
 	\begin{algorithmic}[1]
-		\Function{GetAutonomyValue}{\textit{Goal} $\mathit{g}_t$}
+		\Function{GetAutonomyRatio}{\textit{Event} $\varepsilon_t$}
 			\Statex
-			\State $\mathcal{P}_{\mathit{g}_{t}} \gets \Call{extractPath}{\varepsilon_t,
-			\mathit{g}_{t}}$
-			\State $\mathcal{M}_{\mathit{g}_{t}} \gets
-			\Call{extractMotive}{\mathcal{P}_{\mathit{g}_{t}}}$
+			\State $\mathit{b}_{\varepsilon_t} \gets \Call{getBelief}{\varepsilon_t}$
+			\State $\mathit{g}_{\varepsilon_t} \gets \Call{getGoal}{\varepsilon_t}$
 			\Statex
-			\If {($\mathcal{M}_{\mathit{g}_{t}} \neq \emptyset$)}
-				\If {($\Call{getMotiveType}{\mathcal{M}_{\mathit{g}_{t}}} = $ {INTERNAL})}
-					\State \Return {1.0}
-				\ElsIf {($\Call{getMotiveType}{\mathcal{M}_{\mathit{g}_{t}}} = $
-				{EXTERNAL})} \State \Return {0.5}
+			\State $\mathcal{P}_{\mathit{g}_{t}} \gets \Call{findPath}{\mathit{b}_{\varepsilon_t},
+			\mathit{g}_{\varepsilon_t}}$
+			\Statex
+			\If {($\mathcal{P}_{\mathit{g}_{t}} \neq \emptyset$)}
+				\State $\mathcal{M}_{\mathit{g}_{t}} \gets
+				\Call{extractMotive}{\mathcal{P}_{\mathit{g}_{t}}}$
+				\If {($\mathcal{M}_{\mathit{g}_{t}} \neq \emptyset$)}
+					\If {($\mathcal{M}_{\mathit{g}_{t}}\cdot type = $
+					{{\fontsize{8}{8}\selectfont INTERNAL}})} \State \Return {1.0}
+					\Else
+						\State \Return {0.0}
+					\EndIf
+				\Else
+					\State \Return {0.0}
 				\EndIf
-			\Else
-				\State \Return {0.0}
 			\EndIf
 		\EndFunction 
 	\State \textbf{end function}
