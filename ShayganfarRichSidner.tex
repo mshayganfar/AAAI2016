@@ -703,7 +703,13 @@ returns the shortest path between these two nodes in the mental graph. The
 \textit{FINDPATH} function uses the Dijkstra algorithm to find the shortest
 path. Now, if there is no path between the belief about the current event and
 the active shared goal, the algorithm finds the event \textit{irrelevent} to
-the current shared goal and terminates.
+the current shared goal and terminates. However, if there is a path between the
+$\mathit{b}_{\varepsilon_t}$ and $g_{t}$, the
+\textit{G{\fontsize{8}{8}\selectfont ET}E{\fontsize{8}{8}\selectfont
+VENT}U{\fontsize{8}{8}\selectfont TILITY}} function computes the utility of the
+belief about the event $\mathcal{U}_{\mathit{b}_{\varepsilon_t}}$, $(0 \leq
+\mathcal{U}_{\mathit{b}_{\varepsilon_t}} \leq 1)$ based on the values of the
+attributes associated to the belief.
 
 \begin{algorithm}
 	\caption{(Relevance)}
@@ -721,10 +727,10 @@ the current shared goal and terminates.
 			\If {$(\mathcal{P}_{t} = \emptyset)$}
 				\State \Return {{\fontsize{8}{8}\selectfont IRRELEVANT}}
 			\Else
-				\State $\mathcal{U}_{t} \gets
+				\State $\mathcal{U}_{\mathit{b}_{\varepsilon_t}} \gets
 				\Call{getEventUtility}{\mathit{b}_{\varepsilon_t}, \mathit{g}_{t}}$
 				\State $\tau_{e} \gets \Call{getEmotionalThreshold}{ }$
-				\If {$( \mathcal{U}_{t} \geq \tau_{e} )$}
+				\If {$( \mathcal{U}_{\mathit{b}_{\varepsilon_t}} \geq \tau_{e} )$}
 				\State \Return {{\fontsize{8}{8}\selectfont RELEVANT}}
 				\Else
 					\State \Return {{\fontsize{8}{8}\selectfont IRRELEVANT}}
