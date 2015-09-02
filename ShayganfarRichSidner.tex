@@ -9,6 +9,7 @@
 \usepackage{tikz}
 \usepackage[noend]{algpseudocode}
 \usepackage{algorithm}
+\usepackage{cleveref}
 \usetikzlibrary{arrows,positioning,automata}
 \frenchspacing
 \setlength{\pdfpagewidth}{8.5in}
@@ -16,7 +17,7 @@
 \pdfinfo{
 /Title (Insert Your Title Here)
 /Author (Put All Your Authors Here, Separated by Commas)}
-\setcounter{secnumdepth}{0}  
+\setcounter{secnumdepth}{0}
  \begin{document}
 % The file aaai.sty is the style file for AAAI Press 
 % proceedings, working notes, and technical reports.
@@ -162,8 +163,7 @@ are most related to \textit{Affective Motivational Collaboration Theory}.
   regularly it appears as the result of an internal or an external event. The
   frequency of beliefs can impact attributes of the self's other Mental States.
   For instance, beliefs forming or maintaining intentions with direct
-  experiences (see Section \ref{section-intention-attributes}) are more likely
-  to occur frequently.
+  experiences are more likely to occur frequently.
   
   \item \textbf{\textit{Recency:}} The recency of a belief refers to how
   temporally close a particular belief is to the current state of collaboration.
@@ -198,10 +198,9 @@ b) its own private goal (how an action helps the agent to make progress), c) the
 collaboration goal (how an action helps to achieve the shared goal), and d)
 other's anticipated beliefs (how an action helps the other). Motives also
 possess a set of attributes, e.g., \textit{Insistence} or \textit{Failure
-Disruptiveness} (see Section \ref{section-motive-attributes}). These attributes
-are involved in comparison of newly generated motives based on the current state
-of the collaboration. Ultimately, the agent forms or updates a belief about the
-winning motive in the Mental States.
+Disruptiveness}. These attributes are involved in comparison of newly generated
+motives based on the current state of the collaboration. Ultimately, the agent
+forms or updates a belief about the winning motive in the Mental States.
 
 According to Sloman, motives can be compared on various dimensions
 \cite{sloman:motivation}. This comparison is based on motive attributes. In
@@ -277,10 +276,9 @@ the current action and self regulation. And lastly, intentions are involved in
 selecting intention-related strategies, e.g., planning, seeking instrumental
 support and procrastination, which these strategies are an essential category of
 the strategies in the Coping mechanism. Intentions possess a set of attributes,
-e.g. \textit{Involvement, Certainty, Ambivalence} (see Section
-\ref{section-intention-attributes}) which moderate the consistency between
-intention and behavior. The issue of consistency between the intentions (in
-collaboration) and the behaviors (as a result of the Coping mechanism in the
+e.g. \textit{Involvement, Certainty, Ambivalence} which moderate the consistency
+between intention and behavior. The issue of consistency between the intentions
+(in collaboration) and the behaviors (as a result of the Coping mechanism in the
 appraisal cycle) is important because neither of these two mechanisms alone
 provides solution for this concern.
 
@@ -323,10 +321,10 @@ in \textit{Affective Motivational Collaboration Theory}.
   chance the related motive has to be selected. Since the certainty of an
   intention depends on the associated motive, the nature of the pursued goal also
   implicitly impacts the certainty of that intention. A goal with higher
-  \textit{specificity} (see Section \ref{section-goal-attributes}) value
-  influences the Belief Formation process of a new motive by increasing the
-  certainty of the affiliated intention. The certainty of an intention is an
-  important moderator of the self's intention-behavior consistency.
+  \textit{specificity} value influences the Belief Formation process of a new
+  motive by increasing the certainty of the affiliated intention. The certainty
+  of an intention is an important moderator of the self's intention-behavior
+  consistency.
   
   \item \textbf{\textit{Ambivalence:}} The Mental States of the self might
   contain contradictory intentions towards the pursuit of the same goal, which
@@ -424,23 +422,22 @@ relevant goal attributes in this section.
 \subsubsection{Emotion Instance:}
 
 \textit{Emotions} in Mental States are emotion instances that are elicited by
-the Appraisal mechanism (see Section \ref{section-emotion-instances} for list of
-emotion types used in this model). The agent also keeps beliefs about these
-emotion instances in the Mental States. The Belief Formation mechanism creates
-or updates these beliefs about emotions. These emotion instances include the
-agent's own emotions as well as the anticipated emotions of the other which are
-created with the help of the processes in the Theory of Mind mechanism.
+the Appraisal mechanism for list of emotion types used in this model). The agent
+also keeps beliefs about these emotion instances in the Mental States. The
+Belief Formation mechanism creates or updates these beliefs about emotions.
+These emotion instances include the agent's own emotions as well as the
+anticipated emotions of the other which are created with the help of the
+processes in the Theory of Mind mechanism.
 
 Each emotion has its own functionality in either intrapersonal or interpersonal
 level. These emotions not only regulate the self's internal processes, but also
 assist the self to anticipate the other's Mental States. In this section, I
 provide the description of some of the emotions that can be elicited during
-collaboration, and are involved in our scenario (see Section
-\ref{example-scenario}). In this document, to avoid controversial issue of
-whether virtual agents or robots can feel emotions, I am going to use the
-convention of having emotions by the agent or the robot. The agent can also
-possess belief about an emotion instance which is similar to having belief about
-any other proposition.
+collaboration, and are involved in our scenario. In this document, to avoid
+controversial issue of whether virtual agents or robots can feel emotions, I am
+going to use the convention of having emotions by the agent or the robot. The
+agent can also possess belief about an emotion instance which is similar to
+having belief about any other proposition.
 
 \begin{itemize}
   \item \textbf{\textit{Joy:}} Joy is the state of an individual's well-being
@@ -469,8 +466,8 @@ any other proposition.
   \item \textbf{\textit{Pride:}} Pride is a product of the satisfied sense of
   one's own actions or decision outcomes. It implies the self-approval of the
   evaluation oucomes of one's own actions. Pride is associated with the
-  achievement motivation (see Section \ref{section-motivation-theory}) wherein
-  succeeding at a particular goal motivates the corresponding action.
+  achievement motivation wherein succeeding at a particular goal motivates the
+  corresponding action.
   
   \item \textbf{\textit{Shame:}} Shame is produced when one evaluates one's own
   actions or behaviors and attributes failure to the outcome. The individual
@@ -553,18 +550,17 @@ collaboration structure contains information about the collaboration's shared
 plan and the collaborators' shared goal, the temporal and the hierarchical
 constraints of the tasks, and the current focus of attention. 
 
-The social characteristics of collaboration (see Section
-\ref{conceptual-constructs}) are conceptual properties associated with
-collaboration. These concepts provide deeper understanding of the collaborative
-interactions in terms of the underlying processes from both the personal and the
-social perspectives. Furthermore, these concepts determine when each process
-is used during a collaboration and why. Lastly, the self will progressively
-generate and update various types of Mental States (discussed in Section
-\ref{mental-states-properties} and also Chapter \ref{computational-framework})
-during collaboration. The occurrence of a new external event causes a change in
-the self's Mental States. The construct of the new mental state, e.g., beliefs,
-are semantically connected to the older ones. The Appraisal mechanism uses the
-history of the Mental States to consistently evaluate a new external event.
+The social characteristics of collaboration (see Section are conceptual
+properties associated with collaboration. These concepts provide deeper
+understanding of the collaborative interactions in terms of the underlying
+processes from both the personal and the social perspectives. Furthermore, these
+concepts determine when each process is used during a collaboration and why.
+Lastly, the self will progressively generate and update various types of Mental
+States during collaboration. The occurrence of a new external event causes a
+change in the self's Mental States. The construct of the new mental state, e.g.,
+beliefs, are semantically connected to the older ones. The Appraisal mechanism
+uses the history of the Mental States to consistently evaluate a new external
+event.
 
 \subsection{Appraisal of Internal Events}
 
@@ -577,13 +573,13 @@ behaviors during the course of a collaboration. The Appraisal mechanism receives
 the output of the Theory of Mind and Motivation mechanisms as well as the
 available Mental States (e.g., beliefs about the current emotion instances of
 the self and the other) and evaluates the environment in terms of the appraisal
-variables whenever a new belief is generated. As mentioned in Section
-\ref{section-appraisal-external-event}, a) the collaboration structure, b) the
-social characteristic of the collaboration, and c) the history of the self's
-Mental States, are also crucial in the evaluation of internal events. The
-outcome of this appraisal process can result in a new belief about emotion
-instances, e.g. believing to have hope, or it can generate beliefs about
-different attributes of the Mental States of the self or the other.
+variables whenever a new belief is generated. As mentioned in Section, a) the
+collaboration structure, b) the social characteristic of the collaboration, and
+c) the history of the self's Mental States, are also crucial in the evaluation
+of internal events. The outcome of this appraisal process can result in a new
+belief about emotion instances, e.g. believing to have hope, or it can generate
+beliefs about different attributes of the Mental States of the self or the
+other.
 
 \subsection{Appraisal}
 
@@ -629,14 +625,15 @@ different attributes of the Mental States of the self or the other.
   about the appraisal of the self and the other that augment the model of what
   collaborators have done, and what and how they are planning to achieve the
   current shared goal based on their emotional states. This process will be
-  discussed in more detail under the Motivation mechanism (see Section
-  \ref{section-motivation-mechanism}). Additionally, the beliefs formed based on
-  the appraisals can impact other mechanisms such as the Theory of Mind,
-  Motivation and Coping, essentially including the whole computational model.
+  discussed in more detail under the Motivation mechanism. Additionally, the
+  beliefs formed based on the appraisals can impact other mechanisms such as the
+  Theory of Mind, Motivation and Coping, essentially including the whole
+  computational model.
   
 \end{itemize}
 
 \section{Mental Graph}
+\label{sec:mental-graph}
 
 A graph illustration of mental state and a clear short and desciptive
 walkthrough example.
@@ -666,15 +663,33 @@ grid,initial/.style    ={}]
 
 \section{Appraisal Processes}
 
-A short paragraph to describe what variable we have chosen and why.
+All of the algorithms use mental graph which is a directed acyclic graph
+cunstructed based on the mental states of the robot at each turn during the
+collaboration (see Section \ref{sec:mental-graph}). They also use the
+content of the most recent event at each turn which includes the associated
+goal and the belief about the event. The associated goals can be any type
+action, utterance, and emotional expression.
+
+The very first three algorithms, i.e., \textit{Relevance} (Algorithm
+\ref{alg:relevance}), \textit{Desirability} (Algorithm \ref{alg:desirability}),
+and \textit{Expectedness} (Algorithm \ref{alg:expectedness}) are the ones we
+found more important between the appraisal variables in collaboration context.
+There are other appraisal variables introduced in psychological
+\cite{scherer:appraisal-processes} and computational litrature
+\cite{marsella:computational-models} which we do not provide algorithms for them
+in this paper. The concept behind these variables are either too simple, e.g.,
+\textit{Perspective} (i.e., the view point that an event judged), or it requires
+a particular approach which is not our concern in this paper, e.g.,
+\textit{Likelihood} (i.e., how probable is the outcome of an event)
 
 \subsection{Relevance}
 
-Description + Algorithm + Example
+We present our first algorithm for determining whether the given external event
+is relevant.
 
 \begin{algorithm}
 	\caption{(Relevance)}
-	\label{array-sum}
+	\label{alg:relevance}
 	\begin{algorithmic}[1]
 		\Function{IsEventRelevant}{Graph $\mathcal{G}_{t}$, \textit{Event}
 		$\varepsilon_t$}
@@ -707,7 +722,7 @@ Description + Algorithm + Example
 
 \begin{algorithm}
 	\caption{(Desirability)}
-	\label{array-sum}
+	\label{alg:desirability}
 	\begin{algorithmic}[1]
 		\Function{IsEventDesirable}{Graph $\mathcal{G}_{t}$, \textit{Event}
 		$\varepsilon_t$}
@@ -760,7 +775,7 @@ Description + Algorithm + Example
 
 \begin{algorithm}
 	\caption{(Expectedness)}
-	\label{array-sum}
+	\label{alg:expectedness}
 	\begin{algorithmic}[1]
 		\Function{IsEventExpected}{Graph $\mathcal{G}_{t}$, \textit{Event}
 		$\varepsilon_t$}
