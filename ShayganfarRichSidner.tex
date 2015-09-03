@@ -664,39 +664,41 @@ grid,initial/.style    ={}]
 
 \section{Appraisal Processes}
 
-All of the algorithms use mental graph which is a directed acyclic graph
-cunstructed based on the mental states of the robot at each turn during the
+All of the algorithms use a mental graph which is a directed acyclic graph
+constructed based on the mental states of the robot at each turn during the
 collaboration (see Section \ref{sec:mental-graph}). They also use the
 content of the most recent event at each turn which includes the associated
 goal and the belief about the event. The associated goals can be any type
-action, utterance, and emotional expression.
+action, utterance, or emotional expression.
 
-The very first three algorithms, i.e., \textit{Relevance} (Algorithm
+We found four appraisal variables, i.e., \textit{Relevance} (Algorithm
 \ref{alg:relevance}), \textit{Desirability} (Algorithm \ref{alg:desirability}),
-and \textit{Expectedness} (Algorithm \ref{alg:expectedness}) are the ones we
-found more important between the appraisal variables in collaboration context.
+\textit{Expectedness} (Algorithm \ref{alg:expectedness}), and
+\textit{Controllability} (Algorithm \ref{alg:controllability}) to be more
+important than the other appraisal variables in a collaboration context.
 There are other appraisal variables introduced in psychological
-\cite{scherer:appraisal-processes} and computational litrature
-\cite{marsella:computational-models} which we do not provide algorithms for them
+\cite{scherer:appraisal-processes} and computational literature
+\cite{marsella:computational-models}; we do not provide algorithms for them
 in this paper. The concept behind these variables are either too simple, e.g.,
-\textit{Perspective} (i.e., the view point that an event judged), or it requires
-a particular approach which is not our concern in this paper, e.g.,
-\textit{Likelihood} (i.e., how probable is the outcome of an event)
+\textit{Perspective} (i.e., the view point from which an event is judged), or it
+requires a particular approach which is not our concern in this paper, e.g.,
+\textit{Likelihood} (i.e., how probable is the outcome of an event).
 
 \subsection{Relevance}
 
-We present our first algorithm for determining the relevance of the given
+Relevance as an appraisal variable measures the significance of an event for the
+robot. We present our first algorithm for determining the relevance of the given
 external event with respect to the status of the shared goal. The algorithm
 starts by taking the belief about the current event
 ($\mathit{b}_{\varepsilon_t}$), and extracting the shared goal associated with
 the current mental graph ($g_{t}$). After perceiving an event, the structure
 of the event will include a belief about that event which contains all the
 required information such as the belief attributes mentioned in Section
-\cref{sec:mental-states@cref}. The event will also include a corresponding goal
+\ref{sec:mental-states@cref}. The event will also include a corresponding goal
 irrespective of the event type (i.e., action, utterance, or emotional
 expression) which will be used in our following algorithms (see line 19 in
 Algorithm \ref{alg:desirability}). This event structure holds in all of our
-algorithms. Continuing in line 3, the $g_{t}$ represents the shared goal (in
+algorithms. Continuing in line 3, the $g_{t}$ represents the shared goal (in the
 mental graph) at time (turn) $t$ within the shared plan. In this line,
 \textit{F{\fontsize{8}{8}\selectfont IND}P{\fontsize{8}{8}\selectfont ATH}}
 receives the belief about the event and the current shared goal as input, and
@@ -709,22 +711,22 @@ and terminates. However, if there is a path between $\mathit{b}_{\varepsilon_t}$
 and $g_{t}$, we need a way to determine whether the event is relevant to the
 current collaboration status. Thus, we compute the utility of an event and make
 our decision with respect to the human's emotional state. In other words, the
-utility of a belief about an event is influenced by the perceived emotion of the
-human collaborator. In the algorithm, the \textit{G{\fontsize{8}{8}\selectfont
+relevance of a belief about an event is influenced by the perceived emotion of
+the human collaborator. In the algorithm, the \textit{G{\fontsize{8}{8}\selectfont
 ET}E{\fontsize{8}{8}\selectfont VENT}U{\fontsize{8}{8}\selectfont TILITY}}
 function (see line 8 in Algorithm \ref{alg:relevance}) computes the utility of
 the event $\mathcal{U}_{\mathit{b}_{\varepsilon_t}}(0 \leq
 \mathcal{U}_{\mathit{b}_{\varepsilon_t}} \leq 1)$ based on the values of the
-attributes associated to the belief about that event, i.e.,
+attributes associated with the belief about that event, i.e.,
 $\mathit{b}_{\varepsilon_t}$. And, the human's emotion influences the decision
 about the utility of the event in form of a threshold value ($\tau_{e}$).
 For instance, a positive expressed emotion of the human reduces the threshold
-value which consequently makes the robot to see an event with even a slightly
+value which consequently makes the robot see an event with even a slightly
 positive utility as a relevant one. Finally, if
 $\mathcal{U}_{\mathit{b}_{\varepsilon_t}}$ is greater than or equal to
-$\tau_{e}$ the event will be considered as \textit{relevant}, otherwise the
-event will be considered as \textit{irrelevant} even though that there is a path
-between $\mathit{b}_{\varepsilon_t}$ and $g_{t}$.
+$\tau_{e}$ the event will be considered \textit{relevant}; otherwise the event
+will be considered \textit{irrelevant} even though there is a path between
+$\mathit{b}_{\varepsilon_t}$ and $g_{t}$.
 
 \begin{algorithm}
 	\caption{(Relevance)}
@@ -861,7 +863,7 @@ Description + Algorithm + Example
 
 \begin{algorithm}
 	\caption{(Controllability)}
-	\label{array-sum}
+	\label{alg:controllability}
 	\begin{algorithmic}[1]
 		\Function{IsEventControllable}{\textit{Event} $\varepsilon_t$}
 			\Statex
