@@ -638,6 +638,9 @@ other.
 A graph illustration of mental state and a clear short and desciptive
 walkthrough example.
 
+The \textit{F{\fontsize{8}{8}\selectfont IND}P{\fontsize{8}{8}\selectfont ATH}}
+function uses the Dijkstra algorithm to find the shortest path.
+
 \begin{center}
 \begin{tikzpicture}[>=stealth',shorten >=1pt,node distance=1.75cm,on
 grid,initial/.style    ={}] 
@@ -691,59 +694,56 @@ emotional expression). This event structure holds in all of our algorithms.
 
 Relevance as an appraisal variable measures the significance of an event for the
 robot. Relevance is an important appraisal variable since the other appraisal
-dimensions are only derived for the relevant events. We present our first
-algorithm (Algorithm \ref{alg:relevance}) for determining the relevance of the
-given event with respect to the shared goal. Based on this algorithm, an event
-is \textit{irrelevant} if there is no connection between the event and the
-active shared goal. However, if there is a connection, the relevance of the
-event will depend on the significance of the event with respect to the current
-collaboration status. The significance of an event is determined based on the
-utility of the event as it is also presented in
-\cite{gratch:domain-independent,marsella:ema-process-model}. We believe
-although the utility of the event represents the sigificance of the event, the
-other collaborator's (human's) expressed emotion also plays a role by
-influencing the significance of a utility through a threshold. The algorithm
-starts by taking the belief about the current event
-($\mathit{b}_{\varepsilon_t}$), and extracting the shared goal associated with
-the current mental graph ($g_{t}$). After perceiving an event, the structure of
-the event will include a belief about that event which contains all the required
-information such as the belief attributes mentioned in Section
-\ref{sec:mental-states@cref}. Continuing in line 3, the $g_{t}$ represents the
-shared goal (in the mental graph) at time (turn) $t$ within the shared plan. In
-this line, \textit{F{\fontsize{8}{8}\selectfont IND}P{\fontsize{8}{8}\selectfont
-ATH}} returns the shortest path between the corresponding nodes of
-$\mathit{b}_{\varepsilon_t}$ and $g_{t}$ in the mental graph. The
-\textit{F{\fontsize{8}{8}\selectfont IND}P{\fontsize{8}{8}\selectfont ATH}}
-function uses the Dijkstra algorithm to find the shortest path. Now, if there is
-no path between the belief about the current event and the active shared goal,
-the algorithm finds the event \textit{irrelevent} to the current shared goal,
-and terminates. However, if there is a path between $\mathit{b}_{\varepsilon_t}$
-and $g_{t}$, we need a way to determine whether the event is relevant to the
-current collaboration status. Thus, we compute the utility of an event and make
-our decision with respect to the human's emotional state. In other words, the
+dimensions are only derived for the relevant events. 
+
+Algorithm \ref{alg:relevance} determines the relevance of the given event with
+respect to the shared goal. An event is \textit{irrelevant} if there is no
+connection between the event and the current shared goal. If there is a
+connection, the relevance of the event will depend on the significance of the
+event with respect to the current collaboration status. The significance of an
+event is determined based on the utility of the event as it is also presented in
+\cite{gratch:domain-independent,marsella:ema-process-model}. We believe although
+the utility of the event represents the sigificance of the event, the other
+collaborator's expressed emotion also plays a role by influencing the
+significance of the utility through a threshold. 
+
+The algorithm starts by taking the belief about the current event
+($\mathit{b}_{\varepsilon_t}$) and the shared goal associated with the current
+mental graph ($g_{t}$). After perceiving an event, it is the belief about that
+event which represents the event in robot's mental state. Continuing in line 3,
+the $g_{t}$ represents the shared goal (in the mental graph) at time (turn) $t$
+within the shared plan. Then, we find the shortest path ($\mathcal{P}_{t}$)
+between the corresponding nodes of $\mathit{b}_{\varepsilon_t}$ and $g_{t}$ in
+the mental graph. As we mentioned earlier, if there is no path between the
+belief about the current event and the active shared goal, the algorithm finds
+the event \textit{irrelevent} to the current shared goal, and terminates.
+However, if there is a path between $\mathit{b}_{\varepsilon_t}$ and $g_{t}$, we
+need a way to determine whether the event is relevant to the current
+collaboration status. Thus, we compute the utility of an event and make our
+decision with respect to the human's emotional state. In other words, the
 relevance of a belief about an event is influenced by the perceived emotion of
-the human collaborator. In the algorithm, the \textit{G{\fontsize{8}{8}\selectfont
+the human collaborator. 
+
+In line 8, the \textit{G{\fontsize{8}{8}\selectfont
 ET}E{\fontsize{8}{8}\selectfont VENT}U{\fontsize{8}{8}\selectfont TILITY}}
-function (see line 8 in Algorithm \ref{alg:relevance}) computes the utility of
-the event $\mathcal{U}_{\mathit{b}_{\varepsilon_t}}(0 \leq
-\mathcal{U}_{\mathit{b}_{\varepsilon_t}} \leq 1)$ based on the values of the
-attributes associated with the belief about that event, i.e.,
-$\mathit{b}_{\varepsilon_t}$. And, the human's emotion influences the decision
-about the utility of the event in form of a threshold value ($\tau_{e}$).
-For instance, a positive expressed emotion of the human reduces the threshold
-value which consequently makes the robot see an event with even a slightly
-positive utility as a relevant one. Finally, if
-$\mathcal{U}_{\mathit{b}_{\varepsilon_t}}$ is greater than or equal to
-$\tau_{e}$ the event will be considered \textit{relevant}; otherwise the event
-will be considered \textit{irrelevant} even though there is a path between
+function computes the utility of the event $\mathcal{U}$ such that ($0 \leq
+\mathcal{U} \leq 1$) based on the values of the attributes associated with the
+belief about that event, i.e., $\mathit{b}_{\varepsilon_t}$. And, the human's
+emotion influences the decision about the utility of the event in form of a
+threshold value ($\tau_{t}$). For instance, a positive expressed emotion of the
+human reduces the threshold value which consequently makes the robot see an
+event with even a slightly positive utility as a relevant one. Finally, if
+$\mathcal{U}$ is greater than or equal to $\tau_{t}$ the event will be
+considered \textit{relevant}; otherwise the event will be considered
+\textit{irrelevant} even though there is a path between
 $\mathit{b}_{\varepsilon_t}$ and $g_{t}$.
 
 \begin{algorithm}
 	\caption{(Relevance)}
 	\label{alg:relevance}
 	\begin{algorithmic}[1]
-		\Function{IsEventRelevant}{Graph $\mathcal{G}_{t}$, \textit{Event}
-		$\varepsilon_t$}
+		\Function{IsEventRelevant}{{\fontsize{8.5}{9}\selectfont MentalGraph}
+		$\mathcal{G}_{t}$, {\fontsize{8.5}{9}\selectfont Event} $\varepsilon_t$}
 			\Statex
 			\State $\mathit{b}_{\varepsilon_t} \gets \Call{getBelief}{\varepsilon_t}$
 			\State $\mathit{g}_{t} \gets \textit{currGoal}{(\mathcal{G}_{t})}$
@@ -756,7 +756,7 @@ $\mathit{b}_{\varepsilon_t}$ and $g_{t}$.
 			\Else
 				\State $\mathcal{U} \gets \Call{getEventUtility}{\mathit{b}_{\varepsilon_t},
 				\mathit{g}_{t}}$ 
-				\State $\tau_{t} \gets \Call{getEmotionalThreshold}{ }$
+				\State $\tau_{t} \gets \Call{getEmotionalThreshold}{\mathcal{G}_{t}}$
 				\If {$( \mathcal{U} \geq \tau_{t} )$}
 				\State \Return {{\fontsize{8}{8}\selectfont RELEVANT}}
 				\Else
