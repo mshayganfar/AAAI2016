@@ -532,7 +532,6 @@ causes the self to add a new intention to its own Mental States.
   focus of attention during the collaboration. All the other mechanisms in the
   overall \textit{Affective Motivational Collaboration Model} are influenced by
   changes in the collaboration plan.
-  
 \end{itemize}
 
 \subsection{Appraisal Mechanism}
@@ -678,31 +677,42 @@ We found four appraisal variables, i.e., \textit{Relevance} (Algorithm
 important than the other appraisal variables in a collaboration context.
 There are other appraisal variables introduced in psychological
 \cite{scherer:appraisal-processes} and computational literature
-\cite{marsella:computational-models}; we do not provide algorithms for them
-in this paper. The concept behind these variables are either too simple, e.g.,
+\cite{gratch:domain-independent}; we do not provide algorithms for them in this
+paper. The concept behind these variables are either too simple, e.g.,
 \textit{Perspective} (i.e., the view point from which an event is judged), or it
 requires a particular approach which is not our concern in this paper, e.g.,
 \textit{Likelihood} (i.e., how probable is the outcome of an event).
 
+The \textit{recognizeGoal()} function returns the unique goal to which the event
+directly contributes irrespective of the event type (i.e., action, utterance, or
+emotional expression). This event structure holds in all of our algorithms.
+
 \subsection{Relevance}
 
 Relevance as an appraisal variable measures the significance of an event for the
-robot. We present our first algorithm for determining the relevance of the given
-external event with respect to the status of the shared goal. The algorithm
+robot. Relevance is an important appraisal variable since the other appraisal
+dimensions are only derived for the relevant events. We present our first
+algorithm (Algorithm \ref{alg:relevance}) for determining the relevance of the
+given event with respect to the shared goal. Based on this algorithm, an event
+is \textit{irrelevant} if there is no connection between the event and the
+active shared goal. However, if there is a connection, the relevance of the
+event will depend on the significance of the event with respect to the current
+collaboration status. The significance of an event is determined based on the
+utility of the event as it is also presented in
+\cite{gratch:domain-independent,marsella:ema-process-model}. We believe
+although the utility of the event represents the sigificance of the event, the
+other collaborator's (human's) expressed emotion also plays a role by
+influencing the significance of a utility through a threshold. The algorithm
 starts by taking the belief about the current event
 ($\mathit{b}_{\varepsilon_t}$), and extracting the shared goal associated with
-the current mental graph ($g_{t}$). After perceiving an event, the structure
-of the event will include a belief about that event which contains all the
-required information such as the belief attributes mentioned in Section
-\ref{sec:mental-states@cref}. The event will also include a corresponding goal
-irrespective of the event type (i.e., action, utterance, or emotional
-expression) which will be used in our following algorithms (see line 19 in
-Algorithm \ref{alg:desirability}). This event structure holds in all of our
-algorithms. Continuing in line 3, the $g_{t}$ represents the shared goal (in the
-mental graph) at time (turn) $t$ within the shared plan. In this line,
-\textit{F{\fontsize{8}{8}\selectfont IND}P{\fontsize{8}{8}\selectfont ATH}}
-receives the belief about the event and the current shared goal as input, and
-returns the shortest path between these two nodes in the mental graph. The
+the current mental graph ($g_{t}$). After perceiving an event, the structure of
+the event will include a belief about that event which contains all the required
+information such as the belief attributes mentioned in Section
+\ref{sec:mental-states@cref}. Continuing in line 3, the $g_{t}$ represents the
+shared goal (in the mental graph) at time (turn) $t$ within the shared plan. In
+this line, \textit{F{\fontsize{8}{8}\selectfont IND}P{\fontsize{8}{8}\selectfont
+ATH}} returns the shortest path between the corresponding nodes of
+$\mathit{b}_{\varepsilon_t}$ and $g_{t}$ in the mental graph. The
 \textit{F{\fontsize{8}{8}\selectfont IND}P{\fontsize{8}{8}\selectfont ATH}}
 function uses the Dijkstra algorithm to find the shortest path. Now, if there is
 no path between the belief about the current event and the active shared goal,
@@ -736,7 +746,7 @@ $\mathit{b}_{\varepsilon_t}$ and $g_{t}$.
 		$\varepsilon_t$}
 			\Statex
 			\State $\mathit{b}_{\varepsilon_t} \gets \Call{getBelief}{\varepsilon_t}$
-			\State $\mathit{g}_{t} \gets \Call{extractGoal}{\mathcal{G}_{t}}$
+			\State $\mathit{g}_{t} \gets \textit{currGoal}{(\mathcal{G}_{t})}$
 			\Statex
 			\State $\mathcal{P}_{t} \gets \Call{findPath}{\mathit{b}_{\varepsilon_t},
 			\mathit{g}_{t}}$
@@ -744,17 +754,16 @@ $\mathit{b}_{\varepsilon_t}$ and $g_{t}$.
 			\If {$(\mathcal{P}_{t} = \emptyset)$}
 				\State \Return {{\fontsize{8}{8}\selectfont IRRELEVANT}}
 			\Else
-				\State $\mathcal{U}_{\mathit{b}_{\varepsilon_t}} \gets
-				\Call{getEventUtility}{\mathit{b}_{\varepsilon_t}, \mathit{g}_{t}}$
-				\State $\tau_{e} \gets \Call{getEmotionalThreshold}{ }$
-				\If {$( \mathcal{U}_{\mathit{b}_{\varepsilon_t}} \geq \tau_{e} )$}
+				\State $\mathcal{U} \gets \Call{getEventUtility}{\mathit{b}_{\varepsilon_t},
+				\mathit{g}_{t}}$ 
+				\State $\tau_{t} \gets \Call{getEmotionalThreshold}{ }$
+				\If {$( \mathcal{U} \geq \tau_{t} )$}
 				\State \Return {{\fontsize{8}{8}\selectfont RELEVANT}}
 				\Else
 					\State \Return {{\fontsize{8}{8}\selectfont IRRELEVANT}}
 				\EndIf
 			\EndIf
 		\EndFunction
-		\State \textbf{end function}
 	\end{algorithmic}
 \end{algorithm}
 

@@ -17,8 +17,8 @@ Cooke, R., and Sheeran, P.
 \newblock {\em British Journal of Social Psychology} 43:159--186.
 
 \bibitem[\protect\citeauthoryear{Gratch and
-  C.Marsella}{2004}]{gratch:domain-independent}
-Gratch, J., and C.Marsella, S.
+  Marsella}{2004}]{gratch:domain-independent}
+Gratch, J., and Marsella, S.~C.
 \newblock 2004.
 \newblock A domain-independent framework for modeling emotion.
 \newblock {\em Cognitive Systems Research} 5(4):269--306.
@@ -32,14 +32,12 @@ Grosz, B.~J., and Sidner, C.~L.
   Intentions in Communication}. Cambridge, MA: MIT Press.
 \newblock  417--444.
 
-\bibitem[\protect\citeauthoryear{Marsella, Grath, and
-  Petta}{2010}]{marsella:computational-models}
-Marsella, S.; Grath, J.; and Petta, P.
-\newblock 2010.
-\newblock Computational models of emotion.
-\newblock In Klaus R.~Scherer, Tanja~Banziger, E.~R., ed., {\em A Blueprint for
-  Affective Computing: A Sourcebook and Manual}. Oxford University Press.
-\newblock  21--41.
+\bibitem[\protect\citeauthoryear{Marsella and
+  Gratch}{2009}]{marsella:ema-process-model}
+Marsella, S.~C., and Gratch, J.
+\newblock 2009.
+\newblock {EMA}: A process model of appraisal dynamics.
+\newblock {\em Cognitive Systems Research} 10(1):70--90.
 
 \bibitem[\protect\citeauthoryear{Scherer, Schorr, and
   Johnstone}{2001}]{scherer:appraisal-processes}
