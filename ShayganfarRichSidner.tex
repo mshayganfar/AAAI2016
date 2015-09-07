@@ -773,33 +773,23 @@ Desirability characterizes the value of an event to the robot in terms of
 whether the event facilitates or thwarts the collaboration goal. Desirability
 captures the valence of an event with repect to the robot's preferences
 \cite{gratch:domain-independent}. In a collaborative robot preferences are
-biased towards those events facilitating the progress in collaboration. An event
-is desirable if it somehow facilitates the state of the shared goal, or if it
-inhibits an incosistent goal with respect to that goal. 
-
-\subsection{Desirability}
-
-Desirability characterizes the value of an event to the robot in terms of
-whether the event facilitates or thwarts the collaboration goal. Desirability
-captures the valence of an event with repect to the robot's preferences
-\cite{gratch:domain-independent}. In a collaborative robot preferences are
-biased towards those events facilitating the progress in collaboration. An event
+biased towards those events facilitating progress in the collaboration. An event
 is desirable if it somehow facilitates the state of the shared goal, or if it
 inhibits an incosistent goal with respect to that goal. 
 
 Desirability plays an important role in the overall architecture; it makes the
 processes involved in the other mechanisms (e.g., Motivation or Theory of Mind)
-and consequently the robot's mental state consistent to the collaboration
-status. Therefore, it causes the robot to dismiss events causing
-inconsistencies in robot's collaborative behavior. Moreover, desirability is
-also crucial from the collaboration's point of view. A collaborative robot needs
-to know whether the robot and the other collaborator's actions, utterances, and
-emotional expressions are desirable in terms of their consistence with the
-status of the current shared goal. In other words, the collaboration mechanism
-uses the appraisal process of desirability to coordinate what the self or the
-other do, say, and express during collaboration. And correspondingly, in general
-the appraisal mechanism and more specifically the desirability process use the
-collaboration structure to obtain their required information to process.
+and consequently the robot's mental state consistent with the collaboration
+status. Therefore, it causes the robot to dismiss events causing inconsistencies
+in the robot's collaborative behavior. Moreover, desirability is also crucial
+from the collaboration's point of view. A collaborative robot needs to know
+whether its own and the other collaborator's actions, utterances, and emotional
+expressions are desirable in terms of their consistence with the status of the
+current shared goal. In other words, the collaboration mechanism uses the
+appraisal process of desirability to coordinate what the self or the other does,
+says, and expresses during collaboration. Reciprocally, the appraisal mechanism
+and in this case the desirability process use the collaboration structure to
+obtain their required information.
 
 Algorithm \ref{alg:desirability} provides a process in which the desirability of
 an event is computed with regard to the status of the shared goal; i.e., it
@@ -812,20 +802,21 @@ still in progress, it continues by checking the status of the current shared
 goal (lines 7 to 13). If any of the top level and current shared goals are
 achieved in these two steps, the robot interprets the event as a desirable one.
 However, if any of these goals are blocked, the event will be considered
-underiable by the robot. The algorithm continues in case of an unknown status of
-the current shared goal, and checks whether the precondition(s) of the
-associated goal to the current event are satisfied (lines 17 to 21).
-Intuitively, the robot prefers the satisfied perconditions and interprets the
-event as desirable while unsatisfied perconditions are undesirable for the
-robot. For instance, a satisfied precondition of a future goal is still
-desirable for the robot to some extent. Note that the robot also checks the
-ambiguity of the associted goal to the current event (line 15). An ambiguous
-goal is a goal which is not recognized in the robot's plan, and it is
-undesirable for the robot. Afterall, if the preconditions of the associated goal
-to the current event are unknown, the robot checks whether this goal contributes
-to the current shared goal (lines 22 to 25). As a result a contributing goal will
-obtain a neutral desirability in compare to a noncontributing goal which will be
-undesirable for the robot.
+undesirable by the robot. The algorithm continues in the case of an unknown
+status of the current shared goal, and checks whether the precondition(s) of the
+associated goal with the current event, $\mathit{g}_{\varepsilon_t}$, are
+satisfied (lines 17 to 21). Intuitively, the robot prefers the satisfied
+perconditions and interprets the event as desirable while unsatisfied
+preconditions are undesirable for the robot. For instance, a satisfied
+precondition of a future goal is still desirable for the robot to some extent.
+Note that the robot also checks the ambiguity of the associated goal with the
+current event (line 15). An ambiguous goal is a goal which is not recognized in
+the robot's plan, and it is undesirable for the robot. Afterall, if the
+preconditions of the associated goal with the current event are unknown, the
+robot checks whether this goal, $\mathit{g}_{\varepsilon_t}$, contributes to the
+current shared goal, $\mathit{g}_{t}$ (lines 22 to 25). As a result a
+contributing goal will obtain a neutral desirability in comparison with a
+noncontributing goal which will be undesirable for the robot.
 
 \begin{algorithm}
 	\caption{(Desirability)}
@@ -866,6 +857,8 @@ undesirable for the robot.
 						\State \Return {{\fontsize{8}{8}\selectfont LOW-UNDESIRABLE}}
 					\ElsIf {(\textit{precondStatus($\mathit{g}_{\varepsilon_t}$)} =
 					{\fontsize{7}{8}\selectfont UNKNOWN})}
+						\Statex
+						\State $\mathit{g}_{t} \gets \textit{currGoal}{(\mathcal{G}_{t})}$
 						\Statex
 						\If {(\textit{doesContribute}$(\mathit{g}_{\varepsilon_t}, \mathit{g}_{t}))$}
 							\State \Return {{\fontsize{8}{8}\selectfont NEUTRAL}}
@@ -922,7 +915,6 @@ Description + Algorithm + Example
 				\EndIf
 			\EndIf
 		\EndFunction
-		\State \textbf{end function}
 	\end{algorithmic}
 \end{algorithm}
 
