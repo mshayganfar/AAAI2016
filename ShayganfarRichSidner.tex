@@ -989,6 +989,16 @@ collaborators' control. In other words, controllability is a measure of a
 robot's ability to maintain or change a particular state as a conosequence of an
 event.
 
+Controllability is also important for the overall architecture. For instance,
+the robot can choose to ask or negotiate about a collaborative task which is
+not controllable; it can cause the robot to interpret or predict the other's
+emotional state (e.g., anger if the task is blocked; i.e., uncontrollable), or
+form a new motive to establish an alternative goal for the current
+uncontrollable event. In general, other mechanisms in the architecture use the
+appraisal process of controllability in their decision making processes, while
+the controllability uses the information from the collaboration structure,
+e.g., successful predecessors of a goal.
+
 \begin{algorithm}
 	\caption{(Controllability)}
 	\label{alg:controllability}
@@ -1016,71 +1026,19 @@ event.
 				\State \Return {{\fontsize{8}{8}\selectfont UNCONTROLLABLE}}
 			\EndIf
 		\EndFunction
-		\State \textbf{end function}
 	\end{algorithmic}
 \end{algorithm}
 
-\begin{algorithm}
-	\caption{(Get Succeeded Predecessors Ratio)}
-	\label{array-sum}
-	\begin{algorithmic}[1]
-		\Function{GetSucPredecessorsRatio}{Event $\varepsilon_t$}
-			\Statex
-			\State $\mathit{g}_{\varepsilon_t} \gets \Call{getGoal}{\varepsilon_t}$
-			\Statex
-			\If {$(\mathit{g}_{\varepsilon_t} =$ {\fontsize{8}{8}\selectfont
-			AMBIGUOUS}$)$} 
-				\State \Return {0.0}
-			\EndIf
-			\Statex
-			\State $\Theta{\mathit{g}} \gets
-			\Call{extractPredecessors}{\mathit{g}_{\varepsilon_t}}$
-			\Statex
-			\ForAll {$\theta_{\mathit{g}}^i \in \Theta_{\mathit{g}}$}
-				\If {$(\Call{IsAchieved}{\theta_{\mathit{g}}^i})$}
-					\State $count_{achieved} \gets count_{achieved} + 1$
-				\EndIf
-			\EndFor
-			\Statex
-			\State \Return
-			${count_{achieved} \mathbin{/} {\Theta{\mathit{g}}.total()}}$
-		\EndFunction 
-	\State \textbf{end function}
-	\end{algorithmic}
-\end{algorithm}
-
-\begin{algorithm}
-	\caption{(Get Available Input Ratio)}
-	\label{array-sum}
-	\begin{algorithmic}[1]
-		\Function{GetAvailableInputRatio}{Event $\varepsilon_t$}
-			\Statex
-			\State $\mathit{g}_{\varepsilon_t} \gets \Call{getGoal}{\varepsilon_t}$
-			\Statex
-			\If {$(\mathit{g}_{\varepsilon_t} =$ {\fontsize{8}{8}\selectfont
-			AMBIGUOUS}$)$} 
-				\State \Return {0.0}
-			\EndIf
-			\Statex
-			\State $\mathcal{X}_{\mathit{g}} \gets
-			\Call{extractInputs}{\mathit{g}_{\varepsilon_t}}$
-			\Statex
-			\ForAll {$\chi_{\mathit{g}}^i \in \mathcal{X}_{\mathit{g}}$}
-				\If {$(\Call{IsAvailable}{\chi_{\mathit{g}}^i})$}
-					\State $count_{available} \gets count_{available} + 1$
-				\EndIf
-			\EndFor
-			\Statex
-			\State \Return
-			${count_{available} \mathbin{/} \mathcal{X}_{\mathit{g}}.total()}$
-		\EndFunction 
-	\State \textbf{end function}
-	\end{algorithmic}
-\end{algorithm}
+In Algorithm \ref{alg:controllability}, we compute the controllability of an
+event based on four different factors of a) \textit{agency} and b)
+\textit{autonomy} of the robot, as well as the ratios of c) \textit{successful
+predecessors}, and d) the \textit{available inputs} of the goal in the shared
+plan ($\mathit{g}_{\varepsilon_t}$) associated with the current event (lines 2
+to 5).
 
 \begin{algorithm}
 	\caption{(Get Agency Ratio)}
-	\label{array-sum}
+	\label{alg:agency}
 	\begin{algorithmic}[1]
 		\Function{GetAgencyRatio}{Event $\varepsilon_t$}
 			\Statex
@@ -1104,13 +1062,14 @@ event.
 			\State \Return 
 			${count_{self} \mathbin{/} {{\Phi_{\mathit{g}}}.total()}}$
 		\EndFunction 
-	\State \textbf{end function}
 	\end{algorithmic}
 \end{algorithm}
 
+In Algorithm \ref{alg:agency}, we compute the agency of a robot.
+
 \begin{algorithm}
 	\caption{(Get Autonomy Ratio)}
-	\label{array-sum}
+	\label{alg:autonomy}
 	\begin{algorithmic}[1]
 		\Function{GetAutonomyRatio}{Event $\varepsilon_t$}
 			\Statex
@@ -1134,11 +1093,66 @@ event.
 				\EndIf
 			\EndIf
 		\EndFunction 
-	\State \textbf{end function}
 	\end{algorithmic}
 \end{algorithm}
 
-\section{Conclusion}
+\begin{algorithm}
+	\caption{(Get Succeeded Predecessors Ratio)}
+	\label{alg:predecessors}
+	\begin{algorithmic}[1]
+		\Function{GetSucPredecessorsRatio}{Event $\varepsilon_t$}
+			\Statex
+			\State $\mathit{g}_{\varepsilon_t} \gets \Call{getGoal}{\varepsilon_t}$
+			\Statex
+			\If {$(\mathit{g}_{\varepsilon_t} =$ {\fontsize{8}{8}\selectfont
+			AMBIGUOUS}$)$} 
+				\State \Return {0.0}
+			\EndIf
+			\Statex
+			\State $\Theta{\mathit{g}} \gets
+			\Call{extractPredecessors}{\mathit{g}_{\varepsilon_t}}$
+			\Statex
+			\ForAll {$\theta_{\mathit{g}}^i \in \Theta_{\mathit{g}}$}
+				\If {$(\Call{IsAchieved}{\theta_{\mathit{g}}^i})$}
+					\State $count_{achieved} \gets count_{achieved} + 1$
+				\EndIf
+			\EndFor
+			\Statex
+			\State \Return
+			${count_{achieved} \mathbin{/} {\Theta{\mathit{g}}.total()}}$
+		\EndFunction 
+	\end{algorithmic}
+\end{algorithm}
+
+\begin{algorithm}
+	\caption{(Get Available Input Ratio)}
+	\label{alg:inputs}
+	\begin{algorithmic}[1]
+		\Function{GetAvailableInputRatio}{Event $\varepsilon_t$}
+			\Statex
+			\State $\mathit{g}_{\varepsilon_t} \gets \Call{getGoal}{\varepsilon_t}$
+			\Statex
+			\If {$(\mathit{g}_{\varepsilon_t} =$ {\fontsize{8}{8}\selectfont
+			AMBIGUOUS}$)$} 
+				\State \Return {0.0}
+			\EndIf
+			\Statex
+			\State $\mathcal{X}_{\mathit{g}} \gets
+			\Call{extractInputs}{\mathit{g}_{\varepsilon_t}}$
+			\Statex
+			\ForAll {$\chi_{\mathit{g}}^i \in \mathcal{X}_{\mathit{g}}$}
+				\If {$(\Call{IsAvailable}{\chi_{\mathit{g}}^i})$}
+					\State $count_{available} \gets count_{available} + 1$
+				\EndIf
+			\EndFor
+			\Statex
+			\State \Return
+			${count_{available} \mathbin{/} \mathcal{X}_{\mathit{g}}.total()}$
+		\EndFunction 
+	\end{algorithmic}
+\end{algorithm}
+
+\section{Conclusion \& Future Work}
 
 Discussion about the application of the appraisal process in different
 mechanisms in our computational theory including Motivation mechanism. 
