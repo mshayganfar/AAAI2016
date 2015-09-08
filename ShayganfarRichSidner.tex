@@ -780,17 +780,17 @@ goal.
 
 Desirability plays an important role in the overall architecture; it makes the
 processes involved in the other mechanisms (e.g., Motivation or Theory of Mind)
-and consequently the robot's mental state consistent with the collaboration
-status. Therefore, it causes the robot to dismiss events causing inconsistencies
-in the robot's collaborative behavior. Moreover, desirability is also crucial
-from the collaboration's point of view. A collaborative robot needs to know
-whether its own and the other collaborator's actions, utterances, and emotional
-expressions are desirable in terms of their consistence with the status of the
-current shared goal. In other words, the collaboration mechanism uses the
-appraisal process of desirability to coordinate what the self or the other does,
-says, and expresses during collaboration. Reciprocally, the appraisal mechanism
-and in this case the desirability process use the collaboration structure to
-obtain their required information.
+and consequently the robot's mental state congruent with the collaboration
+status which is the robot's desire. Therefore, it causes the robot to dismiss
+events causing inconsistencies in the robot's collaborative behavior. Moreover,
+desirability is also crucial from the collaboration's point of view. A
+collaborative robot needs to know whether its own and the other collaborator's
+actions, utterances, and emotional expressions are desirable in terms of their
+consistence with the status of the current shared goal. In other words, the
+collaboration mechanism uses the appraisal process of desirability to coordinate
+what the self or the other does, says, and expresses during collaboration.
+Reciprocally, the appraisal mechanism and in this case the desirability process
+use the collaboration structure to obtain their required information.
 
 Algorithm \ref{alg:desirability} provides a process in which the desirability of
 an event is computed with regard to the status of the shared goal; i.e., it
@@ -803,21 +803,23 @@ still in progress, it continues by checking the status of the current shared
 goal (lines 7 to 13). If any of the top level and current shared goals are
 achieved in these two steps, the robot interprets the event as a desirable one.
 However, if any of these goals are blocked, the event will be considered
-undesirable by the robot. The algorithm continues in the case of an unknown
-status of the current shared goal, and checks whether the precondition(s) of the
-associated goal with the current event, $\mathit{g}_{\varepsilon_t}$, are
-satisfied (lines 17 to 21). Intuitively, the robot prefers the satisfied
-perconditions and interprets the event as desirable while unsatisfied
-preconditions are undesirable for the robot. For instance, a satisfied
-precondition of a future goal is still desirable for the robot to some extent.
-Note that the robot also checks the ambiguity of the associated goal with the
-current event (line 15). An ambiguous goal is a goal which is not recognized in
-the robot's plan, and it is undesirable for the robot. Afterall, if the
-preconditions of the associated goal with the current event are unknown, the
-robot checks whether this goal, $\mathit{g}_{\varepsilon_t}$, contributes to the
-current shared goal, $\mathit{g}_{t}$ (lines 22 to 25). As a result a
-contributing goal will obtain a neutral desirability in comparison with a
-noncontributing goal which will be undesirable for the robot.
+undesirable by the robot. 
+
+The algorithm continues in the case of an unknown status of the current shared
+goal, and checks whether the precondition(s) of the associated goal with the
+current event, $\mathit{g}_{\varepsilon_t}$, are satisfied (lines 17 to 21).
+Intuitively, the robot prefers the satisfied perconditions and interprets the
+event as desirable while unsatisfied preconditions are undesirable for the
+robot. For instance, a satisfied precondition of a future goal is still
+desirable for the robot to some extent. Note that the robot also checks the
+ambiguity of the associated goal with the current event (line 15). An ambiguous
+goal is a goal which is not recognized in the robot's plan, and it is
+undesirable for the robot. Afterall, if the preconditions of the associated goal
+with the current event are unknown, the robot checks whether this goal,
+$\mathit{g}_{\varepsilon_t}$, contributes to the current shared goal,
+$\mathit{g}_{t}$ (lines 22 to 25). As a result a contributing goal will obtain a
+neutral desirability in comparison with a noncontributing goal which will be
+undesirable for the robot.
 
 \begin{algorithm}
 	\caption{(Desirability)}
@@ -884,6 +886,25 @@ of an event measures the congruency of the event with respect to the existing
 knowledge about the shared goal. Therefore, expected events are those of which
 beliefs about them are congruent to the status of the collaboration since their
 associated goals are expected with respect to the shared plan.
+
+Expectedness underlies a collaborative robot's attention by marking the
+congruent events with respect to the structure of an existing shared plan.
+Congruent beliefs in robot's mental state will lead to more consistent and
+effective outcome of the processes in the overall architecture. Therefore,
+a collaborative robot uses expectedness to maintain its own mental state towards
+the shared goal. The robot will be also able to respond to unexpected but
+relevant events. As a result, the collaboration mechanism uses expectedness to
+maintain robot's attention and subsequently its mental state with respect to the
+shared goal. And, appraisal mechanism uses the underlying information of the
+collaboration structure to evaluate expectedness of an event.
+
+In algorithm \ref{alg:expectedness} we provide the process of expectedness based
+on the shared plan and status of the shared goal. The key point in this
+algorithm is the status of the current shared goal ($\mathit{g}_{t}$) and its
+relationship with the associated goal with the current event 
+($\mathit{g}_{\varepsilon_t}$).  It receives the current mental graph,
+$\mathcal{G}_{t}$, and the current event, $\varepsilon_t$, from input, and
+decides whether the current event is expected. First,
 
 \begin{algorithm}
 	\caption{(Expectedness)}

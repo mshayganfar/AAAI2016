@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.10.5)  7 SEP 2015 21:53
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.10.5)  8 SEP 2015 00:44
 entering extended mode
  restricted \write18 enabled.
  Source specials enabled.
@@ -539,15 +539,15 @@ Underfull \vbox (badness 1852) has occurred while \output is active []
  [6]
 [7]
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <9> on input line 857.
+(Font)              <9> on input line 859.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 857.
- [8] (./ShayganfarRichSidner.bbl
+(Font)              <6> on input line 859.
+ [8] (./ShayganfarRichSidner.bbl [9]
 Underfull \hbox (badness 1931) in paragraph at lines 12--18
 [][]\OT1/ptm/m/n/10 Cooke, R., and Sheeran, P.  2004.  Mod-er-a-tion of
  []
 
-[9]) [10] (./ShayganfarRichSidner.aux)
+) [10] (./ShayganfarRichSidner.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
@@ -555,7 +555,7 @@ LaTeX Warning: There were multiply-defined labels.
 Here is how much of TeX's memory you used:
  13002 strings out of 495028
  258479 string characters out of 6181497
- 330383 words of memory out of 5000000
+ 330381 words of memory out of 5000000
  15950 multiletter control sequences out of 15000+600000
  33787 words of font info for 59 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
@@ -576,7 +576,7 @@ xmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/share/texlive/texmf-dis
 t/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/u
 rw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8
 a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on ShayganfarRichSidner.pdf (10 pages, 234415 bytes).
+Output written on ShayganfarRichSidner.pdf (10 pages, 235372 bytes).
 PDF statistics:
  122 PDF objects out of 1000 (max. 8388607)
  87 compressed objects within 1 object stream
