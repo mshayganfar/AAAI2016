@@ -906,24 +906,24 @@ relationship with the associated goal with the current event
 graph, $\mathcal{G}_{t}$, and the current event, $\varepsilon_t$, from input,
 and decides whether the current event is expected. 
 
-First, we need to have the goal in the current mental graph and the recognized
-goal associated with the current event. Similar to the desirability algorithm
-(Algorithm \ref{alg:desirability}), in this algorithm we also check whether the
-$\mathit{g}_{\varepsilon_t}$ is ambiguous. In case of the ambiguity of
-$\mathit{g}_{\varepsilon_t}$, we consider the current event unexpected since an
-effective collaboration requires perceivable and unambiguous goals asscoiated to
-the events. We continue by the comparison of the current shared goal and the
+First, we need to extract the goal in the current mental graph and the
+recognized goal associated with the current event. Similar to the desirability
+algorithm (Algorithm \ref{alg:desirability}), in this algorithm first we check
+whether the $\mathit{g}_{\varepsilon_t}$ is ambiguous. In case of the ambiguity
+of $\mathit{g}_{\varepsilon_t}$, we consider the current event unexpected since
+an effective collaboration requires perceivable and unambiguous goals asscoiated
+to the events. We continue by the comparison of the current shared goal and the
 recognized goal associated to the current event with respect to the shared plan.
 If these two goals are not the same, it is possible that the current shared goal
 is already achieved. The event will be unexpected (line 10) if the current
-shared goal is not achieved and the current event refers to another goal.
-However, if the current goal is achieved, it is important to see whether its
-parent is also achieved (line 12). This step is important because the event can
-be expected if the new goal contributes to the parent of the recently achieved
-goal. Therefore, if the parent goal in the hierarchical plan is not achieved,
-the contribution of the associated goal to the current event can help us to
-decide whether the event is expected (lines 12 to 16). However, if the parent
-goal is already achieved, the new goal can contribute (as a child) to the
+shared goal is not achieved and the current event does not refer to the same
+goal. However, if the current goal is achieved, it is important to see whether
+its parent is also achieved (line 12). This step is important because the event
+can be expected if the new goal contributes to the parent of the recently
+achieved goal. Therefore, if the parent goal in the hierarchical plan is not
+achieved, the contribution of the associated goal to the current event can help
+us to decide whether the event is expected (lines 12 to 16). However, if the
+parent goal is already achieved, the new goal can contribute (as a child) to the
 recently achieved shared goal, i.e., $\mathit{g}_{t}$, which is also expected
 (line 19). On the contrary, if the new goal does not contribute to
 $\mathit{g}_{t}$, it might be a goal in another branch in the shared plan which
