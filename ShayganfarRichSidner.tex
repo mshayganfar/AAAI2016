@@ -861,7 +861,8 @@ noncontributing goal which will be undesirable for the robot.
 						\Statex
 						\State $\mathit{g}_{t} \gets \textit{currGoal}{(\mathcal{G}_{t})}$
 						\Statex
-						\If {(\textit{doesContribute}$(\mathit{g}_{\varepsilon_t}, \mathit{g}_{t}))$}
+						\If {$(\textit{doesContribute}(\mathit{g}_{\varepsilon_t},
+						\mathit{g}_{t}))$} 
 							\State \Return {{\fontsize{8}{8}\selectfont NEUTRAL}}
 						\ElsIf {$(\neg
 						\textit{doesContribute}(\mathit{g}_{\varepsilon_t},\mathit{g}_{t})$}
@@ -876,17 +877,22 @@ noncontributing goal which will be undesirable for the robot.
 
 \subsection{Expectedness}
 
-Description + Algorithm + Example
+Expectedness is the extent to which the truth value of a state could have been
+predicted from causal interpretation of an event
+\cite{marsella:ema-process-model}. In the collaboration context the expectedness
+of an event measures the congruency of the event with respect to the existing
+knowledge about the shared goal. Therefore, expected events are those of which
+beliefs about them are congruent to the status of the collaboration since their
+associated goals are expected with respect to the shared plan.
 
 \begin{algorithm}
 	\caption{(Expectedness)}
 	\label{alg:expectedness}
 	\begin{algorithmic}[1]
-		\Function{IsEventExpected}{Graph $\mathcal{G}_{t}$, \textit{Event}
-		$\varepsilon_t$}
+		\Function{IsEventExpected}{Graph $\mathcal{G}_{t}$, Event $\varepsilon_t$}
 			\Statex
-			\State $\mathit{g}_{t} \gets \Call{extractGoal}{\mathcal{G}_{t}}$
-			\State $\mathit{g}_{\varepsilon_t} \gets \Call{getGoal}{\varepsilon_t}$
+			\State $\mathit{g}_{t} \gets \textit{currGoal}{(\mathcal{G}_{t})}$
+			\State $\mathit{g}_{\varepsilon_t} \gets \textit{recognizeGoal}{(\varepsilon_t)}$
 			\Statex
 			\If {$(\mathit{g}_{\varepsilon_t} =$ {\fontsize{8}{8}\selectfont
 			AMBIGUOUS}$)$}
@@ -899,18 +905,25 @@ Description + Algorithm + Example
 				\If {$(\neg \Call{IsAchieved}{\mathit{g}_{t}})$}
 					\State \Return {\fontsize{8}{8}\selectfont UNEXPECTED}
 				\Else
-					\State $\mathcal{P}_{t} \gets \Call{findPath}{\mathit{b}_{\varepsilon_t},
-					\mathit{g}_{t}}$
-					\If {$(\mathcal{P}_{t} = \emptyset)$}
-						\State \Return {\fontsize{8}{8}\selectfont UNEXPECTED}
-					\Else
-						\State $\mathcal{U}_{t} \gets
-						\Call{getPathUtility}{\mathit{b}_{\varepsilon_t}, \mathit{g}_{t}}$
-						\State $\tau_{e} \gets \Call{getEmotionalThreshold}{ }$
-						\If {$(\mathcal{U}_{t} \geq \tau_{e})$}
+					\If {$(\neg \Call{IsAchieved}{\mathit{g}_{t}.parent})$}
+						\If {$(\textit{{\fontsize{9}{9}\selectfont
+						 doesContribute}}(\mathit{g}_{\varepsilon_t},
+						\mathit{g}_{t}.parent))$}
 							\State \Return {\fontsize{8}{8}\selectfont EXPECTED}
 						\Else
 							\State \Return {\fontsize{8}{8}\selectfont UNEXPECTED}
+						\EndIf
+					\Else
+						\If	{$(\textit{{\fontsize{9}{9}\selectfont
+						doesContribute}}(\mathit{g}_{\varepsilon_t}, \mathit{g}_{t}))$} 
+							\State \Return {\fontsize{8}{8}\selectfont EXPECTED}
+						\Else
+							\If {$(\textit{{\fontsize{9}{9}\selectfont
+						isFocused}}(\mathit{g}_{\varepsilon_t}))$}
+								\State \Return {\fontsize{8}{8}\selectfont EXPECTED}
+							\Else
+								\State \Return {\fontsize{8}{8}\selectfont UNEXPECTED}
+							\EndIf
 						\EndIf
 					\EndIf
 				\EndIf
@@ -927,7 +940,7 @@ Description + Algorithm + Example
 	\caption{(Controllability)}
 	\label{alg:controllability}
 	\begin{algorithmic}[1]
-		\Function{IsEventControllable}{\textit{Event} $\varepsilon_t$}
+		\Function{IsEventControllable}{Event $\varepsilon_t$}
 			\Statex
 			\State $\alpha \gets \Call{GetAgencyRatio}{\varepsilon_t}$ 
 			\State $\beta \gets \Call{GetAutonomyRatio}{\varepsilon_t}$
@@ -958,7 +971,7 @@ Description + Algorithm + Example
 	\caption{(Get Succeeded Predecessors Ratio)}
 	\label{array-sum}
 	\begin{algorithmic}[1]
-		\Function{GetSucPredecessorsRatio}{\textit{Event} $\varepsilon_t$}
+		\Function{GetSucPredecessorsRatio}{Event $\varepsilon_t$}
 			\Statex
 			\State $\mathit{g}_{\varepsilon_t} \gets \Call{getGoal}{\varepsilon_t}$
 			\Statex
@@ -987,7 +1000,7 @@ Description + Algorithm + Example
 	\caption{(Get Available Input Ratio)}
 	\label{array-sum}
 	\begin{algorithmic}[1]
-		\Function{GetAvailableInputRatio}{\textit{Event} $\varepsilon_t$}
+		\Function{GetAvailableInputRatio}{Event $\varepsilon_t$}
 			\Statex
 			\State $\mathit{g}_{\varepsilon_t} \gets \Call{getGoal}{\varepsilon_t}$
 			\Statex
@@ -1016,7 +1029,7 @@ Description + Algorithm + Example
 	\caption{(Get Agency Ratio)}
 	\label{array-sum}
 	\begin{algorithmic}[1]
-		\Function{GetAgencyRatio}{\textit{Event} $\varepsilon_t$}
+		\Function{GetAgencyRatio}{Event $\varepsilon_t$}
 			\Statex
 			\State $\mathit{g}_{\varepsilon_t} \gets \Call{getGoal}{\varepsilon_t}$
 			\Statex
@@ -1046,7 +1059,7 @@ Description + Algorithm + Example
 	\caption{(Get Autonomy Ratio)}
 	\label{array-sum}
 	\begin{algorithmic}[1]
-		\Function{GetAutonomyRatio}{\textit{Event} $\varepsilon_t$}
+		\Function{GetAutonomyRatio}{Event $\varepsilon_t$}
 			\Statex
 			\State $\mathit{b}_{\varepsilon_t} \gets \Call{getBelief}{\varepsilon_t}$
 			\State $\mathit{g}_{\varepsilon_t} \gets \Call{getGoal}{\varepsilon_t}$
