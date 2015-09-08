@@ -748,10 +748,10 @@ $\mathit{b}_{\varepsilon_t}$ and $g_{t}$.
 			\State $\mathit{b}_{\varepsilon_t} \gets \Call{getBelief}{\varepsilon_t}$
 			\State $\mathit{g}_{t} \gets \textit{currGoal}{(\mathcal{G}_{t})}$
 			\Statex
-			\State $\mathcal{P}_{t} \gets \Call{findPath}{\mathit{b}_{\varepsilon_t},
+			\State $\mathcal{P} \gets \Call{findPath}{\mathit{b}_{\varepsilon_t},
 			\mathit{g}_{t}}$
 			\Statex
-			\If {$(\mathcal{P}_{t} = \emptyset)$}
+			\If {$(\mathcal{P} = \emptyset)$}
 				\State \Return {{\fontsize{8}{8}\selectfont IRRELEVANT}}
 			\Else
 				\State $\mathcal{U} \gets \Call{getEventUtility}{\mathit{b}_{\varepsilon_t},
@@ -825,7 +825,8 @@ undesirable for the robot.
 	\caption{(Desirability)}
 	\label{alg:desirability}
 	\begin{algorithmic}[1]
-		\Function{IsEventDesirable}{Graph $\mathcal{G}_{t}$, Event $\varepsilon_t$}
+		\Function{IsEventDesirable}{{\fontsize{8.5}{9}\selectfont MentalGraph} 
+		$\mathcal{G}_{t}$, {\fontsize{8.5}{9}\selectfont Event $\varepsilon_t$}}
 			\Statex
 			\If {(\textit{topLevelGoalStatus()} = {\fontsize{8}{8}\selectfont ACHIEVED})}
 				\State \Return {{\fontsize{8}{8}\selectfont HIGHEST-DESIRABLE}}
@@ -934,7 +935,8 @@ be expected; otherwise we consider the event unexpected (lines 21 to 24).
 	\caption{(Expectedness)}
 	\label{alg:expectedness}
 	\begin{algorithmic}[1]
-		\Function{IsEventExpected}{Graph $\mathcal{G}_{t}$, Event $\varepsilon_t$}
+		\Function{IsEventExpected}{{\fontsize{8.5}{9}\selectfont MentalGraph}
+		$\mathcal{G}_{t}$, {\fontsize{9}{9}\selectfont Event} $\varepsilon_t$}
 			\Statex
 			\State $\mathit{g}_{t} \gets \textit{currGoal}{(\mathcal{G}_{t})}$
 			\State $\mathit{g}_{\varepsilon_t} \gets \textit{recognizeGoal}{(\varepsilon_t)}$
@@ -947,10 +949,10 @@ be expected; otherwise we consider the event unexpected (lines 21 to 24).
 			\If {$(\mathit{g}_{t} = \mathit{g}_{\varepsilon_t})$}
 				\State \Return {\fontsize{8}{8}\selectfont EXPECTED}
 			\Else
-				\If {$(\neg \Call{IsAchieved}{\mathit{g}_{t}})$}
+				\If {$(\neg \textit{isAchieved}{(\mathit{g}_{t})})$}
 					\State \Return {\fontsize{8}{8}\selectfont UNEXPECTED}
 				\Else
-					\If {$(\neg \Call{IsAchieved}{\mathit{g}_{t}.parent})$}
+					\If {$(\neg \textit{isAchieved}{(\mathit{g}_{t}.parent)})$}
 						\If {$(\textit{{\fontsize{9}{9}\selectfont
 						 doesContribute}}(\mathit{g}_{\varepsilon_t},
 						\mathit{g}_{t}.parent))$}
@@ -979,7 +981,13 @@ be expected; otherwise we consider the event unexpected (lines 21 to 24).
 
 \subsection{Controllability}
 
-Description + Algorithm + Example
+Controllability is the extent to which an event can be influenced, and it is
+associated with a robot's ability to cope with the appraised event
+\cite{gratch:domain-independent}. Thus, the robot can determine whether the
+outcome of an event can be altered by some actions under either of the
+collaborators' control. In other words, controllability is a measure of a
+robot's ability to maintain or change a particular state as a conosequence of an
+event.
 
 \begin{algorithm}
 	\caption{(Controllability)}
@@ -995,14 +1003,14 @@ Description + Algorithm + Example
 			\State $\mu \gets
 			\Call{\small{GetAvailableInput}}{\varepsilon_t}$
 			\Statex
-			\State $\mathcal{U}_{t} \gets
+			\State $\mathcal{U} \gets
 			\frac{\omega_{0}\cdot \alpha + \omega_{1}\cdot \beta + \omega_{2}\cdot
 			\lambda + \omega_{3}\cdot \mu}{\omega_{0} + \omega_{1} + \omega_{2} +
 			\omega_{3}}$
 			\Statex
-			\State $\tau_{e} \gets \Call{getEmotionalThreshold}{ }$
+			\State $\tau_{t} \gets \Call{getEmotionalThreshold}{ }$
 			\Statex
-			\If {$(\mathcal{U}_{t} \geq \tau_e)$}
+			\If {$(\mathcal{U} \geq \tau_t)$}
 				\State \Return {{\fontsize{8}{8}\selectfont CONTROLLABLE}}
 			\Else
 				\State \Return {{\fontsize{8}{8}\selectfont UNCONTROLLABLE}}
@@ -1109,12 +1117,12 @@ Description + Algorithm + Example
 			\State $\mathit{b}_{\varepsilon_t} \gets \Call{getBelief}{\varepsilon_t}$
 			\State $\mathit{g}_{\varepsilon_t} \gets \Call{getGoal}{\varepsilon_t}$
 			\Statex
-			\State $\mathcal{P}_{\mathit{g}_{t}} \gets \Call{findPath}{\mathit{b}_{\varepsilon_t},
+			\State $\mathcal{P} \gets \Call{findPath}{\mathit{b}_{\varepsilon_t},
 			\mathit{g}_{\varepsilon_t}}$
 			\Statex
-			\If {$(\mathcal{P}_{\mathit{g}_{t}} \neq \emptyset)$}
+			\If {$(\mathcal{P} \neq \emptyset)$}
 				\State $\mathcal{M}_{\mathit{g}_{t}} \gets
-				\Call{extractMotive}{\mathcal{P}_{\mathit{g}_{t}}}$
+				\textit{currMotive}{(\mathcal{P})}$
 				\If {$(\mathcal{M}_{\mathit{g}_{t}} \neq \emptyset)$}
 					\If {$(\mathcal{M}_{\mathit{g}_{t}}\cdot type = $
 					{{\fontsize{8}{8}\selectfont INTERNAL}}$)$} \State \Return {1.0}
