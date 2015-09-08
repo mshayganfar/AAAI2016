@@ -899,38 +899,6 @@ maintain robot's attention and subsequently its mental state with respect to the
 shared goal. And, appraisal mechanism uses the underlying information of the
 collaboration structure to evaluate expectedness of an event.
 
-In algorithm \ref{alg:expectedness} we provide the process of the expectedness
-based on the shared plan and status of the shared goal. The key point in this
-algorithm is the status of the current shared goal ($\mathit{g}_{t}$) and its
-relationship with the associated goal with the current event 
-($\mathit{g}_{\varepsilon_t}$).  The algorithm receives the current mental
-graph, $\mathcal{G}_{t}$, and the current event, $\varepsilon_t$, from input,
-and decides whether the current event is expected. 
-
-First, we need to extract the goal in the current mental graph and the
-recognized goal associated with the current event. Similar to the desirability
-algorithm (Algorithm \ref{alg:desirability}), in this algorithm first we check
-whether the $\mathit{g}_{\varepsilon_t}$ is ambiguous. In case of the ambiguity
-of $\mathit{g}_{\varepsilon_t}$, we consider the current event unexpected since
-an effective collaboration requires perceivable and unambiguous goals asscoiated
-to the events. We continue by the comparison of the current shared goal and the
-recognized goal associated to the current event with respect to the shared plan.
-If these two goals are not the same, it is possible that the current shared goal
-is already achieved. The event will be unexpected (line 10) if the current
-shared goal is not achieved and the current event does not refer to the same
-goal. However, if the current goal is achieved, it is important to see whether
-its parent is also achieved (line 12). This step is important because the event
-can be expected if the new goal contributes to the parent of the recently
-achieved goal. Therefore, if the parent goal in the hierarchical plan is not
-achieved, the contribution of the associated goal to the current event can help
-us to decide whether the event is expected (lines 12 to 16). However, if the
-parent goal is already achieved, the new goal can contribute (as a child) to the
-recently achieved shared goal, i.e., $\mathit{g}_{t}$, which is also expected
-(line 19). On the contrary, if the new goal does not contribute to
-$\mathit{g}_{t}$, it might be a goal in another branch in the shared plan which
-has gotten focus and needs to be achieved. In such case, again, the event will
-be expected; otherwise we consider the event unexpected (lines 21 to 24).
-
 \begin{algorithm}
 	\caption{(Expectedness)}
 	\label{alg:expectedness}
@@ -979,6 +947,38 @@ be expected; otherwise we consider the event unexpected (lines 21 to 24).
 	\end{algorithmic}
 \end{algorithm}
 
+In algorithm \ref{alg:expectedness} we provide the process of the expectedness
+based on the shared plan and status of the shared goal. The key point in this
+algorithm is the status of the current shared goal ($\mathit{g}_{t}$) and its
+relationship with the associated goal with the current event 
+($\mathit{g}_{\varepsilon_t}$).  The algorithm receives the current mental
+graph, $\mathcal{G}_{t}$, and the current event, $\varepsilon_t$, from input,
+and decides whether the current event is expected. 
+
+First, we need to extract the goal in the current mental graph and the
+recognized goal associated with the current event. Similar to the desirability
+algorithm (Algorithm \ref{alg:desirability}), in this algorithm first we check
+whether the $\mathit{g}_{\varepsilon_t}$ is ambiguous. In case of the ambiguity
+of $\mathit{g}_{\varepsilon_t}$, we consider the current event unexpected since
+an effective collaboration requires perceivable and unambiguous goals asscoiated
+to the events. We continue by the comparison of the current shared goal and the
+recognized goal associated to the current event with respect to the shared plan.
+If these two goals are not the same, it is possible that the current shared goal
+is already achieved. The event will be unexpected (line 10) if the current
+shared goal is not achieved and the current event does not refer to the same
+goal. However, if the current goal is achieved, it is important to see whether
+its parent is also achieved (line 12). This step is important because the event
+can be expected if the new goal contributes to the parent of the recently
+achieved goal. Therefore, if the parent goal in the hierarchical plan is not
+achieved, the contribution of the associated goal to the current event can help
+us to decide whether the event is expected (lines 12 to 16). However, if the
+parent goal is already achieved, the new goal can contribute (as a child) to the
+recently achieved shared goal, i.e., $\mathit{g}_{t}$, which is also expected
+(line 19). On the contrary, if the new goal does not contribute to
+$\mathit{g}_{t}$, it might be a goal in another branch in the shared plan which
+has gotten focus and needs to be achieved. In such case, again, the event will
+be expected; otherwise we consider the event unexpected (lines 21 to 24).
+
 \subsection{Controllability}
 
 Controllability is the extent to which an event can be influenced, and it is
@@ -988,16 +988,6 @@ outcome of an event can be altered by some actions under either of the
 collaborators' control. In other words, controllability is a measure of a
 robot's ability to maintain or change a particular state as a conosequence of an
 event.
-
-Controllability is also important for the overall architecture. For instance,
-the robot can choose to ask or negotiate about a collaborative task which is
-not controllable; it can cause the robot to interpret or predict the other's
-emotional state (e.g., anger if the task is blocked; i.e., uncontrollable), or
-form a new motive to establish an alternative goal for the current
-uncontrollable event. In general, other mechanisms in the architecture use the
-appraisal process of controllability in their decision making processes, while
-the controllability uses the information from the collaboration structure,
-e.g., successful predecessors of a goal.
 
 \begin{algorithm}
 	\caption{(Controllability)}
@@ -1029,12 +1019,37 @@ e.g., successful predecessors of a goal.
 	\end{algorithmic}
 \end{algorithm}
 
+Controllability is also important for the overall architecture. For instance,
+the robot can choose to ask or negotiate about a collaborative task which is
+not controllable; it can cause the robot to interpret or predict the other's
+emotional state (e.g., anger if the task is blocked; i.e., uncontrollable), or
+form a new motive to establish an alternative goal for the current
+uncontrollable event. In general, other mechanisms in the architecture use the
+appraisal process of controllability in their decision making processes, while
+the controllability uses the information from the collaboration structure,
+e.g., successful predecessors of a goal.
+
 In Algorithm \ref{alg:controllability}, we compute the controllability of an
 event based on four different factors of a) \textit{agency} and b)
 \textit{autonomy} of the robot, as well as the ratios of c) \textit{successful
 predecessors}, and d) the \textit{available inputs} of the goal in the shared
 plan ($\mathit{g}_{\varepsilon_t}$) associated with the current event (lines 2
 to 5).
+
+Agency is the capacity of an individual to act independently in any given
+environment. In a collaborative environment, tasks are delegated to the
+collaborators based on their capabilities. Therefore, each collaborator is
+responsible for the delegated task and the corresponding goal. In Algorithm
+\ref{alg:controllability}, $\alpha$ denotes the value of agency with regard to
+the event ($\varepsilon_t$). This value is the ratio of the number of the
+contributing goals to $\mathit{g}_{\varepsilon_t}$ for which the robot is
+responsible over the total number of contributing goal to
+$\mathit{g}_{\varepsilon_t}$ (see Algorithm \ref{alg:agency}). If the associated
+goal with the current event corresponds to a nonprimitive task, the algorithm
+checks the responsible agent for each primitive task that contributes to the
+nonprimitive one and returns a value of which $(0 \leq \alpha \leq 1)$. However,
+if the associated goal to the current event corresponds to a primitive task the
+value of $\alpha$ would be 0 or 1.
 
 \begin{algorithm}
 	\caption{(Get Agency Ratio)}
@@ -1065,7 +1080,8 @@ to 5).
 	\end{algorithmic}
 \end{algorithm}
 
-In Algorithm \ref{alg:agency}, we compute the agency of a robot.
+The quality or state of being self-governing. Self-directing freedom or
+self-governing state.
 
 \begin{algorithm}
 	\caption{(Get Autonomy Ratio)}
@@ -1095,6 +1111,8 @@ In Algorithm \ref{alg:agency}, we compute the agency of a robot.
 		\EndFunction 
 	\end{algorithmic}
 \end{algorithm}
+
+
 
 \begin{algorithm}
 	\caption{(Get Succeeded Predecessors Ratio)}
