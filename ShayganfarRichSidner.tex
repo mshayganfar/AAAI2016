@@ -1134,13 +1134,27 @@ task the value of $\beta$ would be 0 or 1.
 	\end{algorithmic}
 \end{algorithm}
 
+The structure of a shared plan accommodates the order of the required
+predecessors of a goal. Predecessors of a goal, $g$, are other goals that
+the collaborators should achieve before trying to achieve goal $g$. In Algorithm
+\ref{alg:predecessors}, we use the ratio of successfully achieved predecessors
+of the recognized goal ($\mathit{g}_{\varepsilon_t}$) associated with the
+current event over the total number of predecessors of the same goal. This ratio
+(denoted as $\lambda$ in Algorithm \ref{alg:controllability}) is another factor
+to compute controllability of an event. If all of the predecessors of the given
+goal are already achieved, then $\lambda=1$ which is the maximum value for
+$\lambda$. On the contrary, failure of all of the predecessors will lead to
+$\lambda=0$. Therefore, higher $\lambda$ value positively impacts the value of
+controllability for the current event.
+
 \begin{algorithm}
 	\caption{(Get Succeeded Predecessors Ratio)}
 	\label{alg:predecessors}
 	\begin{algorithmic}[1]
 		\Function{GetSucPredecessorsRatio}{Event $\varepsilon_t$}
 			\Statex
-			\State $\mathit{g}_{\varepsilon_t} \gets \Call{getGoal}{\varepsilon_t}$
+			\State $\mathit{g}_{\varepsilon_t} \gets
+			\textit{recognizeGoal}{(\varepsilon_t)}$
 			\Statex
 			\If {$(\mathit{g}_{\varepsilon_t} =$ {\fontsize{8}{8}\selectfont
 			AMBIGUOUS}$)$} 
@@ -1148,10 +1162,10 @@ task the value of $\beta$ would be 0 or 1.
 			\EndIf
 			\Statex
 			\State $\Theta{\mathit{g}} \gets
-			\Call{extractPredecessors}{\mathit{g}_{\varepsilon_t}}$
+			\textit{extractPredecessors}{(\mathit{g}_{\varepsilon_t})}$
 			\Statex
 			\ForAll {$\theta_{\mathit{g}}^i \in \Theta_{\mathit{g}}$}
-				\If {$(\Call{IsAchieved}{\theta_{\mathit{g}}^i})$}
+				\If {$(\textit{isAchieved}{(\theta_{\mathit{g}}^i)})$}
 					\State $count_{achieved} \gets count_{achieved} + 1$
 				\EndIf
 			\EndFor
@@ -1162,13 +1176,24 @@ task the value of $\beta$ would be 0 or 1.
 	\end{algorithmic}
 \end{algorithm}
 
+Inputs of a task are the required elements that the collaborators use to
+achieve the specified goal of the task. These inputs are also part of the
+structure of a shared plan. In Algorithm \ref{alg:inputs}, we extract the
+required inputs of the associated goal with the current event, and check whether
+all the required inputs are available for the goal $\mathit{g}_{\varepsilon_t}$.
+The outcome will be the ratio of the available required inputs over the total
+required inputs of the goal associated with the current event. This value
+(denoted as $\mu$ in Algorithm \ref{alg:controllability}) will be bound to 0 and
+1.
+
 \begin{algorithm}
 	\caption{(Get Available Input Ratio)}
 	\label{alg:inputs}
 	\begin{algorithmic}[1]
 		\Function{GetAvailableInputRatio}{Event $\varepsilon_t$}
 			\Statex
-			\State $\mathit{g}_{\varepsilon_t} \gets \Call{getGoal}{\varepsilon_t}$
+			\State $\mathit{g}_{\varepsilon_t} \gets
+			\textit{recognizeGoal}{(\varepsilon_t)}$
 			\Statex
 			\If {$(\mathit{g}_{\varepsilon_t} =$ {\fontsize{8}{8}\selectfont
 			AMBIGUOUS}$)$} 
@@ -1176,10 +1201,10 @@ task the value of $\beta$ would be 0 or 1.
 			\EndIf
 			\Statex
 			\State $\mathcal{X}_{\mathit{g}} \gets
-			\Call{extractInputs}{\mathit{g}_{\varepsilon_t}}$
+			\textit{extractInputs}{(\mathit{g}_{\varepsilon_t})}$
 			\Statex
 			\ForAll {$\chi_{\mathit{g}}^i \in \mathcal{X}_{\mathit{g}}$}
-				\If {$(\Call{IsAvailable}{\chi_{\mathit{g}}^i})$}
+				\If {$(\textit{IsAvailable}{(\chi_{\mathit{g}}^i)})$}
 					\State $count_{available} \gets count_{available} + 1$
 				\EndIf
 			\EndFor
