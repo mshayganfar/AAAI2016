@@ -775,7 +775,7 @@ captures the valence of an event with repect to the robot's preferences
 \cite{gratch:domain-independent}. In a collaborative robot preferences are
 biased towards those events facilitating progress in the collaboration. An event
 is desirable if it somehow facilitates the state of the shared goal, or if it
-inhibits the state of a goal that is incosistent with respect to the shared
+inhibits the state of a goal that is inconsistent with respect to the shared
 goal.
 
 Desirability plays an important role in the overall architecture; it makes the
@@ -808,14 +808,14 @@ undesirable by the robot.
 The algorithm continues in the case of an unknown status of the current shared
 goal, and checks whether the precondition(s) of the associated goal with the
 current event, $\mathit{g}_{\varepsilon_t}$, are satisfied (lines 17 to 21).
-Intuitively, the robot prefers the satisfied perconditions and interprets the
-event as desirable while unsatisfied preconditions are undesirable for the
-robot. For instance, a satisfied precondition of a future goal is still
-desirable for the robot to some extent. Note that the robot also checks the
-ambiguity of the associated goal with the current event (line 15). An ambiguous
-goal is a goal which is not recognized in the robot's plan, and it is
-undesirable for the robot. Afterall, if the preconditions of the associated goal
-with the current event are unknown, the robot checks whether this goal,
+The robot prefers the satisfied preconditions and interprets the event as
+desirable while unsatisfied preconditions are undesirable for the robot. For
+instance, a satisfied precondition of a future goal is still desirable for the
+robot to some extent. Note that the robot also checks the ambiguity of the
+associated goal with the current event (line 15). An ambiguous goal is a goal
+which is not recognized in the robot's plan, and it is undesirable for the
+robot. Afterall, if the preconditions of the associated goal with the current
+event are unknown, the robot checks whether this goal,
 $\mathit{g}_{\varepsilon_t}$, contributes to the current shared goal,
 $\mathit{g}_{t}$ (lines 22 to 25). As a result a contributing goal will obtain a
 neutral desirability in comparison with a noncontributing goal which will be
@@ -835,14 +835,14 @@ undesirable for the robot.
 			\ElsIf {(\textit{topLevelGoalStatus()} = {\fontsize{7.4}{8}\selectfont
 			INPROGRESS})}
 				\Statex
-				\If {(\textit{curGoalStatus()} = {\fontsize{8}{8}\selectfont ACHIEVED})}
+				\If {(\textit{currGoalStatus()} = {\fontsize{8}{8}\selectfont ACHIEVED})}
 					\State \Return {{\fontsize{8}{8}\selectfont HIGH-DESIRABLE}}
-				\ElsIf {(\textit{curGoalStatus()} = {\fontsize{8}{8}\selectfont BLOCKED})}
+				\ElsIf {(\textit{currGoalStatus()} = {\fontsize{8}{8}\selectfont BLOCKED})}
 					\State \Return {{\fontsize{8}{8}\selectfont HIGH-UNDESIRABLE}}
-				\ElsIf {(\textit{curGoalStatus()} = {\fontsize{8}{8}\selectfont
+				\ElsIf {(\textit{currGoalStatus()} = {\fontsize{8}{8}\selectfont
 				INPROGRESS})}
 					\State \Return {{\fontsize{8}{8}\selectfont MEDIUM-DESIRABLE}}
-				\ElsIf {(\textit{curGoalStatus()} = {\fontsize{8}{8}\selectfont UNKNOWN})}
+				\ElsIf {(\textit{currGoalStatus()} = {\fontsize{8}{8}\selectfont UNKNOWN})}
 					\Statex
 					\State $\mathit{g}_{\varepsilon_t} \gets
 					\textit{recognizeGoal}{(\varepsilon_t)}$
@@ -888,16 +888,17 @@ knowledge about the shared goal. Therefore, expected events are those of which
 beliefs about them are congruent to the status of the collaboration since their
 associated goals are expected with respect to the shared plan.
 
-Expectedness underlies a collaborative robot's attention by marking the
-congruent events with respect to the structure of an existing shared plan.
-Congruent beliefs in robot's mental state will lead to more consistent and
-effective outcome of the processes in the overall architecture. Therefore,
+Expectedness underlies a collaborative robot's attention by evaluating the
+congruence of events with respect to the structure of an existing shared plan.
+Congruent beliefs in a robot's mental state will lead to more consistent and
+effective outcomes of the processes in the overall architecture. Therefore,
 a collaborative robot uses expectedness to maintain its own mental state towards
-the shared goal. The robot will be also able to respond to unexpected but
+the shared goal. The robot will also be able to respond to unexpected but
 relevant events. As a result, the collaboration mechanism uses expectedness to
-maintain robot's attention and subsequently its mental state with respect to the
-shared goal. And, appraisal mechanism uses the underlying information of the
-collaboration structure to evaluate expectedness of an event.
+maintain the robot's attention and subsequently its mental state with respect to
+the shared goal. In parallel, the appraisal mechanism uses the underlying
+information of the collaboration structure to evaluate the expectedness of an
+event.
 
 \begin{algorithm}
 	\caption{(Expectedness)}
@@ -950,33 +951,33 @@ collaboration structure to evaluate expectedness of an event.
 In algorithm \ref{alg:expectedness} we provide the process of the expectedness
 based on the shared plan and status of the shared goal. The key point in this
 algorithm is the status of the current shared goal ($\mathit{g}_{t}$) and its
-relationship with the associated goal with the current event 
+relationship with the goal associated with the current event 
 ($\mathit{g}_{\varepsilon_t}$).  The algorithm receives the current mental
 graph, $\mathcal{G}_{t}$, and the current event, $\varepsilon_t$, from input,
 and decides whether the current event is expected. 
 
 First, we need to extract the goal in the current mental graph and the
 recognized goal associated with the current event. Similar to the desirability
-algorithm (Algorithm \ref{alg:desirability}), in this algorithm first we check
-whether the $\mathit{g}_{\varepsilon_t}$ is ambiguous. In case of the ambiguity
-of $\mathit{g}_{\varepsilon_t}$, we consider the current event unexpected since
-an effective collaboration requires perceivable and unambiguous goals asscoiated
-to the events. We continue by the comparison of the current shared goal and the
-recognized goal associated to the current event with respect to the shared plan.
-If these two goals are not the same, it is possible that the current shared goal
-is already achieved. The event will be unexpected (line 10) if the current
-shared goal is not achieved and the current event does not refer to the same
-goal. However, if the current goal is achieved, it is important to see whether
-its parent is also achieved (line 12). This step is important because the event
-can be expected if the new goal contributes to the parent of the recently
-achieved goal. Therefore, if the parent goal in the hierarchical plan is not
-achieved, the contribution of the associated goal to the current event can help
-us to decide whether the event is expected (lines 12 to 16). However, if the
-parent goal is already achieved, the new goal can contribute (as a child) to the
-recently achieved shared goal, i.e., $\mathit{g}_{t}$, which is also expected
-(line 19). On the contrary, if the new goal does not contribute to
+algorithm (Algorithm \ref{alg:desirability}), we check whether the
+$\mathit{g}_{\varepsilon_t}$ is ambiguous. In the case of ambiguity in
+$\mathit{g}_{\varepsilon_t}$, we consider the current event unexpected since an
+effective collaboration requires perceivable and unambiguous goals asscoiated
+with the events. We continue by the comparison of the current shared goal and
+the recognized goal associated with the current event with respect to the shared
+plan. If these two goals are not the same, it is possible that the current
+shared goal is already achieved. The event will be unexpected (line 10) if the
+current shared goal is not achieved and the current event does not refer to the
+same goal. However, if the current goal is achieved, it is important to see
+whether its parent is also achieved (line 12). This step is important because
+the event can be expected if the new goal contributes to the parent of the
+recently achieved goal. Therefore, if the parent goal in the hierarchical plan
+is not achieved, the contribution of the associated goal to the current event
+can help us to decide whether the event is expected (lines 12 to 16). However,
+if the parent goal is already achieved, the new goal can contribute (as a child)
+to the recently achieved shared goal, i.e., $\mathit{g}_{t}$, which is also
+expected (line 19). On the contrary, if the new goal does not contribute to
 $\mathit{g}_{t}$, it might be a goal in another branch in the shared plan which
-has gotten focus and needs to be achieved. In such case, again, the event will
+has received focus and should be achieved. In such a case, again, the event will
 be expected; otherwise we consider the event unexpected (lines 21 to 24).
 
 \subsection{Controllability}
