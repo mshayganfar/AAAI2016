@@ -25,7 +25,7 @@
 \title{Appraisal in Human-Robot Collaboration}
 \author{Mahni Shayganfar, Charles Rich, Candace L. Sidner\\
 Worcester Polytechnic Institute\\
-Comoputer Science Department\\
+Computer Science Department\\
 100 Institute Road\\
 Worcester, Massachusetts 01609\\
 mshayganfar $|$ rich $|$ sidner @wpi.edu
@@ -716,7 +716,7 @@ within the shared plan. Then, we find the shortest path ($\mathcal{P}_{t}$)
 between the corresponding nodes of $\mathit{b}_{\varepsilon_t}$ and $g_{t}$ in
 the mental graph. As we mentioned earlier, if there is no path between the
 belief about the current event and the active shared goal, the algorithm finds
-the event \textit{irrelevent} to the current shared goal, and terminates.
+the event \textit{irrelevant} to the current shared goal, and terminates.
 However, if there is a path between $\mathit{b}_{\varepsilon_t}$ and $g_{t}$, we
 need a way to determine whether the event is relevant to the current
 collaboration status. Thus, we compute the utility of an event and make our
@@ -771,7 +771,7 @@ $\mathit{b}_{\varepsilon_t}$ and $g_{t}$.
 
 Desirability characterizes the value of an event to the robot in terms of
 whether the event facilitates or thwarts the collaboration goal. Desirability
-captures the valence of an event with repect to the robot's preferences
+captures the valence of an event with respect to the robot's preferences
 \cite{gratch:domain-independent}. In a collaborative robot preferences are
 biased towards those events facilitating progress in the collaboration. An event
 is desirable if it somehow facilitates the state of the shared goal, or if it
@@ -814,7 +814,7 @@ instance, a satisfied precondition of a future goal is still desirable for the
 robot to some extent. Note that the robot also checks the ambiguity of the
 associated goal with the current event (line 15). An ambiguous goal is a goal
 which is not recognized in the robot's plan, and it is undesirable for the
-robot. Afterall, if the preconditions of the associated goal with the current
+robot. After all, if the preconditions of the associated goal with the current
 event are unknown, the robot checks whether this goal,
 $\mathit{g}_{\varepsilon_t}$, contributes to the current shared goal,
 $\mathit{g}_{t}$ (lines 22 to 25). As a result a contributing goal will obtain a
@@ -987,8 +987,18 @@ associated with a robot's ability to cope with the appraised event
 \cite{gratch:domain-independent}. Thus, the robot can determine whether the
 outcome of an event can be altered by some actions under either of the
 collaborators' control. In other words, controllability is a measure of a
-robot's ability to maintain or change a particular state as a conosequence of an
+robot's ability to maintain or change a particular state as a consequence of an
 event.
+
+Controllability is also important for the overall architecture. For instance,
+the robot can choose to ask or negotiate about a collaborative task which is
+not controllable; it can cause the robot to interpret or predict the other's
+emotional state (e.g., anger if the task is blocked, i.e., uncontrollable for
+the other), or form a new motive to establish an alternative goal for the
+current uncontrollable event. In general, other mechanisms in the architecture
+use the appraisal process of controllability in their decision making processes;
+meanwhile the controllability uses the information from the collaboration
+structure, e.g., successful predecessors of a goal.
 
 \begin{algorithm}
 	\caption{(Controllability)}
@@ -1020,37 +1030,28 @@ event.
 	\end{algorithmic}
 \end{algorithm}
 
-Controllability is also important for the overall architecture. For instance,
-the robot can choose to ask or negotiate about a collaborative task which is
-not controllable; it can cause the robot to interpret or predict the other's
-emotional state (e.g., anger if the task is blocked; i.e., uncontrollable), or
-form a new motive to establish an alternative goal for the current
-uncontrollable event. In general, other mechanisms in the architecture use the
-appraisal process of controllability in their decision making processes, while
-the controllability uses the information from the collaboration structure,
-e.g., successful predecessors of a goal.
+An important determinant of one's emotional response is the sense of control
+over the occurring events. This sense of subjective control is based on one's
+reasoning about self's power. For instance, the robustness of one's plan for
+executing actions can increase sense of power and subsequently the sense of
+control. In the collaboration context, we have translated the sense of control
+into a combination of four different factors including a) \textit{agency} and b)
+\textit{autonomy} of the robot, as well as the ratios of c) \textit{successful
+predecessors}, and d) the \textit{available inputs} of a given goal
+(i.e., $\mathit{g}_{\varepsilon_t}$) in the shared plan. 
 
 In Algorithm \ref{alg:controllability}, we compute the controllability of an
-event based on four different factors of a) \textit{agency} and b)
-\textit{autonomy} of the robot, as well as the ratios of c) \textit{successful
-predecessors}, and d) the \textit{available inputs} of the goal in the shared
-plan ($\mathit{g}_{\varepsilon_t}$) associated with the current event (lines 2
-to 5).
-
-Agency is the capacity of an individual to act independently in any given
-environment. In a collaborative environment sometimes collaborators require to
-act independently of eachother. Hence, they need to have some internal motives
-that are formed based on their own mental state rather than being reinforced by
-the other. These internal motives will lead the collaborators to acquire new
-intentions towards new goals whenever it is required. In Algorithm
-\ref{alg:agency}, if there is a path between the belief about the current event
-and the recognized goal associted with that event, we exploit the motive within
-the acquired path. We consider maximum agency value denoted as $\alpha$ in
-Algorithm \ref{alg:controllability} (i.e., $\alpha=1.0$) if the robot's mental
-state possesses an internal motive towards the recognized goal; otherwise we
-consider the minimum agency value (i.e., $\alpha=0.0$) for no or external
-motives. Note that the process of forming new internal motives is out of this
-paper's context.
+event based on these four factors (lines 2 to 5). Algorithms \ref{alg:agency} to
+\ref{alg:inputs} are used to illustrate the undelying processes of all these
+factors. We use weighted averaging over these four factors to compute the
+utility of an event in terms of controllability of the event. However, the
+value of all these weights are set to 1.0 for the purpose of simplicity at
+this stage of the project. We will use these weights after investigating more
+about the influence of these factors, and implementing other mechanisms in the
+overall architecture. After computing the value of the utility, we compare
+this value to an emotional threshold similar to what we discussed in Algorithm
+\ref{alg:relevance}. This comparison leads to our decision about the
+controllability of an event (lines 8 to 11).
 
 \begin{algorithm}
 	\caption{(Get Agency Ratio)}
@@ -1090,6 +1091,21 @@ paper's context.
 		\EndFunction 
 	\end{algorithmic}
 \end{algorithm}
+
+Agency is the capacity of an individual to act independently in any given
+environment. In a collaborative environment sometimes collaborators require to
+act independently of each other. Hence, they need to have some internal motives
+that are formed based on their own mental state rather than being reinforced by
+the other. These internal motives will lead the collaborators to acquire new
+intentions towards new goals whenever it is required. In Algorithm
+\ref{alg:agency}, if there is a path between the belief about the current event
+and the recognized goal associated with that event, we exploit the motive within
+the acquired path. We consider maximum agency value denoted as $\alpha$ in
+Algorithm \ref{alg:controllability} (i.e., $\alpha=1.0$) if the robot's mental
+state possesses an internal motive towards the recognized goal; otherwise we
+consider the minimum agency value (i.e., $\alpha=0.0$) for no or external
+motives. Note that the process of forming new internal motives is out of this
+paper's context.
 
 Autonomy is the ability of making decisions without the influence of the others.
 Autonomy implies acting on one's own and being responsible for that. In a
