@@ -534,6 +534,10 @@ causes the self to add a new intention to its own Mental States.
   changes in the collaboration plan.
 \end{itemize}
 
+The \textit{recognizeGoal()} function returns the unique goal to which the event
+directly contributes irrespective of the event type (i.e., action, utterance, or
+emotional expression). This event structure holds in all of our algorithms.
+
 \subsection{Appraisal Mechanism}
 
 \subsection{Appraisal of External Events}
@@ -669,9 +673,10 @@ grid,initial/.style    ={}]
 All of the algorithms use a mental graph which is a directed acyclic graph
 constructed based on the mental states of the robot at each turn during the
 collaboration (see Section \ref{sec:mental-graph}). They also use the
-content of the most recent event at each turn which includes the associated
-goal and the belief about the event. The associated goals can be any type
-action, utterance, or emotional expression.
+content of the most recent event at each turn which includes the recognized goal
+associated to the event and the belief about the event. The goals can be
+associated to any type of event including action, utterance, or emotional
+expression.
 
 We found four appraisal variables, i.e., \textit{Relevance} (Algorithm
 \ref{alg:relevance}), \textit{Desirability} (Algorithm \ref{alg:desirability}),
@@ -681,14 +686,9 @@ important than the other appraisal variables in a collaboration context.
 There are other appraisal variables introduced in psychological
 \cite{scherer:appraisal-processes} and computational literature
 \cite{gratch:domain-independent}; we do not provide algorithms for them in this
-paper. The concept behind these variables are either too simple, e.g.,
-\textit{Perspective} (i.e., the view point from which an event is judged), or it
-requires a particular approach which is not our concern in this paper, e.g.,
-\textit{Likelihood} (i.e., how probable is the outcome of an event).
-
-The \textit{recognizeGoal()} function returns the unique goal to which the event
-directly contributes irrespective of the event type (i.e., action, utterance, or
-emotional expression). This event structure holds in all of our algorithms.
+paper. We believe most of these variables can be added straightforwardly later
+to our appraisal mechanism, e.g., \textit{Perspective} (i.e., the view point from
+which an event is judged).
 
 \subsection{Relevance}
 
@@ -791,49 +791,6 @@ is desirable if it somehow facilitates the state of the shared goal, or if it
 inhibits the state of a goal that is inconsistent with respect to the shared
 goal.
 
-Desirability plays an important role in the overall architecture; it makes the
-processes involved in the other mechanisms (e.g., Motivation or Theory of Mind)
-and consequently the robot's mental state congruent with the collaboration
-status which is the robot's desire. Therefore, it causes the robot to dismiss
-events causing inconsistencies in the robot's collaborative behavior. Moreover,
-desirability is also crucial from the collaboration's point of view. A
-collaborative robot needs to know whether its own and the other collaborator's
-actions, utterances, and emotional expressions are desirable in terms of their
-consistence with the status of the current shared goal. In other words, the
-collaboration mechanism uses the appraisal process of desirability to coordinate
-what the self or the other does, says, and expresses during collaboration.
-Reciprocally, the appraisal mechanism and in this case the desirability process
-use the collaboration structure to obtain their required information.
-
-Algorithm \ref{alg:desirability} provides a process in which the desirability of
-an event is computed with regard to the status of the shared goal; i.e., it
-operates based on whether and how the event changes the status of the current
-shared goal. It receives the current mental graph, $\mathcal{G}_{t}$, and the
-current event, $\varepsilon_t$, from input, and decides whether and how the
-event is desirable or undesirable. First, the algorithm checks the status of the
-collaboration's top level goal (lines 2 to 6), and if the the top level goal is
-still in progress, it continues by checking the status of the current shared
-goal (lines 7 to 13). If any of the top level and current shared goals are
-achieved in these two steps, the robot interprets the event as a desirable one.
-However, if any of these goals are blocked, the event will be considered
-undesirable by the robot. 
-
-The algorithm continues in the case of an unknown status of the current shared
-goal, and checks whether the precondition(s) of the associated goal with the
-current event, $\mathit{g}_{\varepsilon_t}$, are satisfied (lines 17 to 21).
-The robot prefers the satisfied preconditions and interprets the event as
-desirable while unsatisfied preconditions are undesirable for the robot. For
-instance, a satisfied precondition of a future goal is still desirable for the
-robot to some extent. Note that the robot also checks the ambiguity of the
-associated goal with the current event (line 15). An ambiguous goal is a goal
-which is not recognized in the robot's plan, and it is undesirable for the
-robot. After all, if the preconditions of the associated goal with the current
-event are unknown, the robot checks whether this goal,
-$\mathit{g}_{\varepsilon_t}$, contributes to the current shared goal,
-$\mathit{g}_{t}$ (lines 22 to 25). As a result a contributing goal will obtain a
-neutral desirability in comparison with a noncontributing goal which will be
-undesirable for the robot.
-
 \begin{algorithm}
 	\caption{(Desirability)}
 	\label{alg:desirability}
@@ -890,6 +847,49 @@ undesirable for the robot.
 		\EndFunction
 	\end{algorithmic}
 \end{algorithm}
+
+Desirability plays an important role in the overall architecture; it makes the
+processes involved in the other mechanisms (e.g., Motivation or Theory of Mind)
+and consequently the robot's mental state congruent with the collaboration
+status which is the robot's desire. Therefore, it causes the robot to dismiss
+events causing inconsistencies in the robot's collaborative behavior. Moreover,
+desirability is also crucial from the collaboration's point of view. A
+collaborative robot needs to know whether its own and the other collaborator's
+actions, utterances, and emotional expressions are desirable in terms of their
+consistence with the status of the current shared goal. In other words, the
+collaboration mechanism uses the appraisal process of desirability to coordinate
+what the self or the other does, says, and expresses during collaboration.
+Reciprocally, the appraisal mechanism and in this case the desirability process
+use the collaboration structure to obtain their required information.
+
+Algorithm \ref{alg:desirability} provides a process in which the desirability of
+an event is computed with regard to the status of the shared goal; i.e., it
+operates based on whether and how the event changes the status of the current
+shared goal. It receives the current mental graph, $\mathcal{G}_{t}$, and the
+current event, $\varepsilon_t$, from input, and decides whether and how the
+event is desirable or undesirable. First, the algorithm checks the status of the
+collaboration's top level goal (lines 2 to 6), and if the the top level goal is
+still in progress, it continues by checking the status of the current shared
+goal (lines 7 to 13). If any of the top level and current shared goals are
+achieved in these two steps, the robot interprets the event as a desirable one.
+However, if any of these goals are blocked, the event will be considered
+undesirable by the robot. 
+
+The algorithm continues in the case of an unknown status of the current shared
+goal, and checks whether the precondition(s) of the associated goal with the
+current event, $\mathit{g}_{\varepsilon_t}$, are satisfied (lines 17 to 21).
+The robot prefers the satisfied preconditions and interprets the event as
+desirable while unsatisfied preconditions are undesirable for the robot. For
+instance, a satisfied precondition of a future goal is still desirable for the
+robot to some extent. Note that the robot also checks the ambiguity of the
+associated goal with the current event (line 15). An ambiguous goal is a goal
+which is not recognized in the robot's plan, and it is undesirable for the
+robot. After all, if the preconditions of the associated goal with the current
+event are unknown, the robot checks whether this goal,
+$\mathit{g}_{\varepsilon_t}$, contributes to the current shared goal,
+$\mathit{g}_{t}$ (lines 22 to 25). As a result a contributing goal will obtain a
+neutral desirability in comparison with a noncontributing goal which will be
+undesirable for the robot.
 
 \subsection{Expectedness}
 
