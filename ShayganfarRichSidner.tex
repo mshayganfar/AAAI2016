@@ -1045,10 +1045,12 @@ the other. These internal motives will lead the collaborators to acquire new
 intentions towards new goals whenever it is required. In Algorithm
 \ref{alg:agency}, if there is a path between the belief about the current event
 and the recognized goal associted with that event, we exploit the motive within
-the acquired path. We consider maximum agency value (i.e., 1.0) if the robot
-possesses an internal motive towards the recognized goal; otherwise we consider
-the minimum agency value (i.e., 0.0). Note that the process of forming new
-internal motives is out of this paper's context.
+the acquired path. We consider maximum agency value denoted as $\alpha$ in
+Algorithm \ref{alg:controllability} (i.e., $\alpha=1.0$) if the robot's mental
+state possesses an internal motive towards the recognized goal; otherwise we
+consider the minimum agency value (i.e., $\alpha=0.0$) for no or external
+motives. Note that the process of forming new internal motives is out of this
+paper's context.
 
 \begin{algorithm}
 	\caption{(Get Agency Ratio)}
@@ -1103,7 +1105,8 @@ associated goal with the current event corresponds to a nonprimitive task, the
 algorithm checks the responsible agent for each primitive task contributing to
 the nonprimitive one and returns a value of which $(0 \leq \beta \leq 1)$.
 However, if the associated goal to the current event corresponds to a primitive
-task the value of $\beta$ would be 0 or 1.
+task the value of $\beta$ would be 0 or 1. In general, higher autonomy leads to
+more positive value of the controllability.
 
 \begin{algorithm}
 	\caption{(Get Autonomy Ratio)}
@@ -1184,7 +1187,9 @@ all the required inputs are available for the goal $\mathit{g}_{\varepsilon_t}$.
 The outcome will be the ratio of the available required inputs over the total
 required inputs of the goal associated with the current event. This value
 (denoted as $\mu$ in Algorithm \ref{alg:controllability}) will be bound to 0 and
-1.
+1. Similar to the other factors in controllability process, the closer value of
+$\mu$ gets to 1, it has more positive impact on overall controllability value of
+the event.
 
 \begin{algorithm}
 	\caption{(Get Available Input Ratio)}
