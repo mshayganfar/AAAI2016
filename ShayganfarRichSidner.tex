@@ -1037,19 +1037,17 @@ plan ($\mathit{g}_{\varepsilon_t}$) associated with the current event (lines 2
 to 5).
 
 Agency is the capacity of an individual to act independently in any given
-environment. In a collaborative environment, tasks are delegated to the
-collaborators based on their capabilities. Therefore, each collaborator is
-responsible for the delegated task and the corresponding goal. In Algorithm
-\ref{alg:controllability}, $\alpha$ denotes the value of agency with regard to
-the event ($\varepsilon_t$). This value is the ratio of the number of the
-contributing goals to $\mathit{g}_{\varepsilon_t}$ for which the robot is
-responsible over the total number of contributing goal to
-$\mathit{g}_{\varepsilon_t}$ (see Algorithm \ref{alg:agency}). If the associated
-goal with the current event corresponds to a nonprimitive task, the algorithm
-checks the responsible agent for each primitive task that contributes to the
-nonprimitive one and returns a value of which $(0 \leq \alpha \leq 1)$. However,
-if the associated goal to the current event corresponds to a primitive task the
-value of $\alpha$ would be 0 or 1.
+environment. In a collaborative environment sometimes collaborators require to
+act independently of eachother. Hence, they need to have some internal motives
+that are formed based on their own mental state rather than being reinforced by
+the other. These internal motives will lead the collaborators to acquire new
+intentions towards new goals whenever it is required. In Algorithm
+\ref{alg:agency}, if there is a path between the belief about the current event
+and the recognized goal associted with that event, we exploit the motive within
+the acquired path. We consider maximum agency value (i.e., 1.0) if the robot
+possesses an internal motive towards the recognized goal; otherwise we consider
+the minimum agency value (i.e., 0.0). Note that the process of forming new
+internal motives is out of this paper's context.
 
 \begin{algorithm}
 	\caption{(Get Agency Ratio)}
@@ -1057,47 +1055,23 @@ value of $\alpha$ would be 0 or 1.
 	\begin{algorithmic}[1]
 		\Function{GetAgencyRatio}{Event $\varepsilon_t$}
 			\Statex
-			\State $\mathit{g}_{\varepsilon_t} \gets \Call{getGoal}{\varepsilon_t}$
+			\State $\mathit{b}_{\varepsilon_t} \gets \Call{getBelief}{\varepsilon_t}$
+			\State $\mathit{g}_{\varepsilon_t} \gets
+			\textit{recognizeGoal}{(\varepsilon_t)}$
 			\Statex
 			\If {$(\mathit{g}_{\varepsilon_t} =$ {\fontsize{8}{8}\selectfont
 			AMBIGUOUS}$)$} 
 				\State \Return {0.0}
 			\EndIf
 			\Statex
-			\State $\Phi_{\mathit{g}} \gets
-			\Call{ExtractContributingGoals}{\mathit{g}_{\varepsilon_t}}$
-			\Statex
-			\ForAll {$\phi_{\mathit{g}}^i \in \Phi_{\mathit{g}}$}
-				\If {$(\Call{GetResponsible}{\phi_{\mathit{g}}^i} =$
-				{\fontsize{8}{8}\selectfont SELF})} \State $count_{self}
-				\gets count_{self} + 1$
-				\EndIf
-			\EndFor
-			\Statex
-			\State \Return 
-			${count_{self} \mathbin{/} {{\Phi_{\mathit{g}}}.total()}}$
-		\EndFunction 
-	\end{algorithmic}
-\end{algorithm}
-
-The quality or state of being self-governing. Self-directing freedom or
-self-governing state.
-
-\begin{algorithm}
-	\caption{(Get Autonomy Ratio)}
-	\label{alg:autonomy}
-	\begin{algorithmic}[1]
-		\Function{GetAutonomyRatio}{Event $\varepsilon_t$}
-			\Statex
-			\State $\mathit{b}_{\varepsilon_t} \gets \Call{getBelief}{\varepsilon_t}$
-			\State $\mathit{g}_{\varepsilon_t} \gets \Call{getGoal}{\varepsilon_t}$
-			\Statex
 			\State $\mathcal{P} \gets \Call{findPath}{\mathit{b}_{\varepsilon_t},
 			\mathit{g}_{\varepsilon_t}}$
 			\Statex
 			\If {$(\mathcal{P} \neq \emptyset)$}
+				\State
 				\State $\mathcal{M}_{\mathit{g}_{t}} \gets
 				\textit{currMotive}{(\mathcal{P})}$
+				\Statex
 				\If {$(\mathcal{M}_{\mathit{g}_{t}} \neq \emptyset)$}
 					\If {$(\mathcal{M}_{\mathit{g}_{t}}\cdot type = $
 					{{\fontsize{8}{8}\selectfont INTERNAL}}$)$} \State \Return {1.0}
@@ -1107,12 +1081,57 @@ self-governing state.
 				\Else
 					\State \Return {0.0}
 				\EndIf
+			\Else
+				\State \Return {0.0}
 			\EndIf
 		\EndFunction 
 	\end{algorithmic}
 \end{algorithm}
 
+Autonomy is the ability of making decisions without the influence of the others.
+Autonomy implies acting on one's own and being responsible for that. In a
+collaborative environment, tasks are delegated to the collaborators based on
+their capabilities. Therefore, each collaborator is responsible for the
+delegated task and the corresponding goal. In Algorithm
+\ref{alg:controllability}, $\beta$ denotes the value of autonomy with regard to
+the event ($\varepsilon_t$). This value is the ratio of the number of the
+contributing goals to $\mathit{g}_{\varepsilon_t}$ for which the robot is
+responsible over the total number of contributing goals to
+$\mathit{g}_{\varepsilon_t}$ (see Algorithm \ref{alg:autonomy}). If the
+associated goal with the current event corresponds to a nonprimitive task, the
+algorithm checks the responsible agent for each primitive task contributing to
+the nonprimitive one and returns a value of which $(0 \leq \beta \leq 1)$.
+However, if the associated goal to the current event corresponds to a primitive
+task the value of $\beta$ would be 0 or 1.
 
+\begin{algorithm}
+	\caption{(Get Autonomy Ratio)}
+	\label{alg:autonomy}
+	\begin{algorithmic}[1]
+		\Function{GetAutonomyRatio}{Event $\varepsilon_t$}
+			\Statex
+			\State $\mathit{g}_{\varepsilon_t} \gets \textit{recognizeGoal}{(\varepsilon_t)}$
+			\Statex
+			\If {$(\mathit{g}_{\varepsilon_t} =$ {\fontsize{8}{8}\selectfont
+			AMBIGUOUS}$)$} 
+				\State \Return {0.0}
+			\EndIf
+			\Statex
+			\State $\Phi_{\mathit{g}} \gets
+			\textit{extractContributingGoals}{(\mathit{g}_{\varepsilon_t})}$
+			\Statex
+			\ForAll {$\phi_{\mathit{g}}^i \in \Phi_{\mathit{g}}$}
+				\If {$(\textit{getResponsible}{(\phi_{\mathit{g}}^i)} =$
+				{\fontsize{8}{8}\selectfont SELF})} 
+					\State $count_{self} \gets count_{self} + 1$
+				\EndIf
+			\EndFor
+			\Statex
+			\State \Return 
+			${count_{self} \mathbin{/} {{\Phi_{\mathit{g}}}.total()}}$
+		\EndFunction 
+	\end{algorithmic}
+\end{algorithm}
 
 \begin{algorithm}
 	\caption{(Get Succeeded Predecessors Ratio)}
