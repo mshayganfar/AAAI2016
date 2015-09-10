@@ -103,18 +103,17 @@ state. The self progressively updates this model during the collaboration.
 \subsection{Mental States}
 \label{sec:mental-states}
 
-The Mental States shown in Figure \ref{fig:cpm} comprise the knowledge
-base required for all the mechanisms in the overall model.
-
-Mental states are conscious states of the mind providing the content for
-cognitive processes. Affective Motivational Collaboration Theory operates with
-the following Mental States: beliefs, intentions, motives, goals and emotion
-instances. These Mental States possess attributes, each of which provides a
-discriminating and unique interpretation of the related cognitive entities. The
-self uses Mental States' attributes whenever there is an arbitration in the
-internal cognitive processes. The Appraisal mechanism and the Motivation
-mechanism play an essential role in computing the value of these attributes. I
-provide more details about these attributes in this section.
+The Mental States shown in Figure \ref{fig:cpm} comprise the knowledge base
+required for all the mechanisms in the overall model. Mental states are
+conscious states of the mind providing the content for cognitive processes.
+Affective Motivational Collaboration Theory operates with the following Mental
+States: beliefs, intentions, motives, goals and emotion instances. These Mental
+States possess attributes, each of which provides a discriminating and unique
+interpretation of the related cognitive entities. The self uses Mental States'
+attributes whenever there is an arbitration in the internal cognitive processes.
+We provide more details about the attributes of beliefs and motives in this
+paper, since they are used in our algorithms in Section
+\ref{sec:appraisal-process}.
 
 \subsubsection{Belief:}
 
@@ -293,65 +292,8 @@ preceding behaviors and current state of the collaboration. I decided to include
 the following five intention attributes extracted from the psychology literature
 in \textit{Affective Motivational Collaboration Theory}.
 
-\begin{itemize}
-  \item \textbf{\textit{Temporal Status:}} The temporal status of an intention
-  can be defined as the extent to which an intention remains consistent over
-  time. The self needs to maintain the stability of its intentions as time
-  passes until the task is performed. Temporally stable intentions helps the
-  other to accurately predict the self's behavior. The anticipated cognitive
-  load of perceiving the self's task by the other impacts the temporal stability
-  of the self's intention. In other words, the temporal stability of an
-  intention moderates the intention-behavior relation of the self during
-  collaboration.
-  
-  \item \textbf{\textit{Direct Experience:}} The direct experience of an
-  intention refers to whether the self previously has performed a task based on
-  the similar intention. The self can refer to the corresponding Mental States
-  of the intention directly experienced in the past before taking a new action.
-  The Mental States associated with the prior experience of an intention can
-  influence the appraisal of a new event requiring the self to perform the same
-  task. For instance, the existence of a direct experience of an intention
-  impacts the degree of the \textit{expectedness} and \textit{controllability}
-  of an event during the collaboration which ultimately guides the Coping
-  mechanism to produce an appropriate behavior.
-  
-  \item \textbf{\textit{Certainty:}} The certainty of an intention is determined
-  by the quality of the underlying motive and the beliefs associated with that
-  motive. The more \textit{strong, accurate, frequent, recent, salient} and
-  \textit{persistent} a set of pertinent beliefs of the self are, the more
-  chance the related motive has to be selected. Since the certainty of an
-  intention depends on the associated motive, the nature of the pursued goal also
-  implicitly impacts the certainty of that intention. A goal with higher
-  \textit{specificity} value influences the Belief Formation process of a new
-  motive by increasing the certainty of the affiliated intention. The certainty
-  of an intention is an important moderator of the self's intention-behavior
-  consistency.
-  
-  \item \textbf{\textit{Ambivalence:}} The Mental States of the self might
-  contain contradictory intentions towards the pursuit of the same goal, which
-  makes those intentions ambivalent. For instance, the self might already have
-  an intention to perform a task according to the shared plan, while the Appraisal
-  and the Motivation mechanisms dynamically provide a new motive forming a new
-  opposing intention. Furthermore, ambivalent intentions can occur because of
-  the contrast between the self's private goal and the shared goal during the
-  collaboration. The ambivalence attribute of an intention is against the
-  intention-behavior consistency of the self.
-  
-  \item \textbf{\textit{Affective-Deliberative Consistency:}} The self's
-  intentions possess an affective and a deliberative component. The affective
-  component refers to the emotion instance and in general the affective
-  evaluation of the self's intention towards its own behavior. However, the
-  deliberate component refers to the self's actual intention which is formed
-  either based on the existing shared plan or through a new motive generated by
-  the Motivation mechanism. For instance, as an example of
-  affective-deliberative inconsistency, the self can appraise the formation of
-  the current intention as an \textit{urgent} and \textit{uncontrollable} one
-  (which leads the self's emotion towards anger), despite the fact that
-  performing the task associated with this intention is required for the
-  satisfaction of the shared plan. In general, mutually consistent affective and
-  deliberate components of an intention positively impacts the consistency of
-  the self's intention and behavior.
-\end{itemize}
+\textit{Temporal Status, Direct Experience, Certainty, Ambivalence,
+Affective-Deliberative Consistency}
 
 \subsubsection{Goal:}
 
@@ -383,42 +325,7 @@ goal-driven and attribution of the goals according to the self's standards
 provides coherency of the processes and their outcomes. I discuss the three most
 relevant goal attributes in this section.
 
-\begin{itemize}
-  \item \textbf{\textit{Proximity:}} Goals can be distinguished by how far they
-  project into the future during the collaboration. Proximal (short-term) goals
-  result in more related motives and subsequently better self and
-  social-regulation than temporally distant goals. Proximal goals impact the
-  self's behaviors by influencing the evaluation process of the Appraisal
-  mechanism. As a result, the self can determine the collaboration progress
-  towards the shared goal more accurately while operating based on proximal
-  goals.
-  
-  \item \textbf{\textit{Specificity:}} Goals incorporating specific performance
-  standards are more likely to enhance the self's self-evaluation than general
-  goals. Specific goals raise the self-evaluation performance because they
-  provide a more accurate baseline for the mechanisms, e.g., Appraisal or
-  Motivation, that the self needs for self-evaluation during collaboration.
-  Consequently, by increasing the self-evaluation performance, the self can
-  compute more accurate anticipated self-satisfaction. For instance, holding an
-  object A in a particular position with respect to an object B for a certain
-  amount of time and welding them with a material C is a more specific goal than
-  a general goal of installing an object A on object B.
-  
-  \item \textbf{\textit{Difficulty:}} The goals that are moderately difficult
-  have the most impact on the Motivation mechanism, and ultimately the self and
-  social regulation processes of the self. Conversely, overly easy or impossible
-  goals usually do not motivate an individual to achieve the goal. Difficult
-  goals increase the probability of a motive's \textit{failure disruptiveness},
-  and overly easy goals decrease the \textit{importance} of the related motive;
-  in both cases the motives have less chances to form new intentions. The lower
-  chance of new intention formation will disrupt the self and social regulation
-  since the self cannot regulate internal processes and influence the external
-  world without forming appropriate intentions to take required actions. The
-  existence of a partial shared plan, dependency on the other to perform a task,
-  the failure of the same or similar task in the past and the conflict between
-  the self's private goal and the shared goal all increase the difficulty level
-  of a goal.
-\end{itemize}
+\textit{Proximity, Specificity, Difficulty}
 
 \subsubsection{Emotion Instance:}
 
@@ -440,47 +347,7 @@ going to use the convention of having emotions by the agent or the robot. The
 agent can also possess belief about an emotion instance which is similar to
 having belief about any other proposition.
 
-\begin{itemize}
-  \item \textbf{\textit{Joy:}} Joy is the state of an individual's well-being
-  and is associated with the sense of successful achievement of a goal. Joy
-  reveals one's sense of pleasure which implies an impending gain for the
-  individual.
-  
-  \item \textbf{\textit{Anger:}} Anger can be elicited by an unfair obstacle,
-  hindering the individual's goal attainment and it is usually triggered by some
-  external event (e.g., threat) which provokes a behavioral reaction. Anger
-  functions to set boundaries or escape from dangerous situations, and implies
-  an urgent desire for justice.
-  
-  \item \textbf{\textit{Hope:}} Hope is the result of an optimistic evaluation
-  of an event by an individual having expectations of positive and desirable
-  future outcomes related to that event. It is usually a poignant assimilation
-  of the present discontent and the future content implying an imagined or
-  anticipated successful future goal state.
-  
-  \item \textbf{\textit{Guilt:}} Guilt is based on self-condemnation in response
-  to a negative outcome of one's self performance evaluation. It is caused by
-  the violation of others' beliefs about the self, and others' standards and
-  bearing significant responsibility due to that violation. The occurrence of
-  guilt usually implies the desire to atone in social context.
-  
-  \item \textbf{\textit{Pride:}} Pride is a product of the satisfied sense of
-  one's own actions or decision outcomes. It implies the self-approval of the
-  evaluation oucomes of one's own actions. Pride is associated with the
-  achievement motivation wherein succeeding at a particular goal motivates the
-  corresponding action.
-  
-  \item \textbf{\textit{Shame:}} Shame is produced when one evaluates one's own
-  actions or behaviors and attributes failure to the outcome. The individual
-  focuses on specific features of self which led to failure. Shame implies the
-  existence of remorse.
-  
-  \item \textbf{\textit{Worry:}} Worry is one's emotional attempt to avoid
-  anticipated potential threats or unidentified undesirable events. The
-  individual's concern can be about a real or an imagined issue. Worry implies a
-  fear of a future failure about which one should make a decision or take an
-  action at present.
-\end{itemize}
+\textit{Joy, Anger, Hope, Guilt, Pride, Shame, Worry}
 
 \subsection{Collaboration Mechanism}
 
@@ -669,6 +536,7 @@ grid,initial/.style    ={}]
 \end{center}
 
 \section{Appraisal Processes}
+\label{sec:appraisal-process}
 
 All of the algorithms in this section use a mental graph which is a directed
 acyclic graph constructed based on the mental states of the robot at each turn
