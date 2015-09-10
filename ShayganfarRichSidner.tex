@@ -18,6 +18,7 @@
 /Title (Insert Your Title Here)
 /Author (Put All Your Authors Here, Separated by Commas)}
 \setcounter{secnumdepth}{0}
+
  \begin{document}
 % The file aaai.sty is the style file for AAAI Press 
 % proceedings, working notes, and technical reports.
@@ -45,11 +46,6 @@ Don't know yet!\end{quote}
 \noindent - The necessity for identifying underlying processes of the
 collaboration.
 
-\section{Example Scenario}
-
-Two short interactions of the robot and the astronaut (to be used throughout
-the paper).
-
 \section{Affective Motivational Collaboration Theory}
 The Affective Motivational Collaboration Theory is built on the foundations of
 the \textit{SharedPlans} theory of collaboration \cite{grosz:plans-discourse}
@@ -69,7 +65,7 @@ and emotional changes. Affective Motivational Collaboration Theory explains how
 emotions regulate the underlying processes when these events occur during
 collaboration. This theory elucidates the role of motives as goal-driven
 emotion-regulated constructs with which an agent can form new intentions to cope
-with internal and external events (cite my own AAAI paper).
+with internal and external events.
 
 Affective Motivational Collaboration Theory explains the functions of emotions
 in a dyadic collaboration and show how affective mechanisms can coordinate
@@ -349,7 +345,7 @@ having belief about any other proposition.
 
 \textit{Joy, Anger, Hope, Guilt, Pride, Shame, Worry}
 
-\subsection{Collaboration Mechanism}
+\section{Collaboration}
 
 Short paragraph to describe collaboration mechanism and its role in overall
 system (mention that we are not talking about the algorithms in this mechanism).
@@ -401,9 +397,12 @@ causes the self to add a new intention to its own Mental States.
   changes in the collaboration plan.
 \end{itemize}
 
-The \textit{recognizeGoal()} function returns the unique goal to which the event
-directly contributes irrespective of the event type (i.e., action, utterance, or
-emotional expression). This event structure holds in all of our algorithms.
+\begin{itemize}
+  \item The \textit{recognizeGoal()} function returns the unique goal to which
+  the event directly contributes irrespective of the event type (i.e., action,
+  utterance, or emotional expression). This event structure holds in all of our
+  algorithms.
+\end{itemize}
 
 \subsection{Appraisal Mechanism}
 
@@ -500,8 +499,12 @@ other.
   beliefs formed based on the appraisals can impact other mechanisms such as the
   Theory of Mind, Motivation and Coping, essentially including the whole
   computational model.
-  
 \end{itemize}
+
+\section{Example Scenario}
+
+Two short interactions of the robot and the astronaut (to be used throughout
+the paper).
 
 \section{Mental Graph}
 \label{sec:mental-graph}
@@ -933,6 +936,9 @@ compare this value to an emotional threshold similar to what we discussed in
 Algorithm \ref{alg:relevance}. This comparison leads to our decision about the
 controllability of an event (lines 8 to 11).
 
+\renewcommand\thealgorithm{4\alph{algorithm}}
+\setcounter{algorithm}{0}
+
 \begin{algorithm}
 	\caption{(Get Agency Ratio)}
 	\label{alg:agency}
@@ -1004,6 +1010,9 @@ However, if the associated goal of the current event corresponds to a primitive
 task the value of $\beta$ would be 0 or 1. In general, higher autonomy leads to
 a more positive value of controllability.
 
+\renewcommand\thealgorithm{4\alph{algorithm}}
+\setcounter{algorithm}{1}
+
 \begin{algorithm}
 	\caption{(Get Autonomy Ratio)}
 	\label{alg:autonomy}
@@ -1046,6 +1055,9 @@ for $\lambda$. On the contrary, failure of all of the predecessors will lead to
 $\lambda=0$. Therefore, higher $\lambda$ value positively impacts the value of
 controllability for the current event.
 
+\renewcommand\thealgorithm{4\alph{algorithm}}
+\setcounter{algorithm}{2}
+
 \begin{algorithm}
 	\caption{(Get Succeeded Predecessors Ratio)}
 	\label{alg:predecessors}
@@ -1086,6 +1098,9 @@ required inputs of the goal associated with the current event. This value
 1. Similar to the other factors in the controllability process, the closer the
 value of $\mu$ gets to 1, the more positive impact it has on the overall
 controllability value of the event.
+
+\renewcommand\thealgorithm{4\alph{algorithm}}
+\setcounter{algorithm}{3}
 
 \begin{algorithm}
 	\caption{(Get Available Input Ratio)}
