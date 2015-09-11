@@ -34,23 +34,45 @@ mshayganfar $|$ rich $|$ sidner @wpi.edu
 \maketitle
 \begin{abstract}
 \begin{quote}
-Don't know yet!\end{quote}
+Don't know yet!
+\end{quote}
 \end{abstract}
 
 \section{Introduction}
 
-- SharedPlans theory.
+Ronald De Sousa in The Rationality of Emotion \cite{sousa:rationality-emotion}
+makes a good case for the claim that humans are capable of rationality largely
+because they are creatures with emotions. The idea of having robots or other
+intelligent agents living in a human environment has been a persistent dream
+from science fiction books to artificial intelligence and robotics laboratories.
+Collaborative robots are becoming the complementary part of the humans'
+environment to accomplish their industrial and household tasks. In these
+environments humans are involved in robots' operations and decision making
+processes. This involvement of the humans influences the efficiency of the
+robots' interaction and performance, and makes them dependent to the humans'
+cognitive abilities and mental state.
 
-\noindent - Appraisal theory and social context.
+Our work is part of a larger effort to build robots capable of generating and
+recognizing humans' emotions to be better collaborators. In this paper, we are
+reporting on specific problem of appraising events within a collaborative
+interaction. Our contribution is grounding the general appraisal concepts in the
+specific context and structure of collaboration. This work is part of the
+development of our framework based on our \textit{Affective Motivational
+Collaboration Theory} which is built on the foundations of the
+\textit{SharedPlans} theory of collaboration \cite{grosz:plans-discourse} and
+the \textit{cognitive appraisal} theory of emotions
+\cite{gratch:domain-independent}.
 
-\noindent - The necessity for identifying underlying processes of the
-collaboration.
+In the rest of this paper, we are going to briefly introduce the Affective
+Motivational Collaboration Theory focusing on the collaboration and appraisal
+mechanisms as well as the mental states. We are also going to provide more
+details about the graph representation of the robot's mental state. Finally, we
+describe our algorithms which we developed to process the value of four crucial
+appraisal variables as part of the appraisal mechanism in our framework.
 
 \section{Affective Motivational Collaboration Theory}
-The Affective Motivational Collaboration Theory is built on the foundations of
-the \textit{SharedPlans} theory of collaboration \cite{grosz:plans-discourse}
-and the \textit{cognitive appraisal} theory of emotions
-\cite{gratch:domain-independent}. Affective Motivational Collaboration Theory is
+
+The Affective Motivational Collaboration Theory is
 about the interpretation and prediction of observable behaviors in a dyadic
 collaborative interaction. The theory focuses on the processes regulated by
 emotional states. The observable behaviors represent the outcome of reactive and
@@ -66,6 +88,14 @@ emotions regulate the underlying processes when these events occur during
 collaboration. This theory elucidates the role of motives as goal-driven
 emotion-regulated constructs with which an agent can form new intentions to cope
 with internal and external events.
+
+\begin{figure}[tbh]
+  \centering
+  \includegraphics[width=0.474\textwidth]{figure/theory-general-croped.pdf}
+  \caption{Computational framework based on Affective Motivational Collaboration
+  Theory (arrows indicate primary influences between mechanisms).}
+  \label{fig:cpm}
+\end{figure}
 
 Affective Motivational Collaboration Theory explains the functions of emotions
 in a dyadic collaboration and show how affective mechanisms can coordinate
@@ -87,14 +117,6 @@ impasse in an ongoing task, or b) wants to provide an external motive to the
 other when the other faces a problem in a task. The \textit{Theory of Mind}
 mechanism is the mechanism that infers a model of the other's anticipated mental
 state. The self progressively updates this model during the collaboration.
-
-\begin{figure}[tbh]
-  \centering
-  \includegraphics[width=0.474\textwidth]{figure/theory-general-croped.pdf}
-  \caption{Computational framework based on Affective Motivational Collaboration
-  Theory (arrows indicate primary influences between mechanisms).}
-  \label{fig:cpm}
-\end{figure}
 
 \subsection{Mental States}
 \label{sec:mental-states}
@@ -602,7 +624,7 @@ $(\mathcal{U})$ such that ($0 \leq \mathcal{U} \leq 1$) based on the values of
 the attributes associated with the belief about that event
 ($\mathit{b}_{\varepsilon_t}$), as well as the attributes of the motive within
 the path $\mathcal{P}$. Yet, the significance of an event in a collaborative
-environment not only is based on the utlity of the event, but it is also
+environment not only is based on the utility of the event, but it is also
 influenced by the emotional state of the other collaborator. In other words, the
 relevance of a belief about an event is influenced by the perceived emotion of
 the human collaborator. The human's emotion influences the decision about the
