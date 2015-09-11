@@ -19,7 +19,7 @@
 /Author (Put All Your Authors Here, Separated by Commas)}
 \setcounter{secnumdepth}{0}
 
- \begin{document}
+\begin{document}
 % The file aaai.sty is the style file for AAAI Press 
 % proceedings, working notes, and technical reports.
 %
@@ -33,11 +33,21 @@ mshayganfar $|$ rich $|$ sidner @wpi.edu
 }
 \maketitle
 \begin{abstract}
+\vspace*{-2mm}
 \begin{quote}
-Don't know yet!
+We have investigated the mutual influence of affective and collaboration
+processes in a cognitive theory to support the interaction between humans and
+robots or virtual agents. We have developed new algorithms for appraisal
+processes, as part of a new overall computational model for implementing
+collaborative robots and agents. We build primarily on the \textit{cognitive
+appraisal} theory of emotions \cite{gratch:domain-independent} and the
+\textit{SharedPlans} theory \cite{grosz:plans-discourse} of collaboration to
+investigate the structure, fundamental processes and functions of emotions in a
+collaboration.
 \end{quote}
 \end{abstract}
 
+\vspace*{-6mm}
 \section{Introduction}
 
 Ronald De Sousa in The Rationality of Emotion \cite{sousa:rationality-emotion}
@@ -70,30 +80,31 @@ details about the graph representation of the robot's mental state. Finally, we
 describe our algorithms which we developed to process the value of four crucial
 appraisal variables as part of the appraisal mechanism in our framework.
 
+\vspace*{-2mm}
 \section{Affective Motivational Collaboration Theory}
 
-The Affective Motivational Collaboration Theory is
-about the interpretation and prediction of observable behaviors in a dyadic
-collaborative interaction. The theory focuses on the processes regulated by
-emotional states. The observable behaviors represent the outcome of reactive and
-deliberative processes related to the interpretation of the self's relationship
-to the collaborative environment. Affective Motivational Collaboration Theory
-aims to explain both rapid emotional reactions to events as well as slower, more
-deliberative responses. The reactive and deliberative processes are triggered by
-two types of events: \textit{external} events, such as the other's
+Affective Motivational Collaboration Theory is about the interpretation and
+prediction of observable behaviors in a dyadic collaborative interaction. The
+theory focuses on the processes regulated by emotional states. The observable
+behaviors represent the outcome of reactive and deliberative processes related
+to the interpretation of the self's relationship to the collaborative
+environment. Affective Motivational Collaboration Theory aims to explain both
+rapid emotional reactions to events as well as slower, more deliberative
+responses. The reactive and deliberative processes are triggered by two types of
+events: \textit{external} events, such as the other's
 \textit{utterances} and \textit{primitive actions}, and \textit{internal}
 events, comprising changes in the self's mental states, such as belief formation
-and emotional changes. Affective Motivational Collaboration Theory explains how
-emotions regulate the underlying processes when these events occur during
-collaboration. This theory elucidates the role of motives as goal-driven
-emotion-regulated constructs with which an agent can form new intentions to cope
-with internal and external events.
+and emotional changes. The theory explains how emotions regulate the underlying
+processes when these events occur during collaboration. It also elucidates the
+role of motives as goal-driven emotion-regulated constructs with which an agent
+can form new intentions to cope with events.
 
 \begin{figure}[tbh]
   \centering
   \includegraphics[width=0.474\textwidth]{figure/theory-general-croped.pdf}
-  \caption{Computational framework based on Affective Motivational Collaboration
-  Theory (arrows indicate primary influences between mechanisms).}
+  \caption{{\fontsize{9}{9}\selectfont Computational framework based on
+  Affective Motivational Collaboration Theory (arrows indicate primary
+  influences between mechanisms).}}
   \label{fig:cpm}
 \end{figure}
 
