@@ -287,51 +287,27 @@ paper to clarify some of the concepts.
 
 \section{Collaboration}
 
-The Collaboration mechanism is responsible for maintaining the internal
-structure of a collaboration, including the focus of attention, constraints on
-actions, updating the shared plan and, in general, monitoring of the
-collaboration. All of these structures require updating each time the self
-receives an external event. For instance, an utterance by the other can impact
-the self's focus of attention during the collaboration, or the effect of a
-primitive action can influence the self's view of an impasse on a task. As
-another example, the perception of the other's emotion instance can cause
-significant changes in the self's collaboration monitoring. The Collaboration
-mechanism also responds to internal events. These changes can occur under the
-influence of several other processes which are able to alter the self's mental
-states. For instance, the Motivation mechanism can generate a new motive which
-causes the self to add a new intention to its own Mental States.
+The Collaboration mechanism constructs a hierarchy of goals associated with
+tasks in the form of a Hierarchical Task Network (see Figure \ref{fig:cs}), and
+also manages and maintains the constraints and other required details of the
+collaboration specified by the plan. These details include the inputs and
+outputs of individual tasks, the \textit{preconditions} specifying whether it is
+appropriate to perform a task, and the \textit{postconditions} specifying
+whether a just-completed task was successful (i.e., whether the corresponding
+goal is achieved). Collaboration also keeps track of the focus of attention,
+which determines the salient objects, properties and relations at each point of
+the collaboration. Moreover, Collaboration has the ability to shift the focus of
+attention during the interaction. 
 
-\begin{itemize}
-  \item \textbf{Input:} The input to the \textit{Collaboration} mechanism
-  includes all the data that affects the execution of individual tasks in the
-  collaboration plan. This data will be provided via the different elements of
-  Mental States including beliefs, intentions and goals. These Mental States
-  will establish agent's initial plan and will be updated throughout the
-  collaboration process by the Perception and Inference mechanisms.
-  
-  \item \textbf{Output:} The output of \textit{Collaboration} includes all the
-  data that is modified or created during execution of a plan in the form of
-  Mental States. These Mental States will be used by the internal processes in
-  the Theory of Mind mechanism. Additionally, the Appraisal mechanism will use
-  these Mental States to evaluate the events during collaboration. These Mental
-  States also will be used by the Inference mechanism for the purpose of
-  maintaining the collaboration.
-  
-  \item \textbf{Function:} The \textit{Collaboration} mechanism will construct a
-  hierarchy of tasks and also manage and maintain the constraints and other
-  required details of the collaboration specified by the plan. These details
-  include the inputs and outputs of individual tasks, the \textit{preconditions}
-  specifying whether it is appropriate to perform a task, and the
-  \textit{postconditions} specifying whether a just-completed task was
-  successful (which can be used as an indication of an impasse or failure).
-  \textit{Collaboration} also keeps track of the focus of attention, which
-  determines the salient objects, properties and relations at each point of the
-  collaboration. Moreover, \textit{Collaboration} has the ability to shift the
-  focus of attention during the collaboration. All the other mechanisms in the
-  overall \textit{Affective Motivational Collaboration Model} are influenced by
-  changes in the collaboration plan.
-\end{itemize}
+The Collaboraiton mechanism receives the data that affects the execution of
+individual tasks in the collaboration plan. This data is provided via the
+different elements of Mental States including beliefs, intentions and goals.
+Collaboration mechanism generates the data that is modified or created during
+execution of a plan in the form of Mental States which will be used by other
+processes in our framework. For instance, the Appraisal mechanism uses these
+Mental States to evaluate the events during collaboration.
 
+\vspace*{-2mm}
 \begin{figure}[tbh]
   \centering
   \includegraphics[width=0.474\textwidth]{figure/collaborationStructure-croped.pdf}
@@ -339,22 +315,59 @@ causes the self to add a new intention to its own Mental States.
   \label{fig:cs}
 \end{figure}
 
+In the followings, we briefly describe the methods which provide detail
+information about the collaboration structure, and are used in our algorithms to
+compute the values of appraisal variables.
+
 \begin{itemize}
-  \item The \textit{recognizeGoal()} function returns the unique goal to which
-  the event directly contributes irrespective of the event type (i.e., action,
-  utterance, or emotional expression). This event structure holds in all of our
-  algorithms.
-  \item \textit{topLevelGoalStatus()}
-  \item \textit{currGoalStatus()}
-  \item \textit{precondStatus()}
-  \item \textit{doesContribute()}
-  \item \textit{extractContributingGoals()}
-  \item \textit{extractPredecessors()}
-  \item \textit{extractInputs()}
-  \item \textit{isAvailable()}
-  \item \textit{isAchieved()}
-  \item \textit{isFocused()}
-  \item \textit{getResponsible()}
+  \item The \textit{recognizeGoal()} method returns the unique goal to which
+  the given event directly contributes irrespective of the event type (i.e.,
+  action, utterance, or emotional expression). If this method does not recognize
+  a goal in the plan to which the event contributes, we consider the
+  corresponding goal ambiguous in our processes.
+  \item The \textit{topLevelGoalStatus()} method returns the status of the top
+  level goal whether it is \textit{achieved, blocked} or \textit{in progress}.
+  In our example, ``Install Solar Panels'' is the top level goal (see Figure
+  \ref{fig:cs}).
+  \item The \textit{currGoalStatus()} method returns the current goal status
+  whether it is \textit{achieved, blocked, unknown} or \textit{in progress}. In
+  our example, ``Prepare Measurement Tool'' is the current goal.
+  \item The \textit{precondStatus()} method returns the status of the
+  precondition for the given goal whether it is \textit{satisfied, unsatisfied}
+  or \textit{unknown}. For instance, the precondition for fixing a panel is
+  whether the panel is appropriately located on its frame.
+  \item The \textit{doesContribute()} method returns whether the given goal
+  contributes to another goal in the higher level of the plan hierarchy. For
+  instance, an abstract (nonprimitive) goal of ``Bring Panels'' contributes to
+  the higher level goal of ``Install Solar Panels'' (see Figure \ref{fig:cs}).
+  \item The \textit{extractContributingGoals()} method returns all the
+  contributing goals of the given goal. For instance, as shown in Figure
+  \ref{fig:cs} the ``Prepare Measuring Tool'' and ``Measure Quality'' or two
+  goals contributing to the ``Check Panels'' nonprimitive goal.
+  \item The \textit{extractPredecessors()} method returns the predecessors of
+  the given goal. For instance, as shown in Figure \ref{fig:cs}, the ``Prepare
+  Measuring Tool'' goal is the predecessor of another goal called ``Measure
+  Quality''.
+  \item The \textit{extractInputs()} method returns all the required inputs for
+  the given goal. For example, the goal ``Fix Panels'' requires inputs such as
+  the \textit{welding tool} and the \textit{panel}.
+  \item The \textit{isAvailable()} method returns whether the given input is
+  available. For instance, if the \textit{welding tool} is required for the goal
+  ``Fix Panels'', is it available now?
+  \item The \textit{isAchieved()} method returns whether the given goal is
+  achieved. In other words, whether all the postconditions of the give goal are
+  \textit{satisfied}.
+  \item The \textit{isFocused()} method returns whether the given goal has the
+  focus now. As shown in Figure \ref{fig:cs}, the goal ``Prepare Measuring
+  Tool'' has the focus. The focused goal is the goal that the robot currently
+  pursues to achieve.
+  \item The \textit{getResponsible()} method returns responsible agents of the
+  given goal. In a dyadic collaboration, both of the agents can be partly
+  responsible for a nonprimitive goal, while each agent is responsible for one
+  or more primitive goal. For instance, both the robot and the astronaut are
+  responsible for the nonprimitive goal of ``Install Solar Panels'', whereas
+  it is only the astronaut who is responsible for the primitive goal of
+  ``Prepare Measuring Tool''.
 \end{itemize}
 
 \subsection{Appraisal Mechanism}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.10.5)  12 SEP 2015 12:35
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.10.5)  12 SEP 2015 19:31
 entering extended mode
  restricted \write18 enabled.
  Source specials enabled.
@@ -515,58 +515,59 @@ File: figure/collaborationStructure-croped.pdf Graphic file (type pdf)
 
 <use figure/collaborationStructure-croped.pdf>
 Package pdftex.def Info: figure/collaborationStructure-croped.pdf used on input
- line 337.
+ line 313.
 (pdftex.def)             Requested size: 239.79135pt x 124.43935pt.
- [3] [4 <./figure/collaborationStructure-croped.pdf>] [5]
-LaTeX Font Info:    Calculating math sizes for size <8.5> on input line 617.
+ [3 <./figure/collaborationStructure-croped.pdf>]
+Underfull \hbox (badness 1436) in paragraph at lines 343--347
+\OT1/ptm/m/n/10 ``Mea-sure Qual-ity'' or two goals con-tribut-ing to the
+ []
+
+[4] [5]
+LaTeX Font Info:    Calculating math sizes for size <8.5> on input line 630.
 
 
 LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <8.5> not available
-(Font)              size <8> substituted on input line 617.
+(Font)              size <8> substituted on input line 630.
 
 
 LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <4.25> not available
-(Font)              size <5> substituted on input line 617.
+(Font)              size <5> substituted on input line 630.
 
 
 LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <8.5> not available
-(Font)              size <8> substituted on input line 617.
+(Font)              size <8> substituted on input line 630.
 
 
 LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <4.25> not available
-(Font)              size <5> substituted on input line 617.
+(Font)              size <5> substituted on input line 630.
 
 
 LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <8.5> not available
-(Font)              size <8> substituted on input line 617.
+(Font)              size <8> substituted on input line 630.
 
 
 LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <4.25> not available
-(Font)              size <5> substituted on input line 617.
+(Font)              size <5> substituted on input line 630.
 
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8.5> on input line 617.
+(Font)              <8.5> on input line 630.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5.94997> on input line 617.
+(Font)              <5.94997> on input line 630.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <4.25> on input line 617.
+(Font)              <4.25> on input line 630.
 
 LaTeX Font Warning: Font shape `OT1/cmr/m/it' in size <8.5> not available
-(Font)              size <8> substituted on input line 617.
+(Font)              size <8> substituted on input line 630.
 
 
 LaTeX Font Warning: Font shape `OT1/cmr/m/it' in size <4.25> not available
-(Font)              size <5> substituted on input line 617.
+(Font)              size <5> substituted on input line 630.
 
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <9> on input line 648.
+(Font)              <9> on input line 661.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 648.
-[6]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [7]
-[8] (./ShayganfarRichSidner.bbl
+(Font)              <6> on input line 661.
+[6] [7] [8] (./ShayganfarRichSidner.bbl
 Underfull \hbox (badness 1931) in paragraph at lines 18--24
 [][]\OT1/ptm/m/n/10 Cooke, R., and Sheeran, P.  2004.  Mod-er-a-tion of
  []
@@ -604,7 +605,7 @@ t/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/share/texlive/texmf-dist/fonts
 /type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/time
 s/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><
 /usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on ShayganfarRichSidner.pdf (10 pages, 296144 bytes).
+Output written on ShayganfarRichSidner.pdf (10 pages, 297817 bytes).
 PDF statistics:
  150 PDF objects out of 1000 (max. 8388607)
  104 compressed objects within 2 object streams
