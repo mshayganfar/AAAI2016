@@ -287,11 +287,6 @@ paper to clarify some of the concepts.
 
 \section{Collaboration}
 
-Short paragraph to describe collaboration mechanism and its role in overall
-system (mention that we are not talking about the algorithms in this mechanism).
-
-Then, describe the collaboration model and its components.
-
 The Collaboration mechanism is responsible for maintaining the internal
 structure of a collaboration, including the focus of attention, constraints on
 actions, updating the shared plan and, in general, monitoring of the
@@ -337,11 +332,29 @@ causes the self to add a new intention to its own Mental States.
   changes in the collaboration plan.
 \end{itemize}
 
+\begin{figure}[tbh]
+  \centering
+  \includegraphics[width=0.474\textwidth]{figure/collaborationStructure-croped.pdf}
+  \caption{{\fontsize{9}{9}\selectfont Collaboration structure.}}
+  \label{fig:cs}
+\end{figure}
+
 \begin{itemize}
   \item The \textit{recognizeGoal()} function returns the unique goal to which
   the event directly contributes irrespective of the event type (i.e., action,
   utterance, or emotional expression). This event structure holds in all of our
   algorithms.
+  \item \textit{topLevelGoalStatus()}
+  \item \textit{currGoalStatus()}
+  \item \textit{precondStatus()}
+  \item \textit{doesContribute()}
+  \item \textit{extractContributingGoals()}
+  \item \textit{extractPredecessors()}
+  \item \textit{extractInputs()}
+  \item \textit{isAvailable()}
+  \item \textit{isAchieved()}
+  \item \textit{isFocused()}
+  \item \textit{getResponsible()}
 \end{itemize}
 
 \subsection{Appraisal Mechanism}
