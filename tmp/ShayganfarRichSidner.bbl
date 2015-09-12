@@ -1,5 +1,11 @@
 \begin{thebibliography}{}
 
+\bibitem[\protect\citeauthoryear{Breazeal}{2002}]{breazeal:sociable-robot}
+Breazeal, C.
+\newblock 2002.
+\newblock {\em Designing Sociable Robots}.
+\newblock MIT Press.
+
 \bibitem[\protect\citeauthoryear{Carley}{1990}]{carley:belief-persistence}
 Carley, K.
 \newblock 1990.
@@ -51,5 +57,11 @@ Sloman, A.
 \newblock 1987.
 \newblock Motives, mechanisms, and emotions.
 \newblock {\em Cognition \& Emotion} 1(3):217--233.
+
+\bibitem[\protect\citeauthoryear{Sousa}{1990}]{sousa:rationality-emotion}
+Sousa, R.~D.
+\newblock 1990.
+\newblock {\em The Rationality of Emotion}.
+\newblock MIT Press.
 
 \end{thebibliography}
