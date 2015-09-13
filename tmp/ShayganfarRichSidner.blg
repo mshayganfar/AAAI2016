@@ -3,44 +3,44 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: ShayganfarRichSidner.aux
 The style file: aaai.bst
 Database file #1: mshayganfar.bib.bib
-You've used 9 entries,
+You've used 8 entries,
             2568 wiz_defined-function locations,
-            624 strings with 5854 characters,
-and the built_in function-call counts, 3294 in all, are:
-= -- 347
-> -- 109
+            620 strings with 5700 characters,
+and the built_in function-call counts, 3028 in all, are:
+= -- 318
+> -- 102
 < -- 1
-+ -- 35
-- -- 33
-* -- 250
-:= -- 551
-add.period$ -- 48
-call.type$ -- 9
-change.case$ -- 48
-chr.to.int$ -- 9
-cite$ -- 9
-duplicate$ -- 137
-empty$ -- 253
-format.name$ -- 48
-if$ -- 677
++ -- 33
+- -- 31
+* -- 234
+:= -- 503
+add.period$ -- 43
+call.type$ -- 8
+change.case$ -- 43
+chr.to.int$ -- 8
+cite$ -- 8
+duplicate$ -- 124
+empty$ -- 234
+format.name$ -- 45
+if$ -- 625
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 12
-newline$ -- 58
-num.names$ -- 29
-pop$ -- 45
+missing$ -- 11
+newline$ -- 52
+num.names$ -- 26
+pop$ -- 41
 preamble$ -- 1
-purify$ -- 60
+purify$ -- 54
 quote$ -- 0
-skip$ -- 105
+skip$ -- 94
 stack$ -- 0
-substring$ -- 165
-swap$ -- 27
+substring$ -- 160
+swap$ -- 25
 text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 60
+type$ -- 52
 warning$ -- 0
-while$ -- 28
-width$ -- 12
-write$ -- 126
+while$ -- 26
+width$ -- 11
+write$ -- 113

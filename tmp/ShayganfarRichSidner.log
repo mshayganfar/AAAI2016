@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.10.5)  12 SEP 2015 23:34
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.10.5)  13 SEP 2015 01:49
 entering extended mode
  restricted \write18 enabled.
  Source specials enabled.
@@ -494,7 +494,7 @@ File: figure/theory-general-croped.pdf Graphic file (type pdf)
 <use figure/theory-general-croped.pdf>
 Package pdftex.def Info: figure/theory-general-croped.pdf used on input line 10
 4.
-(pdftex.def)             Requested size: 239.79135pt x 164.85951pt.
+(pdftex.def)             Requested size: 227.64894pt x 156.51054pt.
  [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
 
@@ -503,9 +503,9 @@ Package pdftex.def Info: figure/theory-general-croped.pdf used on input line 10
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10.95> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 132.
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 175.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 177.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <10> not available
-(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 175.
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 177.
  [2]
 LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <9> not available
 (Font)              Font shape `OT1/ptm/b/it' tried instead on input line 277.
@@ -518,77 +518,74 @@ Package pdftex.def Info: figure/collaborationStructure-croped.pdf used on input
  line 317.
 (pdftex.def)             Requested size: 239.79135pt x 124.43935pt.
  [3 <./figure/collaborationStructure-croped.pdf>]
-Underfull \hbox (badness 1436) in paragraph at lines 347--351
-\OT1/ptm/m/n/10 ``Mea-sure Qual-ity'' or two goals con-tribut-ing to the
- []
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <9> on input line 434.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 434.
 
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <9> on input line 433.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 433.
-[4]
-LaTeX Font Info:    Calculating math sizes for size <8.5> on input line 568.
+Underfull \vbox (badness 4634) has occurred while \output is active []
+
+ [4]
+LaTeX Font Info:    Calculating math sizes for size <8.5> on input line 569.
 
 
 LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <8.5> not available
-(Font)              size <8> substituted on input line 568.
+(Font)              size <8> substituted on input line 569.
 
 
 LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <4.25> not available
-(Font)              size <5> substituted on input line 568.
+(Font)              size <5> substituted on input line 569.
 
 
 LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <8.5> not available
-(Font)              size <8> substituted on input line 568.
+(Font)              size <8> substituted on input line 569.
 
 
 LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <4.25> not available
-(Font)              size <5> substituted on input line 568.
+(Font)              size <5> substituted on input line 569.
 
 
 LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <8.5> not available
-(Font)              size <8> substituted on input line 568.
+(Font)              size <8> substituted on input line 569.
 
 
 LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <4.25> not available
-(Font)              size <5> substituted on input line 568.
+(Font)              size <5> substituted on input line 569.
 
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8.5> on input line 568.
+(Font)              <8.5> on input line 569.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5.94997> on input line 568.
+(Font)              <5.94997> on input line 569.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <4.25> on input line 568.
+(Font)              <4.25> on input line 569.
 
 LaTeX Font Warning: Font shape `OT1/cmr/m/it' in size <8.5> not available
-(Font)              size <8> substituted on input line 568.
+(Font)              size <8> substituted on input line 569.
 
 
 LaTeX Font Warning: Font shape `OT1/cmr/m/it' in size <4.25> not available
-(Font)              size <5> substituted on input line 568.
+(Font)              size <5> substituted on input line 569.
 
-[5] [6] [7]
-Underfull \vbox (badness 3000) has occurred while \output is active []
+[5] [6]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [8]
-(./ShayganfarRichSidner.bbl
-Underfull \hbox (badness 1931) in paragraph at lines 18--24
+ [7]
+[8] (./ShayganfarRichSidner.bbl
+Underfull \hbox (badness 1931) in paragraph at lines 11--17
 [][]\OT1/ptm/m/n/10 Cooke, R., and Sheeran, P.  2004.  Mod-er-a-tion of
  []
 
-) [9
-
-] (./ShayganfarRichSidner.aux)
+) [9] (./ShayganfarRichSidner.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.75pt have occurred.
 
  ) 
 Here is how much of TeX's memory you used:
- 13047 strings out of 495028
- 259296 string characters out of 6181497
- 327553 words of memory out of 5000000
- 15989 multiletter control sequences out of 15000+600000
+ 13046 strings out of 495028
+ 259269 string characters out of 6181497
+ 326535 words of memory out of 5000000
+ 15988 multiletter control sequences out of 15000+600000
  36680 words of font info for 65 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  56i,11n,68p,443b,805s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -610,7 +607,7 @@ t/fonts/type1/public/amsfonts/cm/cmti7.pfb></usr/share/texlive/texmf-dist/fonts
 urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi
 8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/sh
 are/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on ShayganfarRichSidner.pdf (9 pages, 302920 bytes).
+Output written on ShayganfarRichSidner.pdf (9 pages, 302518 bytes).
 PDF statistics:
  151 PDF objects out of 1000 (max. 8388607)
  105 compressed objects within 2 object streams

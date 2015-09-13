@@ -55,29 +55,29 @@ makes a good case for the claim that humans are capable of rationality largely
 because they are creatures with emotions. The idea of having robots or other
 intelligent agents living in a human environment has been a persistent dream
 from science fiction books to artificial intelligence and robotics laboratories.
-Collaborative robots are becoming the complementary part of the humans'
-environment to accomplish their industrial and household tasks. In these
-environments humans are involved in robots' operations and decision making
-processes. This involvement of the humans influences the efficiency of the
-robots' interaction and performance, and makes them dependent to the humans'
-cognitive abilities and mental state.
+Collaborative robots are becoming an integral part of humans' environment to
+accomplish their industrial and household tasks. In these environments humans
+are involved in robots' operations and decision making processes. This
+involvement of humans influences the efficiency of robots' interaction and
+performance, and makes them dependent on the humans' cognitive abilities and
+mental states.
 
 Our work is part of a larger effort to build robots capable of generating and
-recognizing humans' emotions to be better collaborators. In this paper, we are
-reporting on specific problem of appraising events within a collaborative
-interaction. Our contribution is grounding the general appraisal concepts in the
-specific context and structure of collaboration. This work is part of the
-development of our framework based on our \textit{Affective Motivational
-Collaboration Theory} which is built on the foundations of the
+recognizing humans' emotions in order to be better collaborators. In this paper,
+we are reporting on the specific problem of appraising events within a
+collaborative interaction. Our contribution is grounding the general appraisal
+concepts in the specific context and structure of collaboration. This work is
+part of the development of our framework based on our \textit{Affective
+Motivational Collaboration Theory} which is built on the foundations of the
 \textit{SharedPlans} theory of collaboration \cite{grosz:plans-discourse} and
 the \textit{cognitive appraisal} theory of emotions
 \cite{gratch:domain-independent}.
 
 In the rest of this paper, we are going to briefly introduce the Affective
 Motivational Collaboration Theory focusing on the collaboration and appraisal
-mechanisms as well as the mental states. We are also going to provide more
-details about the graph representation of the robot's mental state. Finally, we
-describe our algorithms which we developed to process the value of four crucial
+mechanisms as well as mental states. We are also going to provide more details
+about the graph representation of the robot's mental state. Finally, we describe
+our algorithms which we developed to comopute the value of four crucial
 appraisal variables as part of the appraisal mechanism in our framework.
 
 \vspace*{-2mm}
@@ -101,7 +101,7 @@ can form new intentions to cope with events.
 
 \begin{figure}[tbh]
   \centering
-  \includegraphics[width=0.474\textwidth]{figure/theory-general-croped.pdf}
+  \includegraphics[width=0.45\textwidth]{figure/theory-general-croped.pdf}
   \caption{{\fontsize{9}{9}\selectfont Computational framework based on
   Affective Motivational Collaboration Theory (arrows indicate primary
   influences between mechanisms).}}
@@ -109,7 +109,7 @@ can form new intentions to cope with events.
 \end{figure}
 
 Affective Motivational Collaboration Theory explains the functions of emotions
-in a dyadic collaboration and show how affective mechanisms can coordinate
+in a dyadic collaboration and shows how affective mechanisms can coordinate
 social interactions by enabling one to anticipate other's emotions, beliefs and
 intentions. Our focus is on the mechanisms depicted as mental processes in
 Figure \ref{fig:cpm} along with the mental states. The \textit{Mental States}
@@ -132,22 +132,24 @@ state. The self progressively updates this model during the collaboration.
 \subsection{Mental States}
 \label{sec:mental-states}
 
-The Mental States shown in Figure \ref{fig:cpm} comprise the knowledge base
-required for all the mechanisms in the overall model. Mental states are
-conscious states of the mind providing the content for cognitive processes.
-Affective Motivational Collaboration Theory operates with the following Mental
-States: beliefs, intentions, motives, goals and emotion instances. These Mental
-States possess attributes, each of which provides a discriminating and unique
-interpretation of the related cognitive entities. The self uses Mental States'
-attributes whenever there is an arbitration in the internal cognitive processes.
-We provide more details about the attributes of beliefs and motives in this
-paper, since they are used in our appraisal algorithms.
+A brief description of mental states is provided as prerequisite knowledge for
+understanding the appraisal processes. The Mental States shown in Figure
+\ref{fig:cpm} comprise the knowledge base required for all the mechanisms in the
+overall model. Mental states are conscious states of the mind providing the
+content for cognitive processes. Affective Motivational Collaboration Theory
+operates with the following Mental States: beliefs, intentions, motives, goals
+and emotion instances. These Mental States possess attributes, each of which
+provides a discriminating and unique interpretation of the related cognitive
+entities. The self uses Mental States' attributes whenever there is an
+arbitration in the internal cognitive processes. We provide more details about
+the attributes of beliefs and motives in this paper, since they are used in our
+appraisal algorithms.
 
 \subsubsection{Belief:}
 
 \textit{Beliefs} are a crucial part of the Mental States. We have two different
 perspectives on categorization of beliefs. In one perspective, we categorize
-beliefs based on whether they are shared or not between the collaborators. The
+beliefs based on whether they are shared between the collaborators. The
 SharedPlans \cite{grosz:plans-discourse} theory is the foundation of this
 categorization in which for any given proposition the agent may have: a) private
 beliefs (the agent believes the human does not know these), b) the inferred
@@ -165,15 +167,16 @@ passes.
 
 The attributes of a belief are involved in arbitration procedures within
 different processes in Affective Motivational Collaboration Theory. They impact
-a range of these processes from, the formation of new beliefs, the evaluation of
-an external event by the Appraisal mechanism, generation of new motives, updates
-on collaboration plan, to the activation of coping strategies and ultimately the
-self's behavior. We use the following six attributes of beliefs in our
-framework.
+a range of these processes from the formation of new beliefs, the evaluation of
+an external event by the Appraisal mechanism, generation of new motives and
+updates on collaboration plan, to the activation of coping strategies and
+ultimately the self's behavior. We use the following six attributes of beliefs
+in our framework.
 
 \begin{itemize}
-  \item \textbf{\textit{Strength:}} Belief strength is about how strong the self
-  holds salient beliefs about an object, an entity, or an anticipated behavior.
+  \item \textbf{\textit{Strength:}} Belief strength is about how strongly the
+  self holds salient beliefs about an object, an entity, or an anticipated
+  behavior.
   
   \item \textbf{\textit{Accuracy:}} Accuracy of a belief is the relation between
   that belief and the truth which that belief is about.
@@ -187,9 +190,8 @@ framework.
   \item \textbf{\textit{Saliency:}} The saliency of a belief is a cognitive
   attribute that pertains to how easily the self becomes aware of a belief.
   
-  \item \textbf{\textit{Persistence:}} It is argued that beliefs form and change
-  due to cognitive and social considerations \cite{carley:belief-persistence}.
-  Persistent beliefs are very resistant to these changes.
+  \item \textbf{\textit{Persistence:}} The persistence of a belief refers to how
+  resistant the belief is to changes.
 \end{itemize}
 
 \subsubsection{Motive:}
@@ -201,11 +203,11 @@ according to: a) its own emotional states (how the agent appraises the
 environment), b) its own private goal (how an action helps the agent to make
 progress), c) the collaboration goal (how an action helps to achieve the shared
 goal), and d) other's anticipated beliefs (how an action helps the other).
-According to Sloman, motives can be compared on various dimensions
-\cite{sloman:motivation}. Motives possess a set of attributes. The Motivation
-mechanism compares motives based on the quality of these attributes and chooses
-the one which is the most related to the current state of the collaboration. We
-have the following five motive attributes in our framework.
+Motives can be compared on various dimensions \cite{sloman:motivation}, and
+they possess a set of attributes. The Motivation mechanism compares motives
+based on the quality of these attributes and chooses the one which is the most
+related to the current state of the collaboration. We have the following five
+motive attributes in our framework.
 
 \begin{itemize}
   \item \textbf{\textit{Insistence:}} The insistence of a motive defines the
@@ -230,17 +232,14 @@ have the following five motive attributes in our framework.
 
 \subsubsection{Intention:}
 
-\textit{Intentions} are mental constructs directed at future actions. They play
-an essential role in taking actions according to the collaboration plan as well
-as behavior selection in the Coping mechanism. The agent will intend to take an
-action for primitive tasks that have gained the focus of attention, possess
-active motives, have satisfied preconditions for which required temporal
-predecessors have been successfully achieved. Intentions are also involved in
-selecting intention-related strategies, e.g., planning, seeking instrumental
-support and procrastination. Intentions possess a set of attributes, i.e.,
-\textit{Temporal Status, Direct Experience, Certainty, Ambivalence,
-Affective-Deliberative Consistency} which moderate the consistency between
-intention and behavior \cite{cooke:intention-behavior-consistency}. The
+\textit{Intentions} are mental constructs directed at goals and future actions.
+They play an essential role in taking actions according to the collaboration
+plan as well as behavior selection in the Coping mechanism. Intentions are
+also involved in selecting intention-related strategies, e.g., planning, seeking
+instrumental support and procrastination. Intentions possess a set of
+attributes, i.e., \textit{Temporal Status, Direct Experience, Certainty,
+Ambivalence, Affective-Deliberative Consistency} which moderate the consistency
+between intention and behavior \cite{cooke:intention-behavior-consistency}. The
 details about these attributes are out of this paper's context.
 
 \subsubsection{Goal:}
@@ -260,16 +259,17 @@ paper's context.
 the Appraisal mechanism, e.g., \textit{Joy, Anger, Hope, Worry}. These emotion
 instances include the agent's own emotions as well as the anticipated emotions
 of the other which are created with the help of the processes in the Theory of
-Mind mechanism. Each emotion has its own functionality in either intrapersonal
-or interpersonal level. These emotions not only regulate the self's internal
-processes, but also assist the self to anticipate the other's Mental States.
+Mind mechanism. Each emotion has its own functionality in either the
+intrapersonal or interpersonal level. These emotions not only regulate the
+self's internal processes, but also assist the self to anticipate the other's
+Mental States.
 
 \vspace*{-3mm}
 \section{Example Scenario}
 
 The example scenario shows a very short part of an interaction between a robot
 and an astronaut during their collaboration. Their mission is to finish
-installing a few solar panels together. However, the astronaut encounters with a
+installing a few solar panels together. However, the astronaut encounters a
 measurement tool problem:
 
 \vspace*{-1mm}
@@ -303,13 +303,13 @@ which determines the salient objects, properties and relations at each point of
 the collaboration. Moreover, Collaboration has the ability to shift the focus of
 attention during the interaction. 
 
-The Collaboraiton mechanism receives the data that affects the execution of
+The Collaboration mechanism receives the data that affects the execution of
 individual tasks in the collaboration plan. This data is provided via the
 different elements of Mental States including beliefs, intentions and goals.
-Collaboration mechanism generates the data that is modified or created during
-execution of a plan in the form of Mental States which will be used by other
-processes in our framework. For instance, the Appraisal mechanism uses these
-Mental States to evaluate the events during collaboration.
+The Collaboration mechanism generates the data that is modified or created
+during execution of a plan in the form of Mental States which will be used by
+other processes in our framework. For instance, the Appraisal mechanism uses
+these Mental States to evaluate the events during collaboration.
 
 \vspace*{-2mm}
 \begin{figure}[tbh]
@@ -319,9 +319,9 @@ Mental States to evaluate the events during collaboration.
   \label{fig:cs}
 \end{figure}
 
-In the followings, we briefly describe the methods which provide detail
-information about the collaboration structure, and are used in our algorithms to
-compute the values of appraisal variables.
+Here, we briefly describe the methods which provide detail information about the
+collaboration structure, and are used in our algorithms to compute the values of
+appraisal variables.
 
 \begin{itemize}
   \item The \textit{recognizeGoal()} method returns the unique goal to which
@@ -346,7 +346,7 @@ compute the values of appraisal variables.
   the higher level goal of ``Install Solar Panels'' (see Figure \ref{fig:cs}).
   \item The \textit{extractContributingGoals()} method returns all the
   contributing goals of the given goal. For instance, as shown in Figure
-  \ref{fig:cs} the ``Prepare Measuring Tool'' and ``Measure Quality'' or two
+  \ref{fig:cs} the ``Prepare Measuring Tool'' and ``Measure Quality'' are two
   goals contributing to the ``Check Panels'' nonprimitive goal.
   \item The \textit{extractPredecessors()} method returns the predecessors of
   the given goal. For instance, as shown in Figure \ref{fig:cs}, the ``Prepare
@@ -359,12 +359,12 @@ compute the values of appraisal variables.
   available. For instance, if the \textit{welding tool} is required for the goal
   ``Fix Panels'', is it available now?
   \item The \textit{isAchieved()} method returns whether the given goal is
-  achieved. In other words, whether all the postconditions of the give goal are
+  achieved. In other words, whether all the postconditions of the given goal are
   \textit{satisfied}.
-  \item The \textit{isFocused()} method returns whether the given goal has the
-  focus now. As shown in Figure \ref{fig:cs}, the goal ``Prepare Measuring
-  Tool'' has the focus. The focused goal is the goal that the robot currently
-  pursues to achieve.
+  \item The \textit{isFocused()} method returns whether the focus is on given
+  goal now. As shown in Figure \ref{fig:cs}, the focus is on the goal ``Prepare
+  Measuring Tool''. The focused goal is the goal that the robot currently is
+  pursuing.
   \item The \textit{getResponsible()} method returns responsible agents of the
   given goal. In a dyadic collaboration, both of the agents can be partly
   responsible for a nonprimitive goal, while each agent is responsible for one
@@ -378,31 +378,32 @@ compute the values of appraisal variables.
 \label{sec:mental-graph}
 
 In this section, we provide a graph representation of the robot's mental state
-for the turn $t$ based on our example scenario. We only illustrate a part of
+for the turn $t$ based on our example scenario. We only illustrate a part of the
 robot's mental states in turn $t$ which is related to the event occuring based
-on the astronaut's utterances in turn $t$-1. This section is provided since all
-of our algorithms use mental graphs to compute values of appraisal variables.
+on the astronaut's utterances in turn $t$-1. This section is provided because
+all of our algorithms use mental graphs to compute values of appraisal
+variables.
 
 In Figure \ref{fig:mg}, we illustrate all five elements of robot's mental
 states, i.e., belief, motive, intention, goal, and emotion, and the connections
 between them. The belief node $b^{\{1,..,n\}}_{t-2}$ represents $n$ number of
 beliefs that are carried over from the robot's previous mental state (shown as
-one node for simplicity). These beliefs can be a combintion of robot's private,
-inferred, and mutual beliefs as well as beliefs about self, other and the
-environment. These beliefs have influence on motive formation and emotion
+one node for simplicity). These beliefs can be a combintion of the robot's
+private, inferred, and mutual beliefs as well as beliefs about self, other and
+the environment. These beliefs have influence on motive formation and emotion
 elicitation processes. However, there is another node representing belief
 $b^{\varepsilon}_{t-1}$ which is the belief about the event $\varepsilon_{t-1}$
 (astronaut's utterances). As we presented in our example scenario, the
-astronaut's utterances in turn $t$-1 depict a problem in measurement tool and
-consequently her frustration which can lead to an unsuccessful termination of
-the collaboration. This new belief also impacts the current motive
+astronaut's utterances in turn $t$-1 depict a problem in a measurement tool
+and consequently her frustration, which can lead to an unsuccessful termination
+of the collaboration. This new belief also impacts the current motive
 $m^{\delta}_t$ and emotion $e^{\delta}_t$. Note that the superscript $\delta$
 used for motive $m^{\delta}_t$ and emotion $e^{\delta}_t$ indicates a specific
-value for each of these mental states that are selected between other possible
+value for each of these mental states that is selected from among other possible
 options based on an arbitration process. The motive $m^{\delta}_t$ (the need to
-acknowledge astronaut's emotion) leads to the formation of a required intention
-$i_t$ (acknowledge astronaut's emotion) to achieve the current goal $g_t$ (e.g.,
-Prepare Measurement Tool).
+acknowledge the astronaut's emotion) leads to the formation of a required
+intention $i_t$ (acknowledge astronaut's emotion) to achieve the current goal
+$g_t$ (e.g., Prepare Measurement Tool).
 
 In our algorithms, we use \textit{F{\fontsize{8}{8}\selectfont
 IND}P{\fontsize{8}{8}\selectfont ATH}()} function to find the shortest path
