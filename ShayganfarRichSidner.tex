@@ -77,7 +77,7 @@ In the rest of this paper, we are going to briefly introduce the Affective
 Motivational Collaboration Theory focusing on the collaboration and appraisal
 mechanisms as well as mental states. We are also going to provide more details
 about the graph representation of the robot's mental state. Finally, we describe
-our algorithms which we developed to comopute the value of four crucial
+our algorithms which we developed to compute the value of four crucial
 appraisal variables as part of the appraisal mechanism in our framework.
 
 \vspace*{-2mm}
@@ -285,7 +285,7 @@ measurement tool problem:
 
 \vspace*{-1mm}
 As shown, the robot in turn $t$, acknowledges the astronaut's frustration and
-appropritaely responds to her problem. We will use this example in the Mental
+appropriately responds to her problem. We will use this example in the Mental
 Graph section to clarify some of the concepts. The underlined utterance of the
 robot will be used in section Mental Graph.
 
@@ -379,7 +379,7 @@ appraisal variables.
 
 In this section, we provide a graph representation of the robot's mental state
 for the turn $t$ based on our example scenario. We only illustrate a part of the
-robot's mental states in turn $t$ which is related to the event occuring based
+robot's mental states in turn $t$ which is related to the event occurring based
 on the astronaut's utterances in turn $t$-1. This section is provided because
 all of our algorithms use mental graphs to compute values of appraisal
 variables.
@@ -388,7 +388,7 @@ In Figure \ref{fig:mg}, we illustrate all five elements of robot's mental
 states, i.e., belief, motive, intention, goal, and emotion, and the connections
 between them. The belief node $b^{\{1,..,n\}}_{t-2}$ represents $n$ number of
 beliefs that are carried over from the robot's previous mental state (shown as
-one node for simplicity). These beliefs can be a combintion of the robot's
+one node for simplicity). These beliefs can be a combination of the robot's
 private, inferred, and mutual beliefs as well as beliefs about self, other and
 the environment. These beliefs have influence on motive formation and emotion
 elicitation processes. However, there is another node representing belief
@@ -443,11 +443,10 @@ grid,initial/.style    ={}]
 
 All of the algorithms in this section use a mental graph which is a directed
 acyclic graph constructed based on the mental states of the robot at each turn
-during the collaboration (see Section \ref{sec:mental-graph}). They also use the
-content of the most recent event at each turn which includes the recognized goal
-associated with the event and the belief about the event. The goals can be
-associated with any type of event including action, utterance, or emotional
-expression.
+during the collaboration. They also use the content of the most recent event at
+each turn which includes the recognized goal associated with the event and the
+belief about the event. The goals can be associated with any type of event
+including action, utterance, or emotional expression.
 
 We found four appraisal variables, i.e., \textit{Relevance} (Algorithm
 \ref{alg:relevance}), \textit{Desirability} (Algorithm \ref{alg:desirability}),
@@ -475,7 +474,7 @@ connection, the relevance of the event will depend on the significance of the
 event with respect to the current collaboration status. The significance of an
 event is determined based on the utility of the event as it is also presented in
 \cite{gratch:domain-independent,marsella:ema-process-model}. We believe although
-the utility of the event represents the sigificance of the event, the other
+the utility of the event represents the significance of the event, the other
 collaborator's expressed emotion also plays a role by influencing the
 significance of the utility through a threshold. As a result, evaluating the
 relevance of the events can cause a collaborative robot to effectively respond
@@ -747,7 +746,7 @@ recognized goal associated with the current event. Similar to the desirability
 algorithm (Algorithm \ref{alg:desirability}), we check whether the
 $\mathit{g}_{\varepsilon_t}$ is ambiguous. In the case of ambiguity in
 $\mathit{g}_{\varepsilon_t}$, we consider the current event unexpected since an
-effective collaboration requires perceivable and unambiguous goals asscoiated
+effective collaboration requires perceivable and unambiguous goals associated
 with the events. We continue by the comparison of the current shared goal and
 the recognized goal associated with the current event with respect to the shared
 plan. If these two goals are not the same, it is possible that the current
@@ -829,7 +828,7 @@ predecessors}, and d) the \textit{available inputs} of a given goal
 
 In Algorithm \ref{alg:controllability}, we compute the controllability of an
 event based on these four factors (lines 2 to 5). Algorithms \ref{alg:agency} to
-\ref{alg:inputs} are used to illustrate the undelying processes of all these
+\ref{alg:inputs} are used to illustrate the underlying processes of all these
 factors. We use weighted averaging over these four factors to compute the
 utility of an event in terms of controllability of the event. However, the
 value of all these weights are set to 1.0 for the purpose of simplicity at
@@ -1036,8 +1035,8 @@ controllability value of the event.
 \end{algorithm}
 
 \section{Related Work}
-Our work is built on general notion of appraisal theory while it is focused on
-its application in human-robot collaboration. Computational appraisal models
+Our work is built on the general notion of appraisal theory while it is focused
+on its application in human-robot collaboration. Computational appraisal models
 have been applied to a variety of uses including contributions to psychology,
 robotics, AI, and Cognitive Science. For instance, in
 \cite{marsella:ema-process-model} EMA is used to generate specific predictions
@@ -1046,22 +1045,22 @@ Furthermore, appraisal theory has also been used in robots' decision making
 \cite{castro:autonomous-robot-fear}, or in their cognitive systems
 \cite{hudlicka:emotinos-reasons,marinier:emotion-reinforcement}. Additionally,
 in the virtual agents community, empathy and affective decision-making is a
-research topic that has received much attention in the last decades
+research topic that has received much attention in the last two decades
 \cite{velasquez:emotions-motivations-agents,paiva:agent-care,scott:modeling-empathy-agent,pontier:women-robot-men}.
-However, EMA or several other examples in artificial intelligence and robotics
+However, EMA and several other examples in artificial intelligence and robotics
 which apply appraisal theory do not focus on the dynamics of collaborative
 contexts
 \cite{marsella:ema-process-model,kim:model-hri-appraisal,adam:bdi-emotional-companion,rosenbloom:sigma-appraisal}.
 
-The comoputational collaboration model in our work is closely influenced by the
-SharedPlan theory \cite{grosz:plans-discourse}. However, our algorithms are also
-compatible with other collaboration theories, e.g., Joint Intentions theory
+The computational collaboration model in our work is closely influenced by the
+SharedPlans theory \cite{grosz:plans-discourse}. However, our algorithms are
+also compatible with other collaboration theories, e.g., Joint Intentions theory
 \cite{cohen:teamwork}, or STEAM as an hybrid collaboration theory
 \cite{tambe:flexible-teamwork}. These theories have been extensively used to
 examine and describe teamwork and collaboration. Yet, they have never been
-combined, as they are done in our work. We believe a systematic integration of
-collaboration theories with some theories like the appraisal theory can help us
-to describe the underlying collaboration processes leading to the existing
+combined, as they are in our work. We believe a systematic integration of
+collaboration theories and some theories like appraisal theory can help us
+describe the underlying collaboration processes leading to the existing
 collaboration structures.
 
 \bibliography{mshayganfar.bib}
