@@ -3,44 +3,46 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: ShayganfarRichSidner.aux
 The style file: aaai.bst
 Database file #1: mshayganfar.bib.bib
-You've used 8 entries,
+Warning--can't use both volume and number fields in hudlicka:emotinos-reasons
+You've used 20 entries,
             2568 wiz_defined-function locations,
-            620 strings with 5700 characters,
-and the built_in function-call counts, 3028 in all, are:
-= -- 318
-> -- 102
-< -- 1
-+ -- 33
-- -- 31
-* -- 234
-:= -- 503
-add.period$ -- 43
-call.type$ -- 8
-change.case$ -- 43
-chr.to.int$ -- 8
-cite$ -- 8
-duplicate$ -- 124
-empty$ -- 234
-format.name$ -- 45
-if$ -- 625
+            700 strings with 8098 characters,
+and the built_in function-call counts, 8493 in all, are:
+= -- 909
+> -- 295
+< -- 10
++ -- 97
+- -- 93
+* -- 656
+:= -- 1346
+add.period$ -- 110
+call.type$ -- 20
+change.case$ -- 119
+chr.to.int$ -- 20
+cite$ -- 21
+duplicate$ -- 355
+empty$ -- 646
+format.name$ -- 129
+if$ -- 1799
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 11
-newline$ -- 52
-num.names$ -- 26
-pop$ -- 41
+missing$ -- 24
+newline$ -- 127
+num.names$ -- 66
+pop$ -- 111
 preamble$ -- 1
-purify$ -- 54
+purify$ -- 143
 quote$ -- 0
-skip$ -- 94
+skip$ -- 278
 stack$ -- 0
-substring$ -- 160
-swap$ -- 25
-text.length$ -- 1
+substring$ -- 474
+swap$ -- 100
+text.length$ -- 10
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 52
-warning$ -- 0
-while$ -- 26
-width$ -- 11
-write$ -- 113
+type$ -- 144
+warning$ -- 1
+while$ -- 76
+width$ -- 24
+write$ -- 288
+(There was 1 warning)

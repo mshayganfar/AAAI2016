@@ -561,6 +561,34 @@ is desirable if it somehow facilitates the state of the shared goal, or if it
 inhibits the state of a goal that is inconsistent with respect to the shared
 goal.
 
+Desirability plays an important role in the overall architecture; it makes the
+processes involved in the other mechanisms (e.g., Motivation or Theory of Mind)
+and consequently the robot's mental state congruent with the collaboration
+status which is the robot's desire. Therefore, it causes the robot to dismiss
+events causing inconsistencies in the robot's collaborative behavior. Moreover,
+desirability is also crucial from the collaboration's point of view. A
+collaborative robot needs to know whether its own and the other collaborator's
+actions, utterances, and emotional expressions are desirable in terms of their
+consistence with the status of the current shared goal. In other words, the
+collaboration mechanism uses the appraisal process of desirability to coordinate
+what the self or the other does, says, and expresses during collaboration.
+Reciprocally, the appraisal mechanism and in this case the desirability process
+use the collaboration structure to obtain their required information.
+
+Algorithm \ref{alg:desirability} provides a process in which the desirability of
+an event is computed with regard to the status of the shared goal; i.e., it
+operates based on whether and how the event changes the status of the current
+shared goal. It receives the current mental graph, $\mathcal{G}_{t}$, and the
+current event, $\varepsilon_t$, from input, and decides whether and how the
+event is desirable or undesirable. First, the algorithm checks the status of the
+collaboration's top level goal (lines 2 to 6), and if the the top level goal is
+still in progress, it continues by checking the status of the current shared
+goal (lines 7 to 13). If any of the top level and current shared goals are
+achieved in these two steps, the robot interprets the event as a desirable one.
+However, if any of these goals are blocked, the event will be considered
+undesirable by the robot.
+
+\vspace*{-2mm}
 \begin{algorithm}
 	\caption{(Desirability)}
 	\label{alg:desirability}
@@ -618,33 +646,7 @@ goal.
 	\end{algorithmic}
 \end{algorithm}
 
-Desirability plays an important role in the overall architecture; it makes the
-processes involved in the other mechanisms (e.g., Motivation or Theory of Mind)
-and consequently the robot's mental state congruent with the collaboration
-status which is the robot's desire. Therefore, it causes the robot to dismiss
-events causing inconsistencies in the robot's collaborative behavior. Moreover,
-desirability is also crucial from the collaboration's point of view. A
-collaborative robot needs to know whether its own and the other collaborator's
-actions, utterances, and emotional expressions are desirable in terms of their
-consistence with the status of the current shared goal. In other words, the
-collaboration mechanism uses the appraisal process of desirability to coordinate
-what the self or the other does, says, and expresses during collaboration.
-Reciprocally, the appraisal mechanism and in this case the desirability process
-use the collaboration structure to obtain their required information.
-
-Algorithm \ref{alg:desirability} provides a process in which the desirability of
-an event is computed with regard to the status of the shared goal; i.e., it
-operates based on whether and how the event changes the status of the current
-shared goal. It receives the current mental graph, $\mathcal{G}_{t}$, and the
-current event, $\varepsilon_t$, from input, and decides whether and how the
-event is desirable or undesirable. First, the algorithm checks the status of the
-collaboration's top level goal (lines 2 to 6), and if the the top level goal is
-still in progress, it continues by checking the status of the current shared
-goal (lines 7 to 13). If any of the top level and current shared goals are
-achieved in these two steps, the robot interprets the event as a desirable one.
-However, if any of these goals are blocked, the event will be considered
-undesirable by the robot. 
-
+\vspace*{-3mm}
 The algorithm continues in the case of an unknown status of the current shared
 goal, and checks whether the precondition(s) of the associated goal with the
 current event, $\mathit{g}_{\varepsilon_t}$, are satisfied (lines 17 to 21).
@@ -731,6 +733,7 @@ event.
 	\end{algorithmic}
 \end{algorithm}
 
+\vspace*{-2mm}
 In algorithm \ref{alg:expectedness} we provide the process of the expectedness
 based on the shared plan and status of the shared goal. The key point in this
 algorithm is the status of the current shared goal ($\mathit{g}_{t}$) and its
@@ -763,6 +766,7 @@ $\mathit{g}_{t}$, it might be a goal in another branch in the shared plan which
 has received focus and should be achieved. In such a case, again, the event will
 be expected; otherwise we consider the event unexpected (lines 21 to 24).
 
+\vspace*{-2mm}
 \subsection{Controllability}
 
 Controllability is the extent to which an event can be influenced, and it is
@@ -772,16 +776,6 @@ outcome of an event can be altered by some actions under either of the
 collaborators' control. In other words, controllability is a measure of a
 robot's ability to maintain or change a particular state as a consequence of an
 event.
-
-Controllability is also important for the overall architecture. For instance,
-the robot can choose to ask or negotiate about a collaborative task which is
-not controllable; it can cause the robot to interpret or predict the other's
-emotional state (e.g., anger if the task is blocked, i.e., uncontrollable for
-the other), or form a new motive to establish an alternative goal for the
-current uncontrollable event. In general, other mechanisms in the architecture
-use the appraisal process of controllability in their decision making processes;
-meanwhile controllability uses the information from the collaboration structure,
-e.g., successful predecessors of a goal.
 
 \begin{algorithm}
 	\caption{(Controllability)}
@@ -812,6 +806,16 @@ e.g., successful predecessors of a goal.
 		\EndFunction
 	\end{algorithmic}
 \end{algorithm}
+
+Controllability is also important for the overall architecture. For instance,
+the robot can choose to ask or negotiate about a collaborative task which is
+not controllable; it can cause the robot to interpret or predict the other's
+emotional state (e.g., anger if the task is blocked, i.e., uncontrollable for
+the other), or form a new motive to establish an alternative goal for the
+current uncontrollable event. In general, other mechanisms in the architecture
+use the appraisal process of controllability in their decision making processes;
+meanwhile controllability uses the information from the collaboration structure,
+e.g., successful predecessors of a goal.
 
 An important determinant of one's emotional response is the sense of control
 over the events occurring. This sense of subjective control is based on one's
@@ -1032,11 +1036,33 @@ controllability value of the event.
 \end{algorithm}
 
 \section{Related Work}
+Our work is built on general notion of appraisal theory while it is focused on
+its application in human-robot collaboration. Computational appraisal models
+have been applied to a variety of uses including contributions to psychology,
+robotics, AI, and Cognitive Science. For instance, in
+\cite{marsella:ema-process-model} EMA is used to generate specific predictions
+about how human subjects will appraise and cope with emotional situations.
+Furthermore, appraisal theory has also been used in robots' decision making
+\cite{castro:autonomous-robot-fear}, or in their cognitive systems
+\cite{hudlicka:emotinos-reasons,marinier:emotion-reinforcement}. Additionally,
+in the virtual agents community, empathy and affective decision-making is a
+research topic that has received much attention in the last decades
+\cite{velasquez:emotions-motivations-agents,paiva:agent-care,scott:modeling-empathy-agent,pontier:women-robot-men}.
+However, EMA or several other examples in artificial intelligence and robotics
+which apply appraisal theory do not focus on the dynamics of collaborative
+contexts
+\cite{marsella:ema-process-model,kim:model-hri-appraisal,adam:bdi-emotional-companion,rosenbloom:sigma-appraisal}.
 
-\section{Conclusion \& Future Work}
-
-Discussion about the application of the appraisal process in different
-mechanisms in our computational theory including Motivation mechanism. 
+The comoputational collaboration model in our work is closely influenced by the
+SharedPlan theory \cite{grosz:plans-discourse}. However, our algorithms are also
+compatible with other collaboration theories, e.g., Joint Intentions theory
+\cite{cohen:teamwork}, or STEAM as an hybrid collaboration theory
+\cite{tambe:flexible-teamwork}. These theories have been extensively used to
+examine and describe teamwork and collaboration. Yet, they have never been
+combined, as they are done in our work. We believe a systematic integration of
+collaboration theories with some theories like the appraisal theory can help us
+to describe the underlying collaboration processes leading to the existing
+collaboration structures.
 
 \bibliography{mshayganfar.bib}
 \bibliographystyle{aaai}

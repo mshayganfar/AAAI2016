@@ -1,10 +1,25 @@
 \begin{thebibliography}{}
 
+\bibitem[\protect\citeauthoryear{Adam and
+  Lorini}{2014}]{adam:bdi-emotional-companion}
+Adam, C., and Lorini, E.
+\newblock 2014.
+\newblock A {BDI} emotional reasoning engine for an artificial companion.
+\newblock In {\em Workshop on Agents and multi-agent Systems for AAL and
+  e-HEALTH (PAAMS)}, volume 430,  66--78.
+\newblock Springer.
+
 \bibitem[\protect\citeauthoryear{Breazeal}{2002}]{breazeal:sociable-robot}
 Breazeal, C.
 \newblock 2002.
 \newblock {\em Designing Sociable Robots}.
 \newblock MIT Press.
+
+\bibitem[\protect\citeauthoryear{Cohen and Levesque}{1991}]{cohen:teamwork}
+Cohen, P., and Levesque, H.~J.
+\newblock 1991.
+\newblock {\em Teamwork}.
+\newblock SRI International.
 
 \bibitem[\protect\citeauthoryear{Cooke and
   Sheeran}{2004}]{cooke:intention-behavior-consistency}
@@ -14,6 +29,13 @@ Cooke, R., and Sheeran, P.
   A meta-analysis of properties of variables from the theory of planned
   behaviour.
 \newblock {\em British Journal of Social Psychology} 43:159--186.
+
+\bibitem[\protect\citeauthoryear{Gonzalez, Malfaz, and
+  Salichs}{2013}]{castro:autonomous-robot-fear}
+Gonzalez, A.~C.; Malfaz, M.; and Salichs, M.~A.
+\newblock 2013.
+\newblock An autonomous social robot in fear.
+\newblock {\em IEEE Transactions Autonomous Mental Development} 5(2):135--151.
 
 \bibitem[\protect\citeauthoryear{Gratch and
   Marsella}{2004}]{gratch:domain-independent}
@@ -31,12 +53,70 @@ Grosz, B.~J., and Sidner, C.~L.
   Intentions in Communication}. Cambridge, MA: MIT Press.
 \newblock  417--444.
 
+\bibitem[\protect\citeauthoryear{Hudlicka}{2007}]{hudlicka:emotinos-reasons}
+Hudlicka, E.
+\newblock 2007.
+\newblock Reasons for emotinos: Modeling emotinos in integrated cognitive
+  systems.
+\newblock In Gary, W.~D., ed., {\em Integrated Models of Cognitive Systems},
+  volume~59. New York: Oxford University Press.
+\newblock  1--37.
+
+\bibitem[\protect\citeauthoryear{Kim and Kwon}{2010}]{kim:model-hri-appraisal}
+Kim, H.-R., and Kwon, D.-S.
+\newblock 2010.
+\newblock Computational model of emotion generation for human-robot interaction
+  based on the cognitive appraisal theory.
+\newblock {\em Journal of Intelligent and Robotic Systems} 60(2):263--283.
+
+\bibitem[\protect\citeauthoryear{{Marinier III} and
+  Laird}{2008}]{marinier:emotion-reinforcement}
+{Marinier III}, R.~P., and Laird, J.~E.
+\newblock 2008.
+\newblock Emotion-driven reinforcement learning.
+\newblock In {\em CogSci 2008}.
+
 \bibitem[\protect\citeauthoryear{Marsella and
   Gratch}{2009}]{marsella:ema-process-model}
 Marsella, S.~C., and Gratch, J.
 \newblock 2009.
 \newblock {EMA}: A process model of appraisal dynamics.
 \newblock {\em Cognitive Systems Research} 10(1):70--90.
+
+\bibitem[\protect\citeauthoryear{McQuiggan and
+  Lester}{2007}]{scott:modeling-empathy-agent}
+McQuiggan, S.~W., and Lester, J.~C.
+\newblock 2007.
+\newblock Modeling and evaluating empathy in embodied companion agents.
+\newblock {\em International Journal of Human-Computer Studies} 65(4):348--360.
+
+\bibitem[\protect\citeauthoryear{Paiva \bgroup et al\mbox.\egroup
+  }{2004}]{paiva:agent-care}
+Paiva, A.; Dias, J.; Sobral, D.; Aylett, R.; Sobreperez, P.; Woods, S.; Zoll,
+  C.; and Hall, L.
+\newblock 2004.
+\newblock Caring for agents and agents that care: Building empathic relations
+  with synthetic agents.
+\newblock In {\em Proceedings of the Third International Joint Conference on
+  Autonomous Agents and Multiagent Systems-Volume 1},  194--201.
+
+\bibitem[\protect\citeauthoryear{Pontier and
+  Hoorn}{2013}]{pontier:women-robot-men}
+Pontier, M., and Hoorn, J.~F.
+\newblock 2013.
+\newblock How women think robots perceive them - as if robots were men.
+\newblock In {\em International Conference on Agents and Artificial
+  Intelligence (ICAART-2)},  496--504.
+
+\bibitem[\protect\citeauthoryear{Rosenbloom, Gratch, and
+  Ustun}{2015}]{rosenbloom:sigma-appraisal}
+Rosenbloom, P.~S.; Gratch, J.; and Ustun, V.
+\newblock 2015.
+\newblock Towards emotion in sigma: From appraisal to attention.
+\newblock In Bieger, J.; Goertzel, B.; and Potapov, A., eds., {\em Artificial
+  General Intelligence}, volume 9205 of {\em Lecture Notes in Computer
+  Science}. Springer International Publishing.
+\newblock  142--151.
 
 \bibitem[\protect\citeauthoryear{Scherer, Schorr, and
   Johnstone}{2001}]{scherer:appraisal-processes}
@@ -56,5 +136,18 @@ Sousa, R.~D.
 \newblock 1990.
 \newblock {\em The Rationality of Emotion}.
 \newblock MIT Press.
+
+\bibitem[\protect\citeauthoryear{Tambe}{1997}]{tambe:flexible-teamwork}
+Tambe, M.
+\newblock 1997.
+\newblock Towards flexible teamwork.
+\newblock {\em Journal of Artificial Intelligence Research} 7:83--124.
+
+\bibitem[\protect\citeauthoryear{Vel$\grave{a}$squez}{1997}]{velasquez:emotions-motivations-agents}
+Vel$\grave{a}$squez, J.~D.
+\newblock 1997.
+\newblock Modeling emotions and other motivations in synthetic agents.
+\newblock In {\em Proceedings of the 14th Nnational Conference on Artificial
+  Intelligence AAAI-97},  10--15.
 
 \end{thebibliography}
