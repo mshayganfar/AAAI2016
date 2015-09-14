@@ -55,29 +55,29 @@ makes a good case for the claim that humans are capable of rationality largely
 because they are creatures with emotions. The idea of having robots or other
 intelligent agents living in a human environment has been a persistent dream
 from science fiction books to artificial intelligence and robotics laboratories.
-Collaborative robots are becoming the complementary part of the humans'
-environment to accomplish their industrial and household tasks. In these
-environments humans are involved in robots' operations and decision making
-processes. This involvement of the humans influences the efficiency of the
-robots' interaction and performance, and makes them dependent to the humans'
-cognitive abilities and mental state.
+Collaborative robots are becoming an integral part of humans' environment to
+accomplish their industrial and household tasks. In these environments humans
+are involved in robots' operations and decision making processes. This
+involvement of humans influences the efficiency of robots' interaction and
+performance, and makes them dependent on the humans' cognitive abilities and
+mental states.
 
 Our work is part of a larger effort to build robots capable of generating and
-recognizing humans' emotions to be better collaborators. In this paper, we are
-reporting on specific problem of appraising events within a collaborative
-interaction. Our contribution is grounding the general appraisal concepts in the
-specific context and structure of collaboration. This work is part of the
-development of our framework based on our \textit{Affective Motivational
-Collaboration Theory} which is built on the foundations of the
+recognizing humans' emotions in order to be better collaborators. In this paper,
+we are reporting on the specific problem of appraising events within a
+collaborative interaction. Our contribution is grounding the general appraisal
+concepts in the specific context and structure of collaboration. This work is
+part of the development of our framework based on our \textit{Affective
+Motivational Collaboration Theory} which is built on the foundations of the
 \textit{SharedPlans} theory of collaboration \cite{grosz:plans-discourse} and
 the \textit{cognitive appraisal} theory of emotions
 \cite{gratch:domain-independent}.
 
 In the rest of this paper, we are going to briefly introduce the Affective
 Motivational Collaboration Theory focusing on the collaboration and appraisal
-mechanisms as well as the mental states. We are also going to provide more
-details about the graph representation of the robot's mental state. Finally, we
-describe our algorithms which we developed to process the value of four crucial
+mechanisms as well as mental states. We are also going to provide more details
+about the graph representation of the robot's mental state. Finally, we describe
+our algorithms which we developed to compute the value of four crucial
 appraisal variables as part of the appraisal mechanism in our framework.
 
 \vspace*{-2mm}
@@ -101,7 +101,7 @@ can form new intentions to cope with events.
 
 \begin{figure}[tbh]
   \centering
-  \includegraphics[width=0.474\textwidth]{figure/theory-general-croped.pdf}
+  \includegraphics[width=0.45\textwidth]{figure/theory-general-croped.pdf}
   \caption{{\fontsize{9}{9}\selectfont Computational framework based on
   Affective Motivational Collaboration Theory (arrows indicate primary
   influences between mechanisms).}}
@@ -109,7 +109,7 @@ can form new intentions to cope with events.
 \end{figure}
 
 Affective Motivational Collaboration Theory explains the functions of emotions
-in a dyadic collaboration and show how affective mechanisms can coordinate
+in a dyadic collaboration and shows how affective mechanisms can coordinate
 social interactions by enabling one to anticipate other's emotions, beliefs and
 intentions. Our focus is on the mechanisms depicted as mental processes in
 Figure \ref{fig:cpm} along with the mental states. The \textit{Mental States}
@@ -132,22 +132,24 @@ state. The self progressively updates this model during the collaboration.
 \subsection{Mental States}
 \label{sec:mental-states}
 
-The Mental States shown in Figure \ref{fig:cpm} comprise the knowledge base
-required for all the mechanisms in the overall model. Mental states are
-conscious states of the mind providing the content for cognitive processes.
-Affective Motivational Collaboration Theory operates with the following Mental
-States: beliefs, intentions, motives, goals and emotion instances. These Mental
-States possess attributes, each of which provides a discriminating and unique
-interpretation of the related cognitive entities. The self uses Mental States'
-attributes whenever there is an arbitration in the internal cognitive processes.
-We provide more details about the attributes of beliefs and motives in this
-paper, since they are used in our appraisal algorithms.
+A brief description of mental states is provided as prerequisite knowledge for
+understanding the appraisal processes. The Mental States shown in Figure
+\ref{fig:cpm} comprise the knowledge base required for all the mechanisms in the
+overall model. Mental states are conscious states of the mind providing the
+content for cognitive processes. Affective Motivational Collaboration Theory
+operates with the following Mental States: beliefs, intentions, motives, goals
+and emotion instances. These Mental States possess attributes, each of which
+provides a discriminating and unique interpretation of the related cognitive
+entities. The self uses Mental States' attributes whenever there is an
+arbitration in the internal cognitive processes. We provide more details about
+the attributes of beliefs and motives in this paper, since they are used in our
+appraisal algorithms.
 
 \subsubsection{Belief:}
 
 \textit{Beliefs} are a crucial part of the Mental States. We have two different
 perspectives on categorization of beliefs. In one perspective, we categorize
-beliefs based on whether they are shared or not between the collaborators. The
+beliefs based on whether they are shared between the collaborators. The
 SharedPlans \cite{grosz:plans-discourse} theory is the foundation of this
 categorization in which for any given proposition the agent may have: a) private
 beliefs (the agent believes the human does not know these), b) the inferred
@@ -165,15 +167,16 @@ passes.
 
 The attributes of a belief are involved in arbitration procedures within
 different processes in Affective Motivational Collaboration Theory. They impact
-a range of these processes from, the formation of new beliefs, the evaluation of
-an external event by the Appraisal mechanism, generation of new motives, updates
-on collaboration plan, to the activation of coping strategies and ultimately the
-self's behavior. We use the following six attributes of beliefs in our
-framework.
+a range of these processes from the formation of new beliefs, the evaluation of
+an external event by the Appraisal mechanism, generation of new motives and
+updates on collaboration plan, to the activation of coping strategies and
+ultimately the self's behavior. We use the following six attributes of beliefs
+in our framework.
 
 \begin{itemize}
-  \item \textbf{\textit{Strength:}} Belief strength is about how strong the self
-  holds salient beliefs about an object, an entity, or an anticipated behavior.
+  \item \textbf{\textit{Strength:}} Belief strength is about how strongly the
+  self holds salient beliefs about an object, an entity, or an anticipated
+  behavior.
   
   \item \textbf{\textit{Accuracy:}} Accuracy of a belief is the relation between
   that belief and the truth which that belief is about.
@@ -187,9 +190,8 @@ framework.
   \item \textbf{\textit{Saliency:}} The saliency of a belief is a cognitive
   attribute that pertains to how easily the self becomes aware of a belief.
   
-  \item \textbf{\textit{Persistence:}} It is argued that beliefs form and change
-  due to cognitive and social considerations \cite{carley:belief-persistence}.
-  Persistent beliefs are very resistant to these changes.
+  \item \textbf{\textit{Persistence:}} The persistence of a belief refers to how
+  resistant the belief is to changes.
 \end{itemize}
 
 \subsubsection{Motive:}
@@ -201,11 +203,11 @@ according to: a) its own emotional states (how the agent appraises the
 environment), b) its own private goal (how an action helps the agent to make
 progress), c) the collaboration goal (how an action helps to achieve the shared
 goal), and d) other's anticipated beliefs (how an action helps the other).
-According to Sloman, motives can be compared on various dimensions
-\cite{sloman:motivation}. Motives possess a set of attributes. The Motivation
-mechanism compares motives based on the quality of these attributes and chooses
-the one which is the most related to the current state of the collaboration. We
-have the following five motive attributes in our framework.
+Motives can be compared on various dimensions \cite{sloman:motivation}, and
+they possess a set of attributes. The Motivation mechanism compares motives
+based on the quality of these attributes and chooses the one which is the most
+related to the current state of the collaboration. We have the following five
+motive attributes in our framework.
 
 \begin{itemize}
   \item \textbf{\textit{Insistence:}} The insistence of a motive defines the
@@ -230,17 +232,14 @@ have the following five motive attributes in our framework.
 
 \subsubsection{Intention:}
 
-\textit{Intentions} are mental constructs directed at future actions. They play
-an essential role in taking actions according to the collaboration plan as well
-as behavior selection in the Coping mechanism. The agent will intend to take an
-action for primitive tasks that have gained the focus of attention, possess
-active motives, have satisfied preconditions for which required temporal
-predecessors have been successfully achieved. Intentions are also involved in
-selecting intention-related strategies, e.g., planning, seeking instrumental
-support and procrastination. Intentions possess a set of attributes, i.e.,
-\textit{Temporal Status, Direct Experience, Certainty, Ambivalence,
-Affective-Deliberative Consistency} which moderate the consistency between
-intention and behavior \cite{cooke:intention-behavior-consistency}. The
+\textit{Intentions} are mental constructs directed at goals and future actions.
+They play an essential role in taking actions according to the collaboration
+plan as well as behavior selection in the Coping mechanism. Intentions are
+also involved in selecting intention-related strategies, e.g., planning, seeking
+instrumental support and procrastination. Intentions possess a set of
+attributes, i.e., \textit{Temporal Status, Direct Experience, Certainty,
+Ambivalence, Affective-Deliberative Consistency} which moderate the consistency
+between intention and behavior \cite{cooke:intention-behavior-consistency}. The
 details about these attributes are out of this paper's context.
 
 \subsubsection{Goal:}
@@ -253,24 +252,27 @@ during collaboration. Goals also drive the Motivation mechanism to generate
 required motive(s). The details about goal's attributes are also out of this
 paper's context.
 
+\vspace*{-1mm}
 \subsubsection{Emotion Instance:}
 
 \textit{Emotions} in Mental States are emotion instances that are elicited by
 the Appraisal mechanism, e.g., \textit{Joy, Anger, Hope, Worry}. These emotion
 instances include the agent's own emotions as well as the anticipated emotions
 of the other which are created with the help of the processes in the Theory of
-Mind mechanism. Each emotion has its own functionality in either intrapersonal
-or interpersonal level. These emotions not only regulate the self's internal
-processes, but also assist the self to anticipate the other's Mental States.
+Mind mechanism. Each emotion has its own functionality in either the
+intrapersonal or interpersonal level. These emotions not only regulate the
+self's internal processes, but also assist the self to anticipate the other's
+Mental States.
 
 \vspace*{-3mm}
 \section{Example Scenario}
 
 The example scenario shows a very short part of an interaction between a robot
 and an astronaut during their collaboration. Their mission is to finish
-installing a few solar panels together. However, the astronaut encounters with a
+installing a few solar panels together. However, the astronaut encounters a
 measurement tool problem:
 
+\vspace*{-1mm}
 \begin{description}
   \item \textit{\textbf{\fontsize{9pt}{12pt}\selectfont Astronaut [turn t-1]:}}
   Oh no! Finishing the quality check of our installation with this measurement
@@ -281,185 +283,143 @@ measurement tool problem:
   measurement tool and we can finish the task as originally planned.
 \end{description}
 
-As shown, the robot in turn t, acknowledges the astronaut's frustration and
-appropritaely responds to her problem. We will use this example throughout this
-paper to clarify some of the concepts.
+\vspace*{-1mm}
+As shown, the robot in turn $t$, acknowledges the astronaut's frustration and
+appropriately responds to her problem. We will use this example in the Mental
+Graph section to clarify some of the concepts. The underlined utterance of the
+robot will be used in section Mental Graph.
 
 \section{Collaboration}
 
-Short paragraph to describe collaboration mechanism and its role in overall
-system (mention that we are not talking about the algorithms in this mechanism).
+The Collaboration mechanism constructs a hierarchy of goals associated with
+tasks in the form of a Hierarchical Task Network (see Figure \ref{fig:cs}), and
+also manages and maintains the constraints and other required details of the
+collaboration specified by the plan. These details include the inputs and
+outputs of individual tasks, the \textit{preconditions} specifying whether it is
+appropriate to perform a task, and the \textit{postconditions} specifying
+whether a just-completed task was successful (i.e., whether the corresponding
+goal is achieved). Collaboration also keeps track of the focus of attention,
+which determines the salient objects, properties and relations at each point of
+the collaboration. Moreover, Collaboration has the ability to shift the focus of
+attention during the interaction. 
 
-Then, describe the collaboration model and its components.
+The Collaboration mechanism receives the data that affects the execution of
+individual tasks in the collaboration plan. This data is provided via the
+different elements of Mental States including beliefs, intentions and goals.
+The Collaboration mechanism generates the data that is modified or created
+during execution of a plan in the form of Mental States which will be used by
+other processes in our framework. For instance, the Appraisal mechanism uses
+these Mental States to evaluate the events during collaboration.
 
-The Collaboration mechanism is responsible for maintaining the internal
-structure of a collaboration, including the focus of attention, constraints on
-actions, updating the shared plan and, in general, monitoring of the
-collaboration. All of these structures require updating each time the self
-receives an external event. For instance, an utterance by the other can impact
-the self's focus of attention during the collaboration, or the effect of a
-primitive action can influence the self's view of an impasse on a task. As
-another example, the perception of the other's emotion instance can cause
-significant changes in the self's collaboration monitoring. The Collaboration
-mechanism also responds to internal events. These changes can occur under the
-influence of several other processes which are able to alter the self's mental
-states. For instance, the Motivation mechanism can generate a new motive which
-causes the self to add a new intention to its own Mental States.
+\vspace*{-2mm}
+\begin{figure}[tbh]
+  \centering
+  \includegraphics[width=0.474\textwidth]{figure/collaborationStructure-croped.pdf}
+  \caption{{\fontsize{9}{9}\selectfont Collaboration structure.}}
+  \label{fig:cs}
+\end{figure}
 
-\begin{itemize}
-  \item \textbf{Input:} The input to the \textit{Collaboration} mechanism
-  includes all the data that affects the execution of individual tasks in the
-  collaboration plan. This data will be provided via the different elements of
-  Mental States including beliefs, intentions and goals. These Mental States
-  will establish agent's initial plan and will be updated throughout the
-  collaboration process by the Perception and Inference mechanisms.
-  
-  \item \textbf{Output:} The output of \textit{Collaboration} includes all the
-  data that is modified or created during execution of a plan in the form of
-  Mental States. These Mental States will be used by the internal processes in
-  the Theory of Mind mechanism. Additionally, the Appraisal mechanism will use
-  these Mental States to evaluate the events during collaboration. These Mental
-  States also will be used by the Inference mechanism for the purpose of
-  maintaining the collaboration.
-  
-  \item \textbf{Function:} The \textit{Collaboration} mechanism will construct a
-  hierarchy of tasks and also manage and maintain the constraints and other
-  required details of the collaboration specified by the plan. These details
-  include the inputs and outputs of individual tasks, the \textit{preconditions}
-  specifying whether it is appropriate to perform a task, and the
-  \textit{postconditions} specifying whether a just-completed task was
-  successful (which can be used as an indication of an impasse or failure).
-  \textit{Collaboration} also keeps track of the focus of attention, which
-  determines the salient objects, properties and relations at each point of the
-  collaboration. Moreover, \textit{Collaboration} has the ability to shift the
-  focus of attention during the collaboration. All the other mechanisms in the
-  overall \textit{Affective Motivational Collaboration Model} are influenced by
-  changes in the collaboration plan.
-\end{itemize}
+Here, we briefly describe the methods which provide detail information about the
+collaboration structure, and are used in our algorithms to compute the values of
+appraisal variables.
 
 \begin{itemize}
-  \item The \textit{recognizeGoal()} function returns the unique goal to which
-  the event directly contributes irrespective of the event type (i.e., action,
-  utterance, or emotional expression). This event structure holds in all of our
-  algorithms.
-\end{itemize}
-
-\subsection{Appraisal Mechanism}
-
-\subsection{Appraisal of External Events}
-
-The other's \textit{utterances}, the effect(s) of the collaborators'
-\textit{primitive actions}, and the other's \textit{emotion instances}
-(expressed nonverbally) are the three types of external events perceived by the
-self during collaboration. The Appraisal mechanism receives the output of the
-Perception and Collaboration mechanisms as well as the requisite Mental States
-related to current event. It appraises the external event, in terms of appraisal
-variables using, a) the collaboration structure, b) the social characteristics
-of collaboration, and c) the history of the self's related Mental States. The
-collaboration structure contains information about the collaboration's shared
-plan and the collaborators' shared goal, the temporal and the hierarchical
-constraints of the tasks, and the current focus of attention. 
-
-The social characteristics of collaboration (see Section are conceptual
-properties associated with collaboration. These concepts provide deeper
-understanding of the collaborative interactions in terms of the underlying
-processes from both the personal and the social perspectives. Furthermore, these
-concepts determine when each process is used during a collaboration and why.
-Lastly, the self will progressively generate and update various types of Mental
-States during collaboration. The occurrence of a new external event causes a
-change in the self's Mental States. The construct of the new mental state, e.g.,
-beliefs, are semantically connected to the older ones. The Appraisal mechanism
-uses the history of the Mental States to consistently evaluate a new external
-event.
-
-\subsection{Appraisal of Internal Events}
-
-The formation of a \textit{new belief} (one that has not already been evaluated
-by the Appraisal mechanism, such as a belief about a new motive), and the
-formation of a \textit{new motive}, are the two types of internal events that
-will be evaluated by the Appraisal mechanism. Thus, the Appraisal mechanism is
-involved in the formation of a new belief to ultimately create balanced
-behaviors during the course of a collaboration. The Appraisal mechanism receives
-the output of the Theory of Mind and Motivation mechanisms as well as the
-available Mental States (e.g., beliefs about the current emotion instances of
-the self and the other) and evaluates the environment in terms of the appraisal
-variables whenever a new belief is generated. As mentioned in Section, a) the
-collaboration structure, b) the social characteristic of the collaboration, and
-c) the history of the self's Mental States, are also crucial in the evaluation
-of internal events. The outcome of this appraisal process can result in a new
-belief about emotion instances, e.g. believing to have hope, or it can generate
-beliefs about different attributes of the Mental States of the self or the
-other.
-
-\subsection{Appraisal}
-
-\begin{itemize}
-  \item \textbf{Input:} The most significant part of \textit{Appraisal's} input
-  data is based on the activity of the Collaboration mechanism. This data
-  includes all the required Mental States associated with the Collaboration
-  mechanism. For instance, the beliefs and their Strengths will be used by
-  algorithms inside of \textit{Appraisal} to compute the value of the appraisal
-  variables. \textit{Appraisal} also receives data from the Theory of Mind
-  mechanism. This data helps the agent use \textit{Appraisal} for inferring
-  the human's intentions and motives based on a reverse appraisal procedure.
-  
-  The input data from the Perception is generally needed to support the
-  evaluation of the events. The Motivation mechanism sends data to
-  \textit{Appraisal} whenever, for example, a new set of motives is being
-  generated or the motive comparator wants to evaluate different motives for an
-  arbitration procedure.
-   
-  \item \textbf{Output:} The output of \textit{Appraisal} can directly and
-  indirectly impact other mechanisms. The Motivation mechanism uses this data to
-  generate, compare and monitor motives based on the current internal appraisal
-  of the agent as well as the appraisal of the environment. This output data
-  also assists the Belief Formation mechanism to create new beliefs about the
-  current emotional state of the agent or the human as well as the corresponding
-  appraisal of individual motives.
-  
-  \item \textbf{Function:} \textit{Appraisal} is a subjective evaluation
-  mechanism based on individual processes each of which computes the value of
-  the appraisal variables used in my computational model. The Collaboration
-  mechanism needs the evaluative assistance of the \textit{Appraisal} mechanism
-  for various reasons. The course of a collaboration is based on a full or a
-  partial plan which needs to be updated as time passes and collaborators
-  achieve, fail at or abandon a task assigned to them. The failure of a task
-  should not destroy the entire collaboration. Appraising the environment and
-  the current events helps the agent to update the collaboration plan and avoid
-  further critical failures during collaboration. \textit{Appraisal} also helps
-  the agent to have a better understanding of the human's behavior by making
-  inferences based on appraisal variables. Furthermore, in order to collaborate
-  successfully, a collaborator cannot simply use the plan and reach to the
-  shared goal; there should be an adaptation mechanism not only for updating the
-  plan but also the underlying Mental States. For instance, there are beliefs
-  about the appraisal of the self and the other that augment the model of what
-  collaborators have done, and what and how they are planning to achieve the
-  current shared goal based on their emotional states. This process will be
-  discussed in more detail under the Motivation mechanism. Additionally, the
-  beliefs formed based on the appraisals can impact other mechanisms such as the
-  Theory of Mind, Motivation and Coping, essentially including the whole
-  computational model.
+  \item The \textit{recognizeGoal()} method returns the unique goal to which
+  the given event directly contributes irrespective of the event type (i.e.,
+  action, utterance, or emotional expression). If this method does not recognize
+  a goal in the plan to which the event contributes, we consider the
+  corresponding goal \textit{ambiguous} in our processes.
+  \item The \textit{topLevelGoalStatus()} method returns the status of the top
+  level goal whether it is \textit{achieved, blocked} or \textit{in progress}.
+  In our example, ``Install Solar Panels'' is the top level goal (see Figure
+  \ref{fig:cs}).
+  \item The \textit{currGoalStatus()} method returns the current goal status
+  whether it is \textit{achieved, blocked, unknown} or \textit{in progress}. In
+  our example, ``Prepare Measurement Tool'' is the current goal.
+  \item The \textit{precondStatus()} method returns the status of the
+  precondition for the given goal whether it is \textit{satisfied, unsatisfied}
+  or \textit{unknown}. For instance, the precondition for fixing a panel is
+  whether the panel is appropriately located on its frame.
+  \item The \textit{doesContribute()} method returns whether the given goal
+  contributes to another goal in the higher level of the plan hierarchy. For
+  instance, an abstract (nonprimitive) goal of ``Bring Panels'' contributes to
+  the higher level goal of ``Install Solar Panels'' (see Figure \ref{fig:cs}).
+  \item The \textit{extractContributingGoals()} method returns all the
+  contributing goals of the given goal. For instance, as shown in Figure
+  \ref{fig:cs} the ``Prepare Measuring Tool'' and ``Measure Quality'' are two
+  goals contributing to the ``Check Panels'' nonprimitive goal.
+  \item The \textit{extractPredecessors()} method returns the predecessors of
+  the given goal. For instance, as shown in Figure \ref{fig:cs}, the ``Prepare
+  Measuring Tool'' goal is the predecessor of another goal called ``Measure
+  Quality''.
+  \item The \textit{extractInputs()} method returns all the required inputs for
+  the given goal. For example, the goal ``Fix Panels'' requires inputs such as
+  the \textit{welding tool} and the \textit{panel}.
+  \item The \textit{isAvailable()} method returns whether the given input is
+  available. For instance, if the \textit{welding tool} is required for the goal
+  ``Fix Panels'', is it available now?
+  \item The \textit{isAchieved()} method returns whether the given goal is
+  achieved. In other words, whether all the postconditions of the given goal are
+  \textit{satisfied}.
+  \item The \textit{isFocused()} method returns whether the focus is on given
+  goal now. As shown in Figure \ref{fig:cs}, the focus is on the goal ``Prepare
+  Measuring Tool''. The focused goal is the goal that the robot currently is
+  pursuing.
+  \item The \textit{getResponsible()} method returns responsible agents of the
+  given goal. In a dyadic collaboration, both of the agents can be partly
+  responsible for a nonprimitive goal, while each agent is responsible for one
+  or more primitive goal. For instance, both the robot and the astronaut are
+  responsible for the nonprimitive goal of ``Install Solar Panels'', whereas
+  it is only the astronaut who is responsible for the primitive goal of
+  ``Prepare Measuring Tool''.
 \end{itemize}
 
 \section{Mental Graph}
 \label{sec:mental-graph}
 
-A graph illustration of mental state and a clear short and desciptive
-walkthrough example.
+In this section, we provide a graph representation of the robot's mental state
+for the turn $t$ based on our example scenario. We only illustrate a part of the
+robot's mental states in turn $t$ which is related to the event occurring based
+on the astronaut's utterances in turn $t$-1. This section is provided because
+all of our algorithms use mental graphs to compute values of appraisal
+variables.
 
-The \textit{F{\fontsize{8}{8}\selectfont IND}P{\fontsize{8}{8}\selectfont ATH}}
-function uses the Dijkstra algorithm to find the shortest path.
+In Figure \ref{fig:mg}, we illustrate all five elements of robot's mental
+states, i.e., belief, motive, intention, goal, and emotion, and the connections
+between them. The belief node $b^{\{1,..,n\}}_{t-2}$ represents $n$ number of
+beliefs that are carried over from the robot's previous mental state (shown as
+one node for simplicity). These beliefs can be a combination of the robot's
+private, inferred, and mutual beliefs as well as beliefs about self, other and
+the environment. These beliefs have influence on motive formation and emotion
+elicitation processes. However, there is another node representing belief
+$b^{\varepsilon}_{t-1}$ which is the belief about the event $\varepsilon_{t-1}$
+(astronaut's utterances). As we presented in our example scenario, the
+astronaut's utterances in turn $t$-1 depict a problem in a measurement tool
+and consequently her frustration, which can lead to an unsuccessful termination
+of the collaboration. This new belief also impacts the current motive
+$m^{\delta}_t$ and emotion $e^{\delta}_t$. Note that the superscript $\delta$
+used for motive $m^{\delta}_t$ and emotion $e^{\delta}_t$ indicates a specific
+value for each of these mental states that is selected from among other possible
+options based on an arbitration process. The motive $m^{\delta}_t$ (the need to
+acknowledge the astronaut's emotion) leads to the formation of a required
+intention $i_t$ (acknowledge astronaut's emotion) to achieve the current goal
+$g_t$ (e.g., Prepare Measurement Tool).
 
+In our algorithms, we use \textit{F{\fontsize{8}{8}\selectfont
+IND}P{\fontsize{8}{8}\selectfont ATH}()} function to find the shortest path
+between two given node based on the Dijkstra algorithm. 
+
+\begin{figure}
 \begin{center}
 \begin{tikzpicture}[>=stealth',shorten >=1pt,node distance=1.75cm,on
 grid,initial/.style    ={}] 
-  \node[state]          (G)                         {$G_t$};
-  \node[state]          (I1) [above right =of G]    {$I^1_t$};
-  \node[state]          (E1) [below right =of G]    {$E^1_t$};
-  \node[state]          (M1) [above right =of I1]   {$M^1_t$};
-  \node[state]          (B1) [below right =of I1]   {$B^3_{t-1}$};
-  \node[state]          (B2) [below right =of B1]   {$B^2_t$};
-\tikzset{mystyle/.style={->,double=black}} 
+  \node[state]          (G)                         {$g_t$};
+  \node[state]          (I1) [above right =of G]    {$i_t$};
+  \node[state]          (E1) [below right =of G]    {$e^{\delta}_t$};
+  \node[state]          (M1) [above right =of I1]   {$m^{\delta}_t$};
+  \node[state]          (B1) [below right =of I1]   {$b^{\{1,..,n\}}_{t-2}$};
+  \node[state]          (B2) [below right =of B1]   {$b^{\varepsilon}_{t-1}$};
+\tikzset{mystyle/.style={->,double=black}}
 \tikzset{every node/.style={fill=black}} 
 \path (M1)    edge [mystyle]   (I1) 
       (B2)    edge [mystyle]   (E1)
@@ -471,18 +431,22 @@ grid,initial/.style    ={}]
 \tikzset{mystyle/.style={->,relative=false,in=0,out=60,double=black}}
 \path (B2)    edge [mystyle]   (M1); 
 \end{tikzpicture}
+\caption{{\fontsize{9}{9}\selectfont Part of robot's mental graph in turn $t$.}}
+\label{fig:mg}
 \end{center}
+\vspace*{-6mm}
+\end{figure}
 
+\vspace*{-2mm}
 \section{Appraisal Processes}
 \label{sec:appraisal-process}
 
 All of the algorithms in this section use a mental graph which is a directed
 acyclic graph constructed based on the mental states of the robot at each turn
-during the collaboration (see Section \ref{sec:mental-graph}). They also use the
-content of the most recent event at each turn which includes the recognized goal
-associated with the event and the belief about the event. The goals can be
-associated with any type of event including action, utterance, or emotional
-expression.
+during the collaboration. They also use the content of the most recent event at
+each turn which includes the recognized goal associated with the event and the
+belief about the event. The goals can be associated with any type of event
+including action, utterance, or emotional expression.
 
 We found four appraisal variables, i.e., \textit{Relevance} (Algorithm
 \ref{alg:relevance}), \textit{Desirability} (Algorithm \ref{alg:desirability}),
@@ -510,7 +474,7 @@ connection, the relevance of the event will depend on the significance of the
 event with respect to the current collaboration status. The significance of an
 event is determined based on the utility of the event as it is also presented in
 \cite{gratch:domain-independent,marsella:ema-process-model}. We believe although
-the utility of the event represents the sigificance of the event, the other
+the utility of the event represents the significance of the event, the other
 collaborator's expressed emotion also plays a role by influencing the
 significance of the utility through a threshold. As a result, evaluating the
 relevance of the events can cause a collaborative robot to effectively respond
@@ -596,6 +560,34 @@ is desirable if it somehow facilitates the state of the shared goal, or if it
 inhibits the state of a goal that is inconsistent with respect to the shared
 goal.
 
+Desirability plays an important role in the overall architecture; it makes the
+processes involved in the other mechanisms (e.g., Motivation or Theory of Mind)
+and consequently the robot's mental state congruent with the collaboration
+status which is the robot's desire. Therefore, it causes the robot to dismiss
+events causing inconsistencies in the robot's collaborative behavior. Moreover,
+desirability is also crucial from the collaboration's point of view. A
+collaborative robot needs to know whether its own and the other collaborator's
+actions, utterances, and emotional expressions are desirable in terms of their
+consistence with the status of the current shared goal. In other words, the
+collaboration mechanism uses the appraisal process of desirability to coordinate
+what the self or the other does, says, and expresses during collaboration.
+Reciprocally, the appraisal mechanism and in this case the desirability process
+use the collaboration structure to obtain their required information.
+
+Algorithm \ref{alg:desirability} provides a process in which the desirability of
+an event is computed with regard to the status of the shared goal; i.e., it
+operates based on whether and how the event changes the status of the current
+shared goal. It receives the current mental graph, $\mathcal{G}_{t}$, and the
+current event, $\varepsilon_t$, from input, and decides whether and how the
+event is desirable or undesirable. First, the algorithm checks the status of the
+collaboration's top level goal (lines 2 to 6), and if the the top level goal is
+still in progress, it continues by checking the status of the current shared
+goal (lines 7 to 13). If any of the top level and current shared goals are
+achieved in these two steps, the robot interprets the event as a desirable one.
+However, if any of these goals are blocked, the event will be considered
+undesirable by the robot.
+
+\vspace*{-2mm}
 \begin{algorithm}
 	\caption{(Desirability)}
 	\label{alg:desirability}
@@ -653,33 +645,7 @@ goal.
 	\end{algorithmic}
 \end{algorithm}
 
-Desirability plays an important role in the overall architecture; it makes the
-processes involved in the other mechanisms (e.g., Motivation or Theory of Mind)
-and consequently the robot's mental state congruent with the collaboration
-status which is the robot's desire. Therefore, it causes the robot to dismiss
-events causing inconsistencies in the robot's collaborative behavior. Moreover,
-desirability is also crucial from the collaboration's point of view. A
-collaborative robot needs to know whether its own and the other collaborator's
-actions, utterances, and emotional expressions are desirable in terms of their
-consistence with the status of the current shared goal. In other words, the
-collaboration mechanism uses the appraisal process of desirability to coordinate
-what the self or the other does, says, and expresses during collaboration.
-Reciprocally, the appraisal mechanism and in this case the desirability process
-use the collaboration structure to obtain their required information.
-
-Algorithm \ref{alg:desirability} provides a process in which the desirability of
-an event is computed with regard to the status of the shared goal; i.e., it
-operates based on whether and how the event changes the status of the current
-shared goal. It receives the current mental graph, $\mathcal{G}_{t}$, and the
-current event, $\varepsilon_t$, from input, and decides whether and how the
-event is desirable or undesirable. First, the algorithm checks the status of the
-collaboration's top level goal (lines 2 to 6), and if the the top level goal is
-still in progress, it continues by checking the status of the current shared
-goal (lines 7 to 13). If any of the top level and current shared goals are
-achieved in these two steps, the robot interprets the event as a desirable one.
-However, if any of these goals are blocked, the event will be considered
-undesirable by the robot. 
-
+\vspace*{-3mm}
 The algorithm continues in the case of an unknown status of the current shared
 goal, and checks whether the precondition(s) of the associated goal with the
 current event, $\mathit{g}_{\varepsilon_t}$, are satisfied (lines 17 to 21).
@@ -766,6 +732,7 @@ event.
 	\end{algorithmic}
 \end{algorithm}
 
+\vspace*{-2mm}
 In algorithm \ref{alg:expectedness} we provide the process of the expectedness
 based on the shared plan and status of the shared goal. The key point in this
 algorithm is the status of the current shared goal ($\mathit{g}_{t}$) and its
@@ -779,7 +746,7 @@ recognized goal associated with the current event. Similar to the desirability
 algorithm (Algorithm \ref{alg:desirability}), we check whether the
 $\mathit{g}_{\varepsilon_t}$ is ambiguous. In the case of ambiguity in
 $\mathit{g}_{\varepsilon_t}$, we consider the current event unexpected since an
-effective collaboration requires perceivable and unambiguous goals asscoiated
+effective collaboration requires perceivable and unambiguous goals associated
 with the events. We continue by the comparison of the current shared goal and
 the recognized goal associated with the current event with respect to the shared
 plan. If these two goals are not the same, it is possible that the current
@@ -798,6 +765,7 @@ $\mathit{g}_{t}$, it might be a goal in another branch in the shared plan which
 has received focus and should be achieved. In such a case, again, the event will
 be expected; otherwise we consider the event unexpected (lines 21 to 24).
 
+\vspace*{-2mm}
 \subsection{Controllability}
 
 Controllability is the extent to which an event can be influenced, and it is
@@ -807,16 +775,6 @@ outcome of an event can be altered by some actions under either of the
 collaborators' control. In other words, controllability is a measure of a
 robot's ability to maintain or change a particular state as a consequence of an
 event.
-
-Controllability is also important for the overall architecture. For instance,
-the robot can choose to ask or negotiate about a collaborative task which is
-not controllable; it can cause the robot to interpret or predict the other's
-emotional state (e.g., anger if the task is blocked, i.e., uncontrollable for
-the other), or form a new motive to establish an alternative goal for the
-current uncontrollable event. In general, other mechanisms in the architecture
-use the appraisal process of controllability in their decision making processes;
-meanwhile controllability uses the information from the collaboration structure,
-e.g., successful predecessors of a goal.
 
 \begin{algorithm}
 	\caption{(Controllability)}
@@ -848,6 +806,16 @@ e.g., successful predecessors of a goal.
 	\end{algorithmic}
 \end{algorithm}
 
+Controllability is also important for the overall architecture. For instance,
+the robot can choose to ask or negotiate about a collaborative task which is
+not controllable; it can cause the robot to interpret or predict the other's
+emotional state (e.g., anger if the task is blocked, i.e., uncontrollable for
+the other), or form a new motive to establish an alternative goal for the
+current uncontrollable event. In general, other mechanisms in the architecture
+use the appraisal process of controllability in their decision making processes;
+meanwhile controllability uses the information from the collaboration structure,
+e.g., successful predecessors of a goal.
+
 An important determinant of one's emotional response is the sense of control
 over the events occurring. This sense of subjective control is based on one's
 reasoning about self's power. For instance, the robustness of one's plan for
@@ -860,7 +828,7 @@ predecessors}, and d) the \textit{available inputs} of a given goal
 
 In Algorithm \ref{alg:controllability}, we compute the controllability of an
 event based on these four factors (lines 2 to 5). Algorithms \ref{alg:agency} to
-\ref{alg:inputs} are used to illustrate the undelying processes of all these
+\ref{alg:inputs} are used to illustrate the underlying processes of all these
 factors. We use weighted averaging over these four factors to compute the
 utility of an event in terms of controllability of the event. However, the
 value of all these weights are set to 1.0 for the purpose of simplicity at
@@ -1067,11 +1035,33 @@ controllability value of the event.
 \end{algorithm}
 
 \section{Related Work}
+Our work is built on the general notion of appraisal theory while it is focused
+on its application in human-robot collaboration. Computational appraisal models
+have been applied to a variety of uses including contributions to psychology,
+robotics, AI, and Cognitive Science. For instance, in
+\cite{marsella:ema-process-model} EMA is used to generate specific predictions
+about how human subjects will appraise and cope with emotional situations.
+Furthermore, appraisal theory has also been used in robots' decision making
+\cite{castro:autonomous-robot-fear}, or in their cognitive systems
+\cite{hudlicka:emotinos-reasons,marinier:emotion-reinforcement}. Additionally,
+in the virtual agents community, empathy and affective decision-making is a
+research topic that has received much attention in the last two decades
+\cite{velasquez:emotions-motivations-agents,paiva:agent-care,scott:modeling-empathy-agent,pontier:women-robot-men}.
+However, EMA and several other examples in artificial intelligence and robotics
+which apply appraisal theory do not focus on the dynamics of collaborative
+contexts
+\cite{marsella:ema-process-model,kim:model-hri-appraisal,adam:bdi-emotional-companion,rosenbloom:sigma-appraisal}.
 
-\section{Conclusion \& Future Work}
-
-Discussion about the application of the appraisal process in different
-mechanisms in our computational theory including Motivation mechanism. 
+The computational collaboration model in our work is closely influenced by the
+SharedPlans theory \cite{grosz:plans-discourse}. However, our algorithms are
+also compatible with other collaboration theories, e.g., Joint Intentions theory
+\cite{cohen:teamwork}, or STEAM as an hybrid collaboration theory
+\cite{tambe:flexible-teamwork}. These theories have been extensively used to
+examine and describe teamwork and collaboration. Yet, they have never been
+combined, as they are in our work. We believe a systematic integration of
+collaboration theories and some theories like appraisal theory can help us
+describe the underlying collaboration processes leading to the existing
+collaboration structures.
 
 \bibliography{mshayganfar.bib}
 \bibliographystyle{aaai}
