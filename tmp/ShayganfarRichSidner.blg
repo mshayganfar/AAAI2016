@@ -3,47 +3,46 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: ShayganfarRichSidner.aux
 The style file: aaai.bst
 Database file #1: mshayganfar.bib.bib
-Warning--I didn't find a database entry for "rosenbloom:sigma-appraisal"
 Warning--can't use both volume and number fields in hudlicka:emotinos-reasons
-You've used 19 entries,
+You've used 20 entries,
             2568 wiz_defined-function locations,
-            691 strings with 7828 characters,
-and the built_in function-call counts, 7852 in all, are:
-= -- 843
-> -- 266
-< -- 8
-+ -- 88
-- -- 84
-* -- 603
-:= -- 1249
-add.period$ -- 102
-call.type$ -- 19
-change.case$ -- 112
-chr.to.int$ -- 19
-cite$ -- 20
-duplicate$ -- 328
-empty$ -- 600
-format.name$ -- 117
-if$ -- 1655
+            700 strings with 8098 characters,
+and the built_in function-call counts, 8493 in all, are:
+= -- 909
+> -- 295
+< -- 10
++ -- 97
+- -- 93
+* -- 656
+:= -- 1346
+add.period$ -- 110
+call.type$ -- 20
+change.case$ -- 119
+chr.to.int$ -- 20
+cite$ -- 21
+duplicate$ -- 355
+empty$ -- 646
+format.name$ -- 129
+if$ -- 1799
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 23
-newline$ -- 120
-num.names$ -- 61
-pop$ -- 104
+missing$ -- 24
+newline$ -- 127
+num.names$ -- 66
+pop$ -- 111
 preamble$ -- 1
-purify$ -- 135
+purify$ -- 143
 quote$ -- 0
-skip$ -- 257
+skip$ -- 278
 stack$ -- 0
-substring$ -- 441
-swap$ -- 87
-text.length$ -- 8
+substring$ -- 474
+swap$ -- 100
+text.length$ -- 10
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 136
+type$ -- 144
 warning$ -- 1
-while$ -- 71
-width$ -- 22
-write$ -- 271
-(There were 2 warnings)
+while$ -- 76
+width$ -- 24
+write$ -- 288
+(There was 1 warning)

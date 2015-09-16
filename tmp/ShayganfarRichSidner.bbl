@@ -62,19 +62,19 @@ Hudlicka, E.
   volume~59. New York: Oxford University Press.
 \newblock  1--37.
 
-\bibitem[\protect\citeauthoryear{III and
-  Laird}{2008}]{marinier:emotion-reinforcement}
-III, R. P.~M., and Laird, J.~E.
-\newblock 2008.
-\newblock Emotion-driven reinforcement learning.
-\newblock In {\em CogSci 2008}.
-
 \bibitem[\protect\citeauthoryear{Kim and Kwon}{2010}]{kim:model-hri-appraisal}
 Kim, H.-R., and Kwon, D.-S.
 \newblock 2010.
 \newblock Computational model of emotion generation for human-robot interaction
   based on the cognitive appraisal theory.
 \newblock {\em Journal of Intelligent and Robotic Systems} 60(2):263--283.
+
+\bibitem[\protect\citeauthoryear{{Marinier III} and
+  Laird}{2008}]{marinier:emotion-reinforcement}
+{Marinier III}, R.~P., and Laird, J.~E.
+\newblock 2008.
+\newblock Emotion-driven reinforcement learning.
+\newblock In {\em CogSci 2008}.
 
 \bibitem[\protect\citeauthoryear{Marsella and
   Gratch}{2009}]{marsella:ema-process-model}
@@ -107,6 +107,16 @@ Pontier, M., and Hoorn, J.~F.
 \newblock How women think robots perceive them - as if robots were men.
 \newblock In {\em International Conference on Agents and Artificial
   Intelligence (ICAART-2)},  496--504.
+
+\bibitem[\protect\citeauthoryear{Rosenbloom, Gratch, and
+  Ustun}{2015}]{rosenbloom:sigma-appraisal}
+Rosenbloom, P.~S.; Gratch, J.; and Ustun, V.
+\newblock 2015.
+\newblock Towards emotion in sigma: From appraisal to attention.
+\newblock In Bieger, J.; Goertzel, B.; and Potapov, A., eds., {\em Artificial
+  General Intelligence}, volume 9205 of {\em Lecture Notes in Computer
+  Science}. Springer International Publishing.
+\newblock  142--151.
 
 \bibitem[\protect\citeauthoryear{Scherer, Schorr, and
   Johnstone}{2001}]{scherer:appraisal-processes}
