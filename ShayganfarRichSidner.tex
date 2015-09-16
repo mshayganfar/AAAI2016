@@ -35,22 +35,21 @@ mshayganfar $|$ rich $|$ sidner @wpi.edu
 \begin{abstract}
 \vspace*{-2mm}
 \begin{quote}
-We have investigated the mutual influence of affective and collaboration
+We have investigated the mutual influence of affective and collaborative
 processes in a cognitive theory to support the interaction between humans and
 robots or virtual agents. We have developed new algorithms for appraisal
 processes, as part of a new overall computational model for implementing
 collaborative robots and agents. We build primarily on the \textit{cognitive
-appraisal} theory of emotions \cite{gratch:domain-independent} and the
-\textit{SharedPlans} theory \cite{grosz:plans-discourse} of collaboration to
-investigate the structure, fundamental processes and functions of emotions in a
-collaboration.
+appraisal} theory of emotions and the \textit{SharedPlans} theory of
+collaboration to investigate the structure, fundamental processes and functions
+of emotions in a collaboration.
 \end{quote}
 \end{abstract}
 
-\vspace*{-6mm}
+\vspace*{-4mm}
 \section{Introduction}
 
-Ronald De Sousa in The Rationality of Emotion \cite{sousa:rationality-emotion}
+Sousa in The Rationality of Emotion (\citeyear{sousa:rationality-emotion})
 makes a good case for the claim that humans are capable of rationality largely
 because they are creatures with emotions. The idea of having robots or other
 intelligent agents living in a human environment has been a persistent dream
@@ -62,42 +61,39 @@ involvement of humans influences the efficiency of robots' interaction and
 performance, and makes them dependent on the humans' cognitive abilities and
 mental states.
 
-Our work is part of a larger effort to build robots capable of generating and
-recognizing humans' emotions in order to be better collaborators. In this paper,
-we are reporting on the specific problem of appraising events within a
-collaborative interaction. Our contribution is grounding the general appraisal
-concepts in the specific context and structure of collaboration. This work is
-part of the development of our framework based on our \textit{Affective
-Motivational Collaboration Theory} which is built on the foundations of the
-\textit{SharedPlans} theory of collaboration \cite{grosz:plans-discourse} and
-the \textit{cognitive appraisal} theory of emotions
-\cite{gratch:domain-independent}.
+This work is part of a larger effort to build robots capable of generating and
+recognizing emotions in order to be better collaborators. In this paper, we
+report on the specific problem of appraising events within a collaborative
+interaction. Our contribution is to ground general appraisal concepts in the
+specific context and structure of collaboration. This work is part of the
+development of \textit{Affective Motivational Collaboration Theory} which is
+built on the foundations of the \textit{SharedPlans} theory of collaboration
+\cite{grosz:plans-discourse} and the \textit{cognitive appraisal} theory of
+emotions \cite{gratch:domain-independent}.
 
-In the rest of this paper, we are going to briefly introduce the Affective
-Motivational Collaboration Theory focusing on the collaboration and appraisal
-mechanisms as well as mental states. We are also going to provide more details
-about the graph representation of the robot's mental state. Finally, we describe
-our algorithms which we developed to compute the value of four crucial
-appraisal variables as part of the appraisal mechanism in our framework.
+We start by briefly introducing the Affective Motivational Collaboration Theory
+focusing on the collaboration and appraisal mechanisms as well as mental states.
+We then provide more details about the graph representation of the robot's
+mental state. Finally, we describe the algorithms we developed to compute the
+value of four crucial appraisal variables.
 
 \vspace*{-2mm}
 \section{Affective Motivational Collaboration Theory}
 
-Affective Motivational Collaboration Theory is about the interpretation and
-prediction of observable behaviors in a dyadic collaborative interaction. The
-theory focuses on the processes regulated by emotional states. The observable
-behaviors represent the outcome of reactive and deliberative processes related
-to the interpretation of the self's relationship to the collaborative
-environment. Affective Motivational Collaboration Theory aims to explain both
-rapid emotional reactions to events as well as slower, more deliberative
-responses. The reactive and deliberative processes are triggered by two types of
-events: \textit{external} events, such as the other's
-\textit{utterances} and \textit{primitive actions}, and \textit{internal}
-events, comprising changes in the self's mental states, such as belief formation
-and emotional changes. The theory explains how emotions regulate the underlying
-processes when these events occur during collaboration. It also elucidates the
-role of motives as goal-driven emotion-regulated constructs with which an agent
-can form new intentions to cope with events.
+Affective Motivational Collaboration Theory deals with the interpretation and
+prediction of observable behaviors in a dyadic collaboration. The theory focuses
+on the processes regulated by emotional states. The observable behaviors
+represent the outcome of reactive and deliberative processes related to the
+interpretation of the self's relationship to the environment. Affective
+Motivational Collaboration Theory aims to explain both rapid emotional reactions
+to events as well as slower, more deliberative responses. The reactive and
+deliberative processes are triggered by two types of events: \textit{external}
+events, such as the other's \textit{utterances} and \textit{primitive actions},
+and \textit{internal} events, comprising changes in the self's mental states,
+such as belief formation and emotional changes. The theory explains how emotions
+regulate the underlying processes when these events occur. It also elucidates
+the role of \textit{motives} as goal-driven emotion-regulated constructs with
+which an agent can form new intentions to cope with events.
 
 \begin{figure}[tbh]
   \centering
@@ -108,26 +104,24 @@ can form new intentions to cope with events.
   \label{fig:cpm}
 \end{figure}
 
-Affective Motivational Collaboration Theory explains the functions of emotions
-in a dyadic collaboration and shows how affective mechanisms can coordinate
-social interactions by enabling one to anticipate other's emotions, beliefs and
-intentions. Our focus is on the mechanisms depicted as mental processes in
-Figure \ref{fig:cpm} along with the mental states. The \textit{Mental States}
-includes self's (robot's) beliefs, intentions, motives, goals and emotion
-instances as well as the anticipated Mental States of the other (human). The
+Our focus is on the mechanisms depicted as mental processes in Figure
+\ref{fig:cpm} along with the mental states. The \textit{Mental States} includes
+self's (robot's) beliefs, intentions, motives, goals and emotion instances as
+well as the anticipated mental states of the other (human). The
 \textit{Collaboration} mechanism maintains constraints on actions, including
-task states and the ordering of tasks. The \textit{Collaboration} mechanism also
-provides processes to update and monitor the shared plan. The \textit{Appraisal}
-mechanism is responsible for evaluating changes in the self's Mental States, the
-anticipated Mental States of the other, and the state of the collaboration
-environment. The \textit{Coping} mechanism provides the self with different
-coping strategies associated with changes in the self's mental states with
-respect to the state of the collaboration. The \textit{Motivation} mechanism
-operates whenever the self a) requires a new motive to overcome an internal
-impasse in an ongoing task, or b) wants to provide an external motive to the
-other when the other faces a problem in a task. The \textit{Theory of Mind}
-mechanism is the mechanism that infers a model of the other's anticipated mental
-state. The self progressively updates this model during the collaboration.
+task states and the ordering of tasks (see Figure \ref{fig:cs}). The
+\textit{Collaboration} mechanism also provides processes to update and monitor
+the shared plan. The \textit{Appraisal} mechanism is responsible for evaluating
+changes in the self's mental states, the anticipated mental states of the other,
+and the state of the collaboration environment. The \textit{Coping} mechanism
+provides the self with different coping strategies associated with changes in
+the self's mental states with respect to the state of the collaboration. The
+\textit{Motivation} mechanism operates whenever the self a) requires a new
+motive to overcome an internal impasse in an ongoing task, or b) wants to
+provide an external motive to the other when the other faces a problem in a
+task. The \textit{Theory of Mind} mechanism infers a model of the other's
+anticipated mental state. The self progressively updates this model during the
+collaboration.
 
 \subsection{Mental States}
 \label{sec:mental-states}
